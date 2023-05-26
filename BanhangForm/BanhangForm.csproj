@@ -53,7 +53,8 @@
       <DependentUpon>.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MatHang\connect.cs" />
+    <Compile Include="connect.cs" />
+    <Compile Include="KhachHang\QLkhachHang.cs" />
     <Compile Include="MatHang\Modify.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -92,6 +93,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\background-banner-xanh-dam-dep-phu-hop-thiet-ke-web-cong-thuc-toan-hoc.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngtree-blue-simple-geometric-art-banner-image_1540196.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
