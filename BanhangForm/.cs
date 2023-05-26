@@ -88,7 +88,7 @@ namespace BanhangForm
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string mahang = dataGridView1.SelectedRows[0].Cells[0].Value.ToString() ;
+            string mahang = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
             if (modify.Delete(mahang))
             {
                 dataGridView1.DataSource = modify.getAllMatHang();
@@ -97,6 +97,11 @@ namespace BanhangForm
             {
                 MessageBox.Show("Lỗi: " + "không XÓA được", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

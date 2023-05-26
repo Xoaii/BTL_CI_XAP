@@ -33,7 +33,7 @@ namespace BanhangForm
             }
             return dataTable;
         }
-        public bool insert(QLmatHang qLmatHang)
+        public bool Update(QLmatHang qLmatHang)
         {
             SqlConnection sqlConnection = connect.GetConnection();
            
@@ -64,7 +64,7 @@ namespace BanhangForm
             }
             return true;
         }
-        public bool Update(QLmatHang qLmatHang)
+        public bool insert(QLmatHang qLmatHang)
         {
             SqlConnection sqlConnection = connect.GetConnection();
 

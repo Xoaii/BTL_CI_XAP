@@ -92,6 +92,7 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.AutoSize = true;
             this.panel2.BackgroundImage = global::BanhangForm.Properties.Resources.background_banner_xanh_dam_dep_phu_hop_thiet_ke_web_cong_thuc_toan_hoc;
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel2.Controls.Add(this.dataGridView1);
@@ -115,13 +116,13 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(920, 294);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.AutoSize = true;
             this.panel1.BackgroundImage = global::BanhangForm.Properties.Resources._360_F_403029269_KCrGHt5AdtV7GSD2KeP8Wk2PYIbVKlNU;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panel1.Controls.Add(this.textBox_maLH);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.textBox_MaCTY);
@@ -141,7 +142,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(3, 414);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1098, 177);
+            this.panel1.Size = new System.Drawing.Size(1108, 187);
             this.panel1.TabIndex = 0;
             // 
             // textBox_maLH
@@ -151,7 +152,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_maLH.Location = new System.Drawing.Point(526, 36);
             this.textBox_maLH.Name = "textBox_maLH";
-            this.textBox_maLH.Size = new System.Drawing.Size(188, 20);
+            this.textBox_maLH.Size = new System.Drawing.Size(198, 20);
             this.textBox_maLH.TabIndex = 16;
             // 
             // label7
@@ -174,7 +175,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_MaCTY.Location = new System.Drawing.Point(147, 125);
             this.textBox_MaCTY.Name = "textBox_MaCTY";
-            this.textBox_MaCTY.Size = new System.Drawing.Size(229, 20);
+            this.textBox_MaCTY.Size = new System.Drawing.Size(239, 20);
             this.textBox_MaCTY.TabIndex = 14;
             // 
             // label6
@@ -198,7 +199,7 @@
             this.button_xoa.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_xoa.Location = new System.Drawing.Point(901, 124);
             this.button_xoa.Name = "button_xoa";
-            this.button_xoa.Size = new System.Drawing.Size(91, 38);
+            this.button_xoa.Size = new System.Drawing.Size(101, 48);
             this.button_xoa.TabIndex = 12;
             this.button_xoa.Text = "Xóa";
             this.button_xoa.UseVisualStyleBackColor = true;
@@ -212,7 +213,7 @@
             this.button_sua.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_sua.Location = new System.Drawing.Point(901, 76);
             this.button_sua.Name = "button_sua";
-            this.button_sua.Size = new System.Drawing.Size(91, 38);
+            this.button_sua.Size = new System.Drawing.Size(101, 48);
             this.button_sua.TabIndex = 11;
             this.button_sua.Text = "Sửa";
             this.button_sua.UseVisualStyleBackColor = true;
@@ -226,7 +227,7 @@
             this.button_them.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_them.Location = new System.Drawing.Point(901, 24);
             this.button_them.Name = "button_them";
-            this.button_them.Size = new System.Drawing.Size(91, 38);
+            this.button_them.Size = new System.Drawing.Size(101, 48);
             this.button_them.TabIndex = 10;
             this.button_them.Text = "Thêm";
             this.button_them.UseVisualStyleBackColor = true;
@@ -253,7 +254,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_soLuong.Location = new System.Drawing.Point(526, 87);
             this.textBox_soLuong.Name = "textBox_soLuong";
-            this.textBox_soLuong.Size = new System.Drawing.Size(188, 20);
+            this.textBox_soLuong.Size = new System.Drawing.Size(198, 20);
             this.textBox_soLuong.TabIndex = 8;
             // 
             // textBox_DVT
@@ -263,7 +264,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_DVT.Location = new System.Drawing.Point(525, 126);
             this.textBox_DVT.Name = "textBox_DVT";
-            this.textBox_DVT.Size = new System.Drawing.Size(189, 20);
+            this.textBox_DVT.Size = new System.Drawing.Size(199, 20);
             this.textBox_DVT.TabIndex = 7;
             // 
             // label4
@@ -287,7 +288,7 @@
             this.textBox_gia.BackColor = System.Drawing.Color.White;
             this.textBox_gia.Location = new System.Drawing.Point(770, 42);
             this.textBox_gia.Name = "textBox_gia";
-            this.textBox_gia.Size = new System.Drawing.Size(99, 20);
+            this.textBox_gia.Size = new System.Drawing.Size(109, 20);
             this.textBox_gia.TabIndex = 5;
             // 
             // textBox_tenH
@@ -297,7 +298,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_tenH.Location = new System.Drawing.Point(147, 83);
             this.textBox_tenH.Name = "textBox_tenH";
-            this.textBox_tenH.Size = new System.Drawing.Size(229, 20);
+            this.textBox_tenH.Size = new System.Drawing.Size(239, 20);
             this.textBox_tenH.TabIndex = 4;
             // 
             // textBox_maH
@@ -307,7 +308,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_maH.Location = new System.Drawing.Point(147, 34);
             this.textBox_maH.Name = "textBox_maH";
-            this.textBox_maH.Size = new System.Drawing.Size(229, 20);
+            this.textBox_maH.Size = new System.Drawing.Size(239, 20);
             this.textBox_maH.TabIndex = 3;
             // 
             // label3
@@ -391,6 +392,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
