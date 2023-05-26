@@ -75,6 +75,22 @@
             this.label14 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.dataV_chiTietDatHang = new System.Windows.Forms.DataGridView();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.txt_MucGG = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txt_soLuong = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txt_giaBan = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.txt_maHang = new System.Windows.Forms.TextBox();
+            this.txt_soHD = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -84,6 +100,10 @@
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_khachHang)).BeginInit();
             this.panel3.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataV_chiTietDatHang)).BeginInit();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -677,12 +697,14 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.panel6);
+            this.tabPage3.Controls.Add(this.panel5);
             this.tabPage3.Location = new System.Drawing.Point(4, 23);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(1107, 596);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.Text = "Chi Tiết Đặt Hàng";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // tabPage4
@@ -694,6 +716,210 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "tabPage4";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // panel5
+            // 
+            this.panel5.BackgroundImage = global::BanhangForm.Properties.Resources.pngtree_blue_simple_geometric_art_banner_image_1540196;
+            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel5.Controls.Add(this.dataV_chiTietDatHang);
+            this.panel5.Location = new System.Drawing.Point(3, 6);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1091, 395);
+            this.panel5.TabIndex = 3;
+            // 
+            // dataV_chiTietDatHang
+            // 
+            this.dataV_chiTietDatHang.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataV_chiTietDatHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataV_chiTietDatHang.BackgroundColor = System.Drawing.Color.White;
+            this.dataV_chiTietDatHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataV_chiTietDatHang.GridColor = System.Drawing.Color.DimGray;
+            this.dataV_chiTietDatHang.Location = new System.Drawing.Point(105, 49);
+            this.dataV_chiTietDatHang.Name = "dataV_chiTietDatHang";
+            this.dataV_chiTietDatHang.ReadOnly = true;
+            this.dataV_chiTietDatHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataV_chiTietDatHang.Size = new System.Drawing.Size(880, 297);
+            this.dataV_chiTietDatHang.TabIndex = 1;
+            // 
+            // panel6
+            // 
+            this.panel6.AutoSize = true;
+            this.panel6.BackgroundImage = global::BanhangForm.Properties.Resources._360_F_403029269_KCrGHt5AdtV7GSD2KeP8Wk2PYIbVKlNU;
+            this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel6.Controls.Add(this.txt_MucGG);
+            this.panel6.Controls.Add(this.label16);
+            this.panel6.Controls.Add(this.txt_soLuong);
+            this.panel6.Controls.Add(this.label17);
+            this.panel6.Controls.Add(this.txt_giaBan);
+            this.panel6.Controls.Add(this.label18);
+            this.panel6.Controls.Add(this.button4);
+            this.panel6.Controls.Add(this.button5);
+            this.panel6.Controls.Add(this.button6);
+            this.panel6.Controls.Add(this.txt_maHang);
+            this.panel6.Controls.Add(this.txt_soHD);
+            this.panel6.Controls.Add(this.label22);
+            this.panel6.Controls.Add(this.label23);
+            this.panel6.Location = new System.Drawing.Point(6, 407);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(1108, 187);
+            this.panel6.TabIndex = 4;
+            // 
+            // txt_MucGG
+            // 
+            this.txt_MucGG.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_MucGG.Location = new System.Drawing.Point(644, 52);
+            this.txt_MucGG.Name = "txt_MucGG";
+            this.txt_MucGG.Size = new System.Drawing.Size(198, 20);
+            this.txt_MucGG.TabIndex = 18;
+            // 
+            // label16
+            // 
+            this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(475, 52);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(148, 22);
+            this.label16.TabIndex = 17;
+            this.label16.Text = "Mức Giảm Giá:";
+            // 
+            // txt_soLuong
+            // 
+            this.txt_soLuong.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_soLuong.Location = new System.Drawing.Point(644, 111);
+            this.txt_soLuong.Name = "txt_soLuong";
+            this.txt_soLuong.Size = new System.Drawing.Size(198, 20);
+            this.txt_soLuong.TabIndex = 16;
+            // 
+            // label17
+            // 
+            this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(475, 107);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(111, 22);
+            this.label17.TabIndex = 15;
+            this.label17.Text = "Số Lượng:";
+            // 
+            // txt_giaBan
+            // 
+            this.txt_giaBan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_giaBan.Location = new System.Drawing.Point(197, 140);
+            this.txt_giaBan.Name = "txt_giaBan";
+            this.txt_giaBan.Size = new System.Drawing.Size(239, 20);
+            this.txt_giaBan.TabIndex = 14;
+            // 
+            // label18
+            // 
+            this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(63, 135);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(74, 23);
+            this.label18.TabIndex = 13;
+            this.label18.Text = "Giá Bán:";
+            // 
+            // button4
+            // 
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button4.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(901, 124);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(101, 48);
+            this.button4.TabIndex = 12;
+            this.button4.Text = "Xóa";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button5.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(901, 76);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(101, 48);
+            this.button5.TabIndex = 11;
+            this.button5.Text = "Sửa";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button6.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.Location = new System.Drawing.Point(901, 24);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(101, 48);
+            this.button6.TabIndex = 10;
+            this.button6.Text = "Thêm";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // txt_maHang
+            // 
+            this.txt_maHang.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_maHang.Location = new System.Drawing.Point(197, 99);
+            this.txt_maHang.Name = "txt_maHang";
+            this.txt_maHang.Size = new System.Drawing.Size(239, 20);
+            this.txt_maHang.TabIndex = 4;
+            // 
+            // txt_soHD
+            // 
+            this.txt_soHD.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_soHD.Location = new System.Drawing.Point(197, 52);
+            this.txt_soHD.Name = "txt_soHD";
+            this.txt_soHD.Size = new System.Drawing.Size(239, 20);
+            this.txt_soHD.TabIndex = 3;
+            // 
+            // label22
+            // 
+            this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(63, 99);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(81, 23);
+            this.label22.TabIndex = 1;
+            this.label22.Text = "Mã Hàng:";
+            // 
+            // label23
+            // 
+            this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(52, 54);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(112, 20);
+            this.label23.TabIndex = 0;
+            this.label23.Text = "Số Hóa Đơn:";
             // 
             // Form1
             // 
@@ -718,6 +944,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_khachHang)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataV_chiTietDatHang)).EndInit();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -771,6 +1003,22 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox textBox_email;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.TextBox txt_MucGG;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox txt_soLuong;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox txt_giaBan;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.TextBox txt_maHang;
+        private System.Windows.Forms.TextBox txt_soHD;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.DataGridView dataV_chiTietDatHang;
     }
 }
 

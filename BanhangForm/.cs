@@ -1,4 +1,5 @@
-﻿using BanhangForm.KhachHang;
+﻿using BanhangForm.chitietDathang;
+using BanhangForm.KhachHang;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +21,9 @@ namespace BanhangForm
         //Khách hàng
         ModifyKhachHang modifyKhachHang;
         QLkhachHang qLkhachHang;
+        //chi tiết đặt hàng
+        ModifyChiTet modifyChiTet;
+        QLchiTietDonHang qLchiTietDonHang;
         public Form1()
         {
             InitializeComponent();
@@ -35,11 +39,13 @@ namespace BanhangForm
         {
             modify = new Modify();
             modifyKhachHang = new ModifyKhachHang();
+            modifyChiTet =new ModifyChiTet();
             //đổ dữu liệu
             try
             {
                 dataGridView1.DataSource = modify.getAllMatHang();
                 dataGridView_khachHang.DataSource = modifyKhachHang.getAllKhachhang();
+                dataV_chiTietDatHang.DataSource = modifyChiTet.getAllchiTiet();
 
             }
             catch(Exception ex) 
@@ -180,6 +186,26 @@ namespace BanhangForm
             {
                 MessageBox.Show("Lỗi: " + "không XÓA được", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            int sohoadon = Convert.ToInt32(this.txt_soHD.Text);
+            string mahang= this.txt_maHang.Text;
+            SqlMoney giaban=SqlMoney.Parse(this.txt_giaBan.Text);
+            int soluong = Convert.ToInt16(this.txt_soLuong.Text);
+            double mucgiamgia = Convert.ToDouble(this.txt_MucGG.Text);
+            qLchiTietDonHang = new QLchiTietDonHang(sohoadon, mahang, giaban, soluong, mucgiamgia);
+            if (modifyChiTet.insert(qLchiTietDonHang))
+            {
+                dataV_chiTietDatHang.DataSource = modifyChiTet.getAllchiTiet();
+            }
+            else
+            {
+                MessageBox.Show("Lỗi: " + "không thêm được", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
         }
     }
 }
