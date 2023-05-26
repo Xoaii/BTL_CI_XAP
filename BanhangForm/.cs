@@ -14,8 +14,10 @@ namespace BanhangForm
 {
     public partial class Form1 : Form
     {
+        //Mạt hàng
         Modify modify;
         QLmatHang qLmatHang;
+        //Khách hàng
         ModifyKhachHang modifyKhachHang;
         QLkhachHang qLkhachHang;
         public Form1()
@@ -116,6 +118,30 @@ namespace BanhangForm
 
         private void panel4_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            string makhachhang =this.textBox_MaKH.Text;
+            string Tencongty = this.textBox_TenCTY.Text;
+            string tengiaodich = this.textBox_tenGD.Text;
+            string diaChi =this.textBox_diaChi.Text;
+            string email = this.textBox_email.Text;
+            string dienThoai = this.textBox_dienThoai.Text;
+            string fax =this.textBox_Fax.Text;
+            string TenKhachhang =this.textBox_tenKH.Text;
+            qLkhachHang = new QLkhachHang(makhachhang, Tencongty, tengiaodich, diaChi, email, dienThoai, fax, TenKhachhang);
+
+            if (modifyKhachHang.insert(qLkhachHang))
+            {
+                dataGridView_khachHang.DataSource = modifyKhachHang.getAllKhachhang();
+            }
+            else
+            {
+                MessageBox.Show("Lỗi: " + "không thêm được", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
 
         }
     }

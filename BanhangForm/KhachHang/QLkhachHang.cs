@@ -9,6 +9,7 @@ namespace BanhangForm.KhachHang
     internal class QLkhachHang
     {
         private string maKhachHang;
+        private string TenCongTy;
         private string tenGiaoDich;
         private string diaChi;
         private string email;
@@ -18,9 +19,10 @@ namespace BanhangForm.KhachHang
 
         
 
-        public QLkhachHang(string maKhachHang, string tenGiaoDich, string diaChi, string email, string dienThoai, string fax, string tenKhachHang)
+        public QLkhachHang(string maKhachHang, string TenCongTy,string tenGiaoDich, string diaChi, string email, string dienThoai, string fax, string tenKhachHang)
         {
             this.maKhachHang = maKhachHang;
+            this.TenCongTy = TenCongTy;
             this.tenGiaoDich = tenGiaoDich;
             this.diaChi = diaChi;
             this.email = email;
@@ -36,5 +38,6 @@ namespace BanhangForm.KhachHang
         public string DienThoai { get => dienThoai; set => dienThoai = value; }
         public string Fax { get => fax; set => fax = value; }
         public string TenKhachHang { get => tenKhachHang; set => tenKhachHang = value; }
+        public string TenCongTy1 { get => TenCongTy; set => TenCongTy = value; }
     }
 }
