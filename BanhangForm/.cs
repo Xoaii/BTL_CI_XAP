@@ -37,5 +37,11 @@ namespace BanhangForm
                 MessageBox.Show("Lỗi: " + ex.Message,"Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string mahang = this.textBox_maH.Text;
+
+        }
     }
 }
