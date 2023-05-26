@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BanhangForm.KhachHang;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,8 @@ namespace BanhangForm
     {
         Modify modify;
         QLmatHang qLmatHang;
+        ModifyKhachHang modifyKhachHang;
+        QLkhachHang qLkhachHang;
         public Form1()
         {
             InitializeComponent();
@@ -29,10 +32,12 @@ namespace BanhangForm
         private void Form1_Load(object sender, EventArgs e)
         {
             modify = new Modify();
+            modifyKhachHang = new ModifyKhachHang();
             //đổ dữu liệu
             try
             {
                 dataGridView1.DataSource = modify.getAllMatHang();
+                dataGridView_khachHang.DataSource = modifyKhachHang.getAllKhachhang();
 
             }
             catch(Exception ex) 
@@ -105,6 +110,11 @@ namespace BanhangForm
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
         {
 
         }
