@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlTypes;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,8 @@ namespace BanhangForm
 {
     public partial class Form1 : Form
     {
+        Modify modify;
+        QLmatHang qLmatHang;
         public Form1()
         {
             InitializeComponent();
@@ -21,7 +24,7 @@ namespace BanhangForm
         {
 
         }
-        Modify modify;
+        
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -41,6 +44,23 @@ namespace BanhangForm
         private void button1_Click(object sender, EventArgs e)
         {
             string mahang = this.textBox_maH.Text;
+            string tenhang=this.textBox_tenH.Text;  
+            string maCongTy=this.textBox_MaCTY.Text;    
+            string maLoaiHang =this.textBox_maLH.Text;   
+            int soLuong =Convert.ToInt32(this.textBox_soLuong.Text);
+            string donViTinh = this.textBox_DVT.Text;
+           SqlMoney giaHang =SqlMoney.Parse(this.textBox_gia .Text);
+            qLmatHang = new QLmatHang(mahang,tenhang,maCongTy,maLoaiHang,soLuong,donViTinh,giaHang);
+
+            if (modify.insert(qLmatHang))
+            {
+                dataGridView1.DataSource=modify.getAllMatHang();    
+            }
+            else
+            {
+                MessageBox.Show("Lỗi: "+ "không thêm được","Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
 
         }
     }
