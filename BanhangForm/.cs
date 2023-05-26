@@ -144,5 +144,42 @@ namespace BanhangForm
 
 
         }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            string makhachhang = this.textBox_MaKH.Text;
+            string Tencongty = this.textBox_TenCTY.Text;
+            string tengiaodich = this.textBox_tenGD.Text;
+            string diaChi = this.textBox_diaChi.Text;
+            string email = this.textBox_email.Text;
+            string dienThoai = this.textBox_dienThoai.Text;
+            string fax = this.textBox_Fax.Text;
+            string TenKhachhang = this.textBox_tenKH.Text;
+            qLkhachHang = new QLkhachHang(makhachhang, Tencongty, tengiaodich, diaChi, email, dienThoai, fax, TenKhachhang);
+
+            if (modifyKhachHang.Update(qLkhachHang))
+            {
+                dataGridView_khachHang.DataSource = modifyKhachHang.getAllKhachhang();
+            }
+            else
+            {
+                MessageBox.Show("Lỗi: " + "không sửa được", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            string makhachhang = dataGridView_khachHang.SelectedRows[0].Cells[0].Value.ToString();
+            if (modifyKhachHang.Delete(makhachhang))
+            {
+                dataGridView_khachHang.DataSource = modifyKhachHang.getAllKhachhang();
+            }
+            else
+            {
+                MessageBox.Show("Lỗi: " + "không XÓA được", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
