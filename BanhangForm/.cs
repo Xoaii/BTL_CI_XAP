@@ -16,10 +16,26 @@ namespace BanhangForm
         {
             InitializeComponent();
         }
-
+       
         private void label5_Click(object sender, EventArgs e)
         {
 
+        }
+        Modify modify;
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            modify = new Modify();
+            //đổ dữu liệu
+            try
+            {
+                dataGridView1.DataSource = modify.getAllMatHang();
+
+            }
+            catch(Exception ex) 
+            {
+                MessageBox.Show("Lỗi: " + ex.Message,"Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
