@@ -63,5 +63,40 @@ namespace BanhangForm
 
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string mahang = this.textBox_maH.Text;
+            string tenhang = this.textBox_tenH.Text;
+            string maCongTy = this.textBox_MaCTY.Text;
+            string maLoaiHang = this.textBox_maLH.Text;
+            int soLuong = Convert.ToInt32(this.textBox_soLuong.Text);
+            string donViTinh = this.textBox_DVT.Text;
+            SqlMoney giaHang = SqlMoney.Parse(this.textBox_gia.Text);
+            qLmatHang = new QLmatHang(mahang, tenhang, maCongTy, maLoaiHang, soLuong, donViTinh, giaHang);
+
+            if (modify.Update(qLmatHang))
+            {
+                dataGridView1.DataSource = modify.getAllMatHang();
+            }
+            else
+            {
+                MessageBox.Show("Lỗi: " + "không sửa được", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string mahang = dataGridView1.SelectedRows[0].Cells[0].Value.ToString() ;
+            if (modify.Delete(mahang))
+            {
+                dataGridView1.DataSource = modify.getAllMatHang();
+            }
+            else
+            {
+                MessageBox.Show("Lỗi: " + "không XÓA được", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

@@ -37,7 +37,8 @@ namespace BanhangForm
         {
             SqlConnection sqlConnection = connect.GetConnection();
            
-            string query = "insert into mathang values(@mahang,@tenhang,@macongty,@maloaihang,@soluong,@donvitinh,@giahang)";
+            string query = "update mathang set tenhang = @tenhang,macongty = @macongty,maloaihang = @maloaihang,soluong = @soluong," +
+                "donvitinh = @donvitinh,giahang = @giahang WHERE mahang = @mahang;";
 
             //khi thực thi dù ảnh hưởng lỗi như nào thì luôn luôn đóng(ở finally)
             try
@@ -63,7 +64,62 @@ namespace BanhangForm
             }
             return true;
         }
+        public bool Update(QLmatHang qLmatHang)
+        {
+            SqlConnection sqlConnection = connect.GetConnection();
+
+            string query = "insert into mathang values(@mahang,@tenhang,@macongty,@maloaihang,@soluong,@donvitinh,@giahang)";
+
+            //khi thực thi dù ảnh hưởng lỗi như nào thì luôn luôn đóng(ở finally)
+            try
+            {
+                sqlConnection.Open();
+                sqlCommand = new SqlCommand(query, sqlConnection);
+                sqlCommand.Parameters.Add("@mahang", SqlDbType.NVarChar).Value = qLmatHang.MaHang;
+                sqlCommand.Parameters.Add("@tenhang", SqlDbType.NVarChar).Value = qLmatHang.TenHang;
+                sqlCommand.Parameters.Add("@macongty", SqlDbType.NVarChar).Value = qLmatHang.Soluong;
+                sqlCommand.Parameters.Add("@maloaihang", SqlDbType.NVarChar).Value = qLmatHang.Maloaihang;
+                sqlCommand.Parameters.Add("@soluong", SqlDbType.Int).Value = qLmatHang.Soluong;
+                sqlCommand.Parameters.Add("@donvitinh", SqlDbType.NVarChar).Value = qLmatHang.DonviTinh;
+                sqlCommand.Parameters.Add("@giahang", SqlDbType.Money).Value = qLmatHang.GiaHang;
+                sqlCommand.ExecuteNonQuery();//thực thi lệnh truy vấn
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+            return true;
+        }
 
 
+        public bool Delete(string mahang)
+        {
+            SqlConnection sqlConnection = connect.GetConnection();
+
+            string query = "delete mathang where mahang=@mahang";
+
+            //khi thực thi dù ảnh hưởng lỗi như nào thì luôn luôn đóng(ở finally)
+            try
+            {
+                sqlConnection.Open();
+                sqlCommand = new SqlCommand(query, sqlConnection);
+                sqlCommand.Parameters.Add("@mahang", SqlDbType.NVarChar).Value = mahang;
+             
+                sqlCommand.ExecuteNonQuery();//thực thi lệnh truy vấn
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+            return true;
+        }
     }
 }
