@@ -54,6 +54,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="connect.cs" />
+    <Compile Include="KhachHang\ModifyKhachHang.cs" />
     <Compile Include="KhachHang\QLkhachHang.cs" />
     <Compile Include="MatHang\Modify.cs" />
     <Compile Include="Program.cs" />
