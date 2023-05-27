@@ -100,5 +100,8 @@
   <ItemGroup>
     <None Include="Resources\pngtree-blue-simple-geometric-art-banner-image_1540196.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DoDatHang\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
