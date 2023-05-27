@@ -110,10 +110,6 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.data_DonDatHang = new System.Windows.Forms.DataGridView();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.panel10 = new System.Windows.Forms.Panel();
             this.txt_maLoaiHang = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
@@ -122,6 +118,10 @@
             this.button12 = new System.Windows.Forms.Button();
             this.label30 = new System.Windows.Forms.Label();
             this.txt_tenLoaiHang = new System.Windows.Forms.TextBox();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.dataGridView_LoaiHang = new System.Windows.Forms.DataGridView();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -140,9 +140,9 @@
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.data_DonDatHang)).BeginInit();
             this.tabPage5.SuspendLayout();
-            this.panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel10.SuspendLayout();
+            this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_LoaiHang)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -1213,57 +1213,6 @@
             this.tabPage5.Text = "Loại hàng";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // tabPage6
-            // 
-            this.tabPage6.Location = new System.Drawing.Point(4, 23);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(1107, 596);
-            this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "Nhà cung cấp";
-            this.tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // tabPage7
-            // 
-            this.tabPage7.Location = new System.Drawing.Point(4, 23);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(1107, 596);
-            this.tabPage7.TabIndex = 6;
-            this.tabPage7.Text = "Nhân Viên";
-            this.tabPage7.UseVisualStyleBackColor = true;
-            // 
-            // panel9
-            // 
-            this.panel9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel9.AutoSize = true;
-            this.panel9.BackgroundImage = global::BanhangForm.Properties.Resources.background_banner_xanh_dam_dep_phu_hop_thiet_ke_web_cong_thuc_toan_hoc;
-            this.panel9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel9.Controls.Add(this.dataGridView2);
-            this.panel9.Location = new System.Drawing.Point(3, 6);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1098, 403);
-            this.panel9.TabIndex = 2;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.GridColor = System.Drawing.Color.DimGray;
-            this.dataGridView2.Location = new System.Drawing.Point(82, 51);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(919, 291);
-            this.dataGridView2.TabIndex = 0;
-            // 
             // panel10
             // 
             this.panel10.AutoSize = true;
@@ -1342,6 +1291,7 @@
             this.button12.TabIndex = 10;
             this.button12.Text = "Thêm";
             this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // label30
             // 
@@ -1368,6 +1318,57 @@
             this.txt_tenLoaiHang.Size = new System.Drawing.Size(225, 20);
             this.txt_tenLoaiHang.TabIndex = 5;
             this.txt_tenLoaiHang.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
+            // 
+            // panel9
+            // 
+            this.panel9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel9.AutoSize = true;
+            this.panel9.BackgroundImage = global::BanhangForm.Properties.Resources.background_banner_xanh_dam_dep_phu_hop_thiet_ke_web_cong_thuc_toan_hoc;
+            this.panel9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel9.Controls.Add(this.dataGridView_LoaiHang);
+            this.panel9.Location = new System.Drawing.Point(3, 6);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(1098, 403);
+            this.panel9.TabIndex = 2;
+            // 
+            // dataGridView_LoaiHang
+            // 
+            this.dataGridView_LoaiHang.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView_LoaiHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView_LoaiHang.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView_LoaiHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_LoaiHang.GridColor = System.Drawing.Color.DimGray;
+            this.dataGridView_LoaiHang.Location = new System.Drawing.Point(82, 51);
+            this.dataGridView_LoaiHang.Name = "dataGridView_LoaiHang";
+            this.dataGridView_LoaiHang.ReadOnly = true;
+            this.dataGridView_LoaiHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView_LoaiHang.Size = new System.Drawing.Size(919, 291);
+            this.dataGridView_LoaiHang.TabIndex = 0;
+            // 
+            // tabPage6
+            // 
+            this.tabPage6.Location = new System.Drawing.Point(4, 23);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(1107, 596);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "Nhà cung cấp";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // tabPage7
+            // 
+            this.tabPage7.Location = new System.Drawing.Point(4, 23);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage7.Size = new System.Drawing.Size(1107, 596);
+            this.tabPage7.TabIndex = 6;
+            this.tabPage7.Text = "Nhân Viên";
+            this.tabPage7.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -1406,10 +1407,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.data_DonDatHang)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
-            this.panel9.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_LoaiHang)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1507,7 +1508,7 @@
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.TextBox txt_tenLoaiHang;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dataGridView_LoaiHang;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.TabPage tabPage7;
     }

@@ -1,10 +1,12 @@
 ﻿using BanhangForm.chitietDathang;
 using BanhangForm.DoDatHang;
 using BanhangForm.KhachHang;
+using BanhangForm.LoaiHang;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Drawing;
 using System.Linq;
@@ -28,6 +30,11 @@ namespace BanhangForm
         //đơn đặt hàng
         ModifyDonDatHang modifyDonDatHang;
         QLdonDatHang qldonDatHang;
+        libDB lib;
+        string chuoiketnoi = @"Data Source=MSI\XOAII;Initial Catalog=BANHANG_DT;Integrated Security=True";
+        QLloaiHang qLloaiHang;
+        ModifyLoaiHang modifyLoai;
+
         public Form1()
         {
             InitializeComponent();
@@ -45,13 +52,16 @@ namespace BanhangForm
             modifyKhachHang = new ModifyKhachHang();
             modifyChiTet =new ModifyChiTet();
             modifyDonDatHang= new ModifyDonDatHang();   
+            modifyLoai =new ModifyLoaiHang();
             //đổ dữu liệu
             try
             {
                 dataGridView1.DataSource = modify.getAllMatHang();
                 dataGridView_khachHang.DataSource = modifyKhachHang.getAllKhachhang();
                 dataV_chiTietDatHang.DataSource = modifyChiTet.getAllchiTiet();
-                data_DonDatHang.DataSource=modifyDonDatHang.getAllDonDatHang(); 
+                data_DonDatHang.DataSource=modifyDonDatHang.getAllDonDatHang();
+                dataGridView_LoaiHang.DataSource = modifyLoai.getAllLoaiHang();
+               
             }
             catch(Exception ex) 
             {
@@ -306,5 +316,65 @@ namespace BanhangForm
         {
 
         }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+           
+                // lấy tất cả dữ liệu đã nhập xuống:
+                // Nên check lỗi người dùng nhập! => nếu mà lỗi thì return;
+               int maloaihang = Convert.ToInt32( this.txt_maLoaiHang.Text);
+            string tenloaihang = this.txt_tenLoaiHang.Text;
+            qLloaiHang = new QLloaiHang(maloaihang, tenloaihang);   
+
+                // tao demo thực hiện proceduce - chuỗi k phải sql nữa mà là tên proceduce
+                // chuẩn bị tên proceduce:
+                string query = "sp_loaihang_Insert";
+                // new đối tượng thư viên để gọi các hàm trong thư viện:
+                libDB lib= new libDB(chuoiketnoi);
+                SqlCommand cmd = lib.GetCmd(query); // lấy về đối tượng sqlcomman
+
+                // Cần phải truyền dũ liệu cho cmd 
+                truyenParameter(ref cmd, qLloaiHang );
+                //cmd.Parameters.Add("@Sohoadon", SqlDbType.Int).Value = chitietdonhang.Sohoadon;
+                //cmd.Parameters.Add("@Mahang", SqlDbType.NVarChar, 10).Value = chitietdonhang.Mahang;
+                //cmd.Parameters.Add("@Soluong", SqlDbType.SmallInt).Value = chitietdonhang.Soluong;
+                //cmd.Parameters.Add("@Mucgiamgia", SqlDbType.Real).Value = chitietdonhang.Mucgiamga;
+                //cmd.Parameters.Add("@Giaban", SqlDbType.Money).Value = chitietdonhang.Giaban;
+
+                // thực hiện proceduce bằng cách là gọi  thư viên
+                try
+                {
+                    // đây là câu lệnh thêm nên 
+                    int kq = lib.RunSQL(cmd);
+                    if (kq > 0)
+                    {
+                        MessageBox.Show("thêm thành công!");
+                        Form1_Load(sender, e);
+                        xoaThongTin();
+                    }
+                }
+                catch (Exception ex)
+                {
+                
+                    MessageBox.Show(ex.Message, "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                
+                }
+                
+
+            }
+
+            private void xoaThongTin()
+            {
+
+            }
+
+            private void truyenParameter(ref SqlCommand cmd, QLloaiHang qLloaiHang)
+            {
+
+           cmd.Parameters.Add("@maloaihang", SqlDbType.Int).Value = qLloaiHang.Maloaihang;
+            cmd.Parameters.Add("@tenloaihang", SqlDbType.NVarChar, 15).Value = qLloaiHang.Tenloaihang;
+        }
+        }
     }
-}
+

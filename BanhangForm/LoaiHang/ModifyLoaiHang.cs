@@ -29,32 +29,6 @@ namespace BanhangForm.LoaiHang
             }
             return dataTable;
         }
-        public bool insert(QLloaiHang qLloaiHang)
-        {
-            SqlConnection sqlConnection = connect.GetConnection();
-
-            string query = "insert into loaihang values(@maloaihang,@tenloaihang)";
-
-            //khi thực thi dù ảnh hưởng lỗi như nào thì luôn luôn đóng(ở finally)
-            try
-            {
-                sqlConnection.Open();
-                sqlCommand = new SqlCommand(query, sqlConnection);
-                sqlCommand.Parameters.Add("@maloaihang", SqlDbType.Int).Value = qLloaiHang.Maloaihang;
-                sqlCommand.Parameters.Add("@tenloaihang", SqlDbType.NVarChar).Value = qLloaiHang.Tenloaihang;
-                
-
-                sqlCommand.ExecuteNonQuery();//thực thi lệnh truy vấn
-            }
-            catch
-            {
-                return false;
-            }
-            finally
-            {
-                sqlConnection.Close();
-            }
-            return true;
-        }
+        
     }
 }

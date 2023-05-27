@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BanhangForm.LoaiHang
 {
-    internal class QLloaiHang
+    public class QLloaiHang
     {
-        private int maloaihang;
+        public int maloaihang;
         private string tenloaihang;
 
         public QLloaiHang()

@@ -59,6 +59,7 @@
     <Compile Include="DoDatHang\QLdonDatHang.cs" />
     <Compile Include="KhachHang\ModifyKhachHang.cs" />
     <Compile Include="KhachHang\QLkhachHang.cs" />
+    <Compile Include="libDB.cs" />
     <Compile Include="LoaiHang\ModifyLoaiHang.cs" />
     <Compile Include="LoaiHang\QLloaiHang.cs" />
     <Compile Include="MatHang\Modify.cs" />
