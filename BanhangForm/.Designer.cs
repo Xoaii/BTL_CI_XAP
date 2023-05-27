@@ -109,6 +109,19 @@
             this.label27 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.data_DonDatHang = new System.Windows.Forms.DataGridView();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.txt_maLoaiHang = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
+            this.label30 = new System.Windows.Forms.Label();
+            this.txt_tenLoaiHang = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -126,6 +139,10 @@
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.data_DonDatHang)).BeginInit();
+            this.tabPage5.SuspendLayout();
+            this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.panel10.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -137,6 +154,9 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Controls.Add(this.tabPage6);
+            this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
@@ -1181,6 +1201,174 @@
             this.data_DonDatHang.Size = new System.Drawing.Size(919, 291);
             this.data_DonDatHang.TabIndex = 0;
             // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.panel10);
+            this.tabPage5.Controls.Add(this.panel9);
+            this.tabPage5.Location = new System.Drawing.Point(4, 23);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(1107, 596);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Loại hàng";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // tabPage6
+            // 
+            this.tabPage6.Location = new System.Drawing.Point(4, 23);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(1107, 596);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "Nhà cung cấp";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // tabPage7
+            // 
+            this.tabPage7.Location = new System.Drawing.Point(4, 23);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage7.Size = new System.Drawing.Size(1107, 596);
+            this.tabPage7.TabIndex = 6;
+            this.tabPage7.Text = "Nhân Viên";
+            this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // panel9
+            // 
+            this.panel9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel9.AutoSize = true;
+            this.panel9.BackgroundImage = global::BanhangForm.Properties.Resources.background_banner_xanh_dam_dep_phu_hop_thiet_ke_web_cong_thuc_toan_hoc;
+            this.panel9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel9.Controls.Add(this.dataGridView2);
+            this.panel9.Location = new System.Drawing.Point(3, 6);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(1098, 403);
+            this.panel9.TabIndex = 2;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.GridColor = System.Drawing.Color.DimGray;
+            this.dataGridView2.Location = new System.Drawing.Point(82, 51);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView2.Size = new System.Drawing.Size(919, 291);
+            this.dataGridView2.TabIndex = 0;
+            // 
+            // panel10
+            // 
+            this.panel10.AutoSize = true;
+            this.panel10.BackgroundImage = global::BanhangForm.Properties.Resources._360_F_403029269_KCrGHt5AdtV7GSD2KeP8Wk2PYIbVKlNU;
+            this.panel10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel10.Controls.Add(this.txt_maLoaiHang);
+            this.panel10.Controls.Add(this.label24);
+            this.panel10.Controls.Add(this.button10);
+            this.panel10.Controls.Add(this.button11);
+            this.panel10.Controls.Add(this.button12);
+            this.panel10.Controls.Add(this.label30);
+            this.panel10.Controls.Add(this.txt_tenLoaiHang);
+            this.panel10.Location = new System.Drawing.Point(6, 415);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(1108, 187);
+            this.panel10.TabIndex = 3;
+            // 
+            // txt_maLoaiHang
+            // 
+            this.txt_maLoaiHang.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_maLoaiHang.Location = new System.Drawing.Point(240, 76);
+            this.txt_maLoaiHang.Name = "txt_maLoaiHang";
+            this.txt_maLoaiHang.Size = new System.Drawing.Size(198, 20);
+            this.txt_maLoaiHang.TabIndex = 16;
+            // 
+            // label24
+            // 
+            this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(106, 72);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(135, 22);
+            this.label24.TabIndex = 15;
+            this.label24.Text = "mã loại hàng:";
+            // 
+            // button10
+            // 
+            this.button10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button10.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button10.Location = new System.Drawing.Point(661, 112);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(101, 48);
+            this.button10.TabIndex = 12;
+            this.button10.Text = "Xóa";
+            this.button10.UseVisualStyleBackColor = true;
+            // 
+            // button11
+            // 
+            this.button11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button11.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button11.Location = new System.Drawing.Point(460, 112);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(101, 48);
+            this.button11.TabIndex = 11;
+            this.button11.Text = "Sửa";
+            this.button11.UseVisualStyleBackColor = true;
+            // 
+            // button12
+            // 
+            this.button12.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button12.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button12.Location = new System.Drawing.Point(240, 112);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(101, 48);
+            this.button12.TabIndex = 10;
+            this.button12.Text = "Thêm";
+            this.button12.UseVisualStyleBackColor = true;
+            // 
+            // label30
+            // 
+            this.label30.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Location = new System.Drawing.Point(577, 76);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(119, 23);
+            this.label30.TabIndex = 6;
+            this.label30.Text = "Tên loại hàng:";
+            this.label30.Click += new System.EventHandler(this.label30_Click);
+            // 
+            // txt_tenLoaiHang
+            // 
+            this.txt_tenLoaiHang.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_tenLoaiHang.BackColor = System.Drawing.Color.White;
+            this.txt_tenLoaiHang.Location = new System.Drawing.Point(702, 76);
+            this.txt_tenLoaiHang.Name = "txt_tenLoaiHang";
+            this.txt_tenLoaiHang.Size = new System.Drawing.Size(225, 20);
+            this.txt_tenLoaiHang.TabIndex = 5;
+            this.txt_tenLoaiHang.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1216,6 +1404,12 @@
             this.panel8.PerformLayout();
             this.panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.data_DonDatHang)).EndInit();
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1303,6 +1497,19 @@
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.DataGridView data_DonDatHang;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.TextBox txt_maLoaiHang;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.TextBox txt_tenLoaiHang;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.TabPage tabPage7;
     }
 }
 
