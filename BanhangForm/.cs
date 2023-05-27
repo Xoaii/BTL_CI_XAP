@@ -259,7 +259,53 @@ namespace BanhangForm
             SqlCommand cmd = lib.GetCmd(query); // lấy về đối tượng sqlcomman
 
             // Cần phải truyền dũ liệu cho cmd 
-            truyenParameterMatHang(ref cmd, qLmatHang);
+            truyenParameterkhachHang(ref cmd, qLkhachHang);
+
+
+            // thực hiện proceduce bằng cách là gọi  thư viên
+            try
+            {
+                // đây là câu lệnh thêm nên 
+                int kq = lib.RunSQL(cmd);
+                if (kq > 0)
+                {
+                    MessageBox.Show("thêm thành công!");
+                    Form1_Load(sender, e);
+                    xoaThongTin();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+
+            }
+
+
+        }
+       
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            string makhachhang = this.textBox_MaKH.Text;
+            string Tencongty = this.textBox_TenCTY.Text;
+            string tengiaodich = this.textBox_tenGD.Text;
+            string diaChi = this.textBox_diaChi.Text;
+            string email = this.textBox_email.Text;
+            string dienThoai = this.textBox_dienThoai.Text;
+            string fax = this.textBox_Fax.Text;
+            string TenKhachhang = this.textBox_tenKH.Text;
+            qLkhachHang = new QLkhachHang(makhachhang, Tencongty, tengiaodich, diaChi, email, dienThoai, fax, TenKhachhang);
+            // tao demo thực hiện proceduce - chuỗi k phải sql nữa mà là tên proceduce
+            // chuẩn bị tên proceduce:
+            string query = "sp_khachhang_Update";
+            // new đối tượng thư viên để gọi các hàm trong thư viện:
+            libDB lib = new libDB(chuoiketnoi);
+            SqlCommand cmd = lib.GetCmd(query); // lấy về đối tượng sqlcomman
+
+            // Cần phải truyền dũ liệu cho cmd 
+            truyenParameterkhachHang(ref cmd, qLkhachHang);
 
 
             // thực hiện proceduce bằng cách là gọi  thư viên
@@ -284,6 +330,56 @@ namespace BanhangForm
 
 
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (dataGridView_khachHang.SelectedRows.Count > 0)
+            {
+                DataGridViewRow row = dataGridView_khachHang.SelectedRows[0];
+                // Thay "sohoadon" bằng tên cột chứa số hóa đơn
+                string makhachhang = row.Cells["makhachhang"].Value.ToString();
+                /* string tenhang = row.Cells["tenhang"].Value.ToString();
+                 string macongty = row.Cells["macongty"].Value.ToString();
+                 int maloaihang = Convert.ToInt32(row.Cells["maloaihang"].Value);// Thay "mahang" bằng tên cột chứa mã hàng
+
+                 int soluong = Convert.ToInt32(row.Cells["soluong"].Value);
+                 string donvitinh = row.Cells["donvitinh"].Value.ToString();
+                 double giahang = Convert.ToDouble(row.Cells["giahang"].Value);*/
+
+                // Tạo câu truy vấn SQL hoặc gọi procedure để xóa dữ liệu
+                string query = "sp_khachhang_Delete";
+                libDB lib = new libDB(chuoiketnoi);
+                SqlCommand cmd = lib.GetCmd(query);
+
+                /*  // Truyền tham số cho cmd
+                  cmd.Parameters.Add("@Tenhang", SqlDbType.NVarChar).Value = tenhang;
+                  cmd.Parameters.Add("@Macongty", SqlDbType.NVarChar).Value = macongty;
+                  cmd.Parameters.Add("@Maloaihang", SqlDbType.Int).Value = maloaihang;*/
+                cmd.Parameters.Add("@makhachhang", SqlDbType.NVarChar, 10).Value = makhachhang;
+                /*cmd.Parameters.Add("@Soluong", SqlDbType.Int).Value = soluong;
+                cmd.Parameters.Add("@Donvitinh", SqlDbType.NVarChar).Value = donvitinh;
+                cmd.Parameters.Add("@Giahang", SqlDbType.Money).Value = giahang;*/
+
+                try
+                {
+                    int kq = lib.RunSQL(cmd);
+                    if (kq > 0)
+                    {
+                        MessageBox.Show("Xóa thành công!");
+                        Form1_Load(sender, e);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một dòng để xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
         private void truyenParameterkhachHang(ref SqlCommand cmd, QLkhachHang qLkhachHang)
         {
 
@@ -297,43 +393,6 @@ namespace BanhangForm
             cmd.Parameters.Add("@TenKhachHang", SqlDbType.NVarChar).Value = qLkhachHang.TenKhachHang;
         }
 
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-            string makhachhang = this.textBox_MaKH.Text;
-            string Tencongty = this.textBox_TenCTY.Text;
-            string tengiaodich = this.textBox_tenGD.Text;
-            string diaChi = this.textBox_diaChi.Text;
-            string email = this.textBox_email.Text;
-            string dienThoai = this.textBox_dienThoai.Text;
-            string fax = this.textBox_Fax.Text;
-            string TenKhachhang = this.textBox_tenKH.Text;
-            qLkhachHang = new QLkhachHang(makhachhang, Tencongty, tengiaodich, diaChi, email, dienThoai, fax, TenKhachhang);
-
-            if (modifyKhachHang.Update(qLkhachHang))
-            {
-                dataGridView_khachHang.DataSource = modifyKhachHang.getAllKhachhang();
-            }
-            else
-            {
-                MessageBox.Show("Lỗi: " + "không sửa được", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            string makhachhang = dataGridView_khachHang.SelectedRows[0].Cells[0].Value.ToString();
-            if (modifyKhachHang.Delete(makhachhang))
-            {
-                dataGridView_khachHang.DataSource = modifyKhachHang.getAllKhachhang();
-            }
-            else
-            {
-                MessageBox.Show("Lỗi: " + "không XÓA được", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private void button6_Click(object sender, EventArgs e)
         {
             int sohoadon = Convert.ToInt32(this.txt_soHD.Text);
@@ -342,15 +401,36 @@ namespace BanhangForm
             int soluong = Convert.ToInt16(this.txt_soLuong.Text);
             double mucgiamgia = Convert.ToDouble(this.txt_MucGG.Text);
             qLchiTietDonHang = new QLchiTietDonHang(sohoadon, mahang, giaban, soluong, mucgiamgia);
-            if (modifyChiTet.insert(qLchiTietDonHang))
-            {
-                dataV_chiTietDatHang.DataSource = modifyChiTet.getAllchiTiet();
-            }
-            else
-            {
-                MessageBox.Show("Lỗi: " + "không thêm được", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            // tao demo thực hiện proceduce - chuỗi k phải sql nữa mà là tên proceduce
+            // chuẩn bị tên proceduce:
+            string query = "sp_chitietdathang_Insert";
+            // new đối tượng thư viên để gọi các hàm trong thư viện:
+            libDB lib = new libDB(chuoiketnoi);
+            SqlCommand cmd = lib.GetCmd(query); // lấy về đối tượng sqlcomman
 
+            // Cần phải truyền dũ liệu cho cmd 
+            truyenParameterChiTiet(ref cmd, qLchiTietDonHang);
+
+
+            // thực hiện proceduce bằng cách là gọi  thư viên
+            try
+            {
+                // đây là câu lệnh thêm nên 
+                int kq = lib.RunSQL(cmd);
+                if (kq > 0)
+                {
+                    MessageBox.Show("thêm thành công!");
+                    Form1_Load(sender, e);
+                    xoaThongTin();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+
+            }
 
         }
 
@@ -362,27 +442,98 @@ namespace BanhangForm
             int soluong = Convert.ToInt16(this.txt_soLuong.Text);
             double mucgiamgia = Convert.ToDouble(this.txt_MucGG.Text);
             qLchiTietDonHang = new QLchiTietDonHang(sohoadon, mahang, giaban, soluong, mucgiamgia);
-            if (modifyChiTet.Update(qLchiTietDonHang))
+            // tao demo thực hiện proceduce - chuỗi k phải sql nữa mà là tên proceduce
+            // chuẩn bị tên proceduce:
+            string query = "sp_chitietdathang_Update";
+            // new đối tượng thư viên để gọi các hàm trong thư viện:
+            libDB lib = new libDB(chuoiketnoi);
+            SqlCommand cmd = lib.GetCmd(query); // lấy về đối tượng sqlcomman
+
+            // Cần phải truyền dũ liệu cho cmd 
+            truyenParameterChiTiet(ref cmd, qLchiTietDonHang);
+
+
+            // thực hiện proceduce bằng cách là gọi  thư viên
+            try
             {
-                dataV_chiTietDatHang.DataSource = modifyChiTet.getAllchiTiet();
+                // đây là câu lệnh thêm nên 
+                int kq = lib.RunSQL(cmd);
+                if (kq > 0)
+                {
+                    MessageBox.Show("sửa thành công!");
+                    Form1_Load(sender, e);
+                    xoaThongTin();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Lỗi: " + "không sửa được", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                MessageBox.Show(ex.Message, "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+
             }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            int sohoadon = Convert.ToInt32(dataV_chiTietDatHang.SelectedRows[0].Cells[0].Value.ToString());
-            if (modifyChiTet.Delete(sohoadon))
+            if (dataV_chiTietDatHang.SelectedRows.Count > 0)
             {
-                dataV_chiTietDatHang.DataSource = modifyChiTet.getAllchiTiet();
+                DataGridViewRow row = dataV_chiTietDatHang.SelectedRows[0];
+                // Thay "sohoadon" bằng tên cột chứa số hóa đơn
+               int sohoadon = Convert.ToInt32( row.Cells["sohoadon"].Value.ToString());
+                string mahang = row.Cells["mahang"].Value.ToString();
+                /* string tenhang = row.Cells["tenhang"].Value.ToString();
+                 string macongty = row.Cells["macongty"].Value.ToString();
+                 int maloaihang = Convert.ToInt32(row.Cells["maloaihang"].Value);// Thay "mahang" bằng tên cột chứa mã hàng
+
+                 int soluong = Convert.ToInt32(row.Cells["soluong"].Value);
+                 string donvitinh = row.Cells["donvitinh"].Value.ToString();
+                 double giahang = Convert.ToDouble(row.Cells["giahang"].Value);*/
+
+                // Tạo câu truy vấn SQL hoặc gọi procedure để xóa dữ liệu
+                string query = "sp_chitietdathang_Delete";
+                libDB lib = new libDB(chuoiketnoi);
+                SqlCommand cmd = lib.GetCmd(query);
+
+                /*  // Truyền tham số cho cmd
+                  cmd.Parameters.Add("@Tenhang", SqlDbType.NVarChar).Value = tenhang;
+                  cmd.Parameters.Add("@Macongty", SqlDbType.NVarChar).Value = macongty;
+                  cmd.Parameters.Add("@Maloaihang", SqlDbType.Int).Value = maloaihang;*/
+                cmd.Parameters.Add("@sohoadon", SqlDbType.Int).Value = sohoadon;
+                cmd.Parameters.Add("@mahang", SqlDbType.NVarChar,10).Value =mahang;
+                /*cmd.Parameters.Add("@Soluong", SqlDbType.Int).Value = soluong;
+                cmd.Parameters.Add("@Donvitinh", SqlDbType.NVarChar).Value = donvitinh;
+                cmd.Parameters.Add("@Giahang", SqlDbType.Money).Value = giahang;*/
+
+                try
+                {
+                    int kq = lib.RunSQL(cmd);
+                    if (kq > 0)
+                    {
+                        MessageBox.Show("Xóa thành công!");
+                        Form1_Load(sender, e);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
             }
             else
             {
-                MessageBox.Show("Lỗi: " + "không xóa được", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Vui lòng chọn một dòng để xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+        private void truyenParameterChiTiet(ref SqlCommand cmd, QLchiTietDonHang qLchiTietDonHang)
+        {
+
+            cmd.Parameters.Add("@sohoadon", SqlDbType.Int).Value = qLchiTietDonHang.SoHoaDon;
+            cmd.Parameters.Add("@mahang", SqlDbType.NVarChar).Value = qLchiTietDonHang.Mahang;
+          cmd.Parameters.Add("@giaban", SqlDbType.Money).Value = qLchiTietDonHang.Giaban;
+            cmd.Parameters.Add("@soluong", SqlDbType.SmallInt).Value = qLchiTietDonHang.SoLuong;
+            cmd.Parameters.Add("@mucgiamgia", SqlDbType.Real).Value = qLchiTietDonHang.Mucgiamgia;
+
         }
 
         private void button9_Click(object sender, EventArgs e)

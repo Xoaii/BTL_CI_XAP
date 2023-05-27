@@ -29,35 +29,7 @@ namespace BanhangForm.chitietDathang
             }
             return dataTable;
         }
-        public bool insert(QLchiTietDonHang qLchiTietDonHang)
-        {
-            SqlConnection sqlConnection = connect.GetConnection();
-
-            string query = "insert into chitietdathang values(@sohoadon,@mahang,@giaban,@soluong,@mucgiamgia)";
-
-            //khi thực thi dù ảnh hưởng lỗi như nào thì luôn luôn đóng(ở finally)
-            try
-            {
-                sqlConnection.Open();
-                sqlCommand = new SqlCommand(query, sqlConnection);
-                sqlCommand.Parameters.Add("@sohoadon", SqlDbType.Int).Value = qLchiTietDonHang.SoHoaDon;
-                sqlCommand.Parameters.Add("@mahang", SqlDbType.NVarChar).Value = qLchiTietDonHang.Mahang;
-                sqlCommand.Parameters.Add("@giaban", SqlDbType.Money).Value = qLchiTietDonHang.Giaban;
-                sqlCommand.Parameters.Add("@soluong", SqlDbType.SmallInt).Value = qLchiTietDonHang.SoLuong;
-                sqlCommand.Parameters.Add("@mucgiamgia", SqlDbType.Real).Value = qLchiTietDonHang.Mucgiamgia;
-                
-                sqlCommand.ExecuteNonQuery();//thực thi lệnh truy vấn
-            }
-            catch
-            {
-                return false;
-            }
-            finally
-            {
-                sqlConnection.Close();
-            }
-            return true;
-        }
+        
         public bool Update(QLchiTietDonHang qLchiTietDonHang)
         {
             SqlConnection sqlConnection = connect.GetConnection();
