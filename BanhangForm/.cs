@@ -1,4 +1,5 @@
 ﻿using BanhangForm.chitietDathang;
+using BanhangForm.DoDatHang;
 using BanhangForm.KhachHang;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,9 @@ namespace BanhangForm
         //chi tiết đặt hàng
         ModifyChiTet modifyChiTet;
         QLchiTietDonHang qLchiTietDonHang;
+        //đơn đặt hàng
+        ModifyDonDatHang modifyDonDatHang;
+        QLdonDatHang qldonDatHang;
         public Form1()
         {
             InitializeComponent();
@@ -40,13 +44,14 @@ namespace BanhangForm
             modify = new Modify();
             modifyKhachHang = new ModifyKhachHang();
             modifyChiTet =new ModifyChiTet();
+            modifyDonDatHang= new ModifyDonDatHang();   
             //đổ dữu liệu
             try
             {
                 dataGridView1.DataSource = modify.getAllMatHang();
                 dataGridView_khachHang.DataSource = modifyKhachHang.getAllKhachhang();
                 dataV_chiTietDatHang.DataSource = modifyChiTet.getAllchiTiet();
-
+                data_DonDatHang.DataSource=modifyDonDatHang.getAllDonDatHang(); 
             }
             catch(Exception ex) 
             {
@@ -237,6 +242,59 @@ namespace BanhangForm
             {
                 MessageBox.Show("Lỗi: " + "không xóa được", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            int sohoadon = Convert.ToInt32(this.txt_soHD_don.Text);
+            string makhachhang = this.txt_maKH.Text;
+            string manhanvien =this.txt_MaNV.Text;
+            DateTime ngaydathang = this.date_DatHang.Value;
+            DateTime ngaygiaohang = this.date_giaohang.Value;
+            string noigiao =this.txt_noigiao.Text;
+            qldonDatHang = new QLdonDatHang(sohoadon, makhachhang, manhanvien, ngaydathang, ngaygiaohang, noigiao);
+            if (modifyDonDatHang.insert (qldonDatHang))
+            {
+                data_DonDatHang.DataSource = modifyDonDatHang.getAllDonDatHang();
+            }
+            else
+            {
+                MessageBox.Show("Lỗi: " + "không thêm được", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            int sohoadon = Convert.ToInt32(this.txt_soHD_don.Text);
+            string makhachhang = this.txt_maKH.Text;
+            string manhanvien = this.txt_MaNV.Text;
+            DateTime ngaydathang = this.date_DatHang.Value;
+            DateTime ngaygiaohang = this.date_giaohang.Value;
+            string noigiao = this.txt_noigiao.Text;
+            qldonDatHang = new QLdonDatHang(sohoadon, makhachhang, manhanvien, ngaydathang, ngaygiaohang, noigiao);
+            if (modifyDonDatHang.Update(qldonDatHang))
+            {
+                data_DonDatHang.DataSource = modifyDonDatHang.getAllDonDatHang();
+            }
+            else
+            {
+                MessageBox.Show("Lỗi: " + "không sửa được", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            int sohoadon = Convert.ToInt32(data_DonDatHang.SelectedRows[0].Cells[0].Value.ToString());
+            if (modifyDonDatHang.Delete(sohoadon))
+            {
+               data_DonDatHang.DataSource = modifyDonDatHang.getAllDonDatHang();
+            }
+            else
+            {
+                MessageBox.Show("Lỗi: " + "không xóa được", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }

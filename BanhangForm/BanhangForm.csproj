@@ -55,6 +55,8 @@
     </Compile>
     <Compile Include="chitietDathang\ModifyChiTet.cs" />
     <Compile Include="connect.cs" />
+    <Compile Include="DoDatHang\ModifyDonDatHang.cs" />
+    <Compile Include="DoDatHang\QLdonDatHang.cs" />
     <Compile Include="KhachHang\ModifyKhachHang.cs" />
     <Compile Include="KhachHang\QLkhachHang.cs" />
     <Compile Include="MatHang\Modify.cs" />
@@ -100,8 +102,6 @@
   <ItemGroup>
     <None Include="Resources\pngtree-blue-simple-geometric-art-banner-image_1540196.jpg" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DoDatHang\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

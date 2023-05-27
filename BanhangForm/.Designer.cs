@@ -91,24 +91,24 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.dataV_chiTietDatHang = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.date_giaohang = new System.Windows.Forms.DateTimePicker();
+            this.date_DatHang = new System.Windows.Forms.DateTimePicker();
             this.label19 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txt_MaNV = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txt_noigiao = new System.Windows.Forms.TextBox();
+            this.txt_maKH = new System.Windows.Forms.TextBox();
+            this.txt_soHD_don = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.data_DonDatHang = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -123,9 +123,9 @@
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataV_chiTietDatHang)).BeginInit();
             this.tabPage4.SuspendLayout();
-            this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel8.SuspendLayout();
+            this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.data_DonDatHang)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -950,55 +950,24 @@
             this.tabPage4.Text = "Đơn đặt hàng:";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // panel7
-            // 
-            this.panel7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel7.AutoSize = true;
-            this.panel7.BackgroundImage = global::BanhangForm.Properties.Resources.background_banner_xanh_dam_dep_phu_hop_thiet_ke_web_cong_thuc_toan_hoc;
-            this.panel7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel7.Controls.Add(this.dataGridView2);
-            this.panel7.Location = new System.Drawing.Point(3, 6);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1098, 403);
-            this.panel7.TabIndex = 2;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.GridColor = System.Drawing.Color.DimGray;
-            this.dataGridView2.Location = new System.Drawing.Point(82, 51);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(919, 291);
-            this.dataGridView2.TabIndex = 0;
-            // 
             // panel8
             // 
             this.panel8.AutoSize = true;
             this.panel8.BackgroundImage = global::BanhangForm.Properties.Resources._360_F_403029269_KCrGHt5AdtV7GSD2KeP8Wk2PYIbVKlNU;
             this.panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel8.Controls.Add(this.dateTimePicker2);
-            this.panel8.Controls.Add(this.dateTimePicker1);
+            this.panel8.Controls.Add(this.date_giaohang);
+            this.panel8.Controls.Add(this.date_DatHang);
             this.panel8.Controls.Add(this.label19);
-            this.panel8.Controls.Add(this.textBox2);
+            this.panel8.Controls.Add(this.txt_MaNV);
             this.panel8.Controls.Add(this.label20);
             this.panel8.Controls.Add(this.button7);
             this.panel8.Controls.Add(this.button8);
             this.panel8.Controls.Add(this.button9);
             this.panel8.Controls.Add(this.label21);
-            this.panel8.Controls.Add(this.textBox4);
-            this.panel8.Controls.Add(this.textBox6);
-            this.panel8.Controls.Add(this.textBox7);
+            this.panel8.Controls.Add(this.txt_noigiao);
+            this.panel8.Controls.Add(this.txt_maKH);
+            this.panel8.Controls.Add(this.txt_soHD_don);
             this.panel8.Controls.Add(this.label25);
             this.panel8.Controls.Add(this.label26);
             this.panel8.Controls.Add(this.label27);
@@ -1006,6 +975,20 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(1112, 214);
             this.panel8.TabIndex = 3;
+            // 
+            // date_giaohang
+            // 
+            this.date_giaohang.Location = new System.Drawing.Point(615, 86);
+            this.date_giaohang.Name = "date_giaohang";
+            this.date_giaohang.Size = new System.Drawing.Size(200, 20);
+            this.date_giaohang.TabIndex = 17;
+            // 
+            // date_DatHang
+            // 
+            this.date_DatHang.Location = new System.Drawing.Point(615, 36);
+            this.date_DatHang.Name = "date_DatHang";
+            this.date_DatHang.Size = new System.Drawing.Size(200, 20);
+            this.date_DatHang.TabIndex = 16;
             // 
             // label19
             // 
@@ -1020,15 +1003,15 @@
             this.label19.TabIndex = 15;
             this.label19.Text = "Ngày đặt hàng:";
             // 
-            // textBox2
+            // txt_MaNV
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txt_MaNV.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(147, 125);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(239, 20);
-            this.textBox2.TabIndex = 14;
+            this.txt_MaNV.Location = new System.Drawing.Point(147, 125);
+            this.txt_MaNV.Name = "txt_MaNV";
+            this.txt_MaNV.Size = new System.Drawing.Size(239, 20);
+            this.txt_MaNV.TabIndex = 14;
             // 
             // label20
             // 
@@ -1051,10 +1034,11 @@
             this.button7.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.Location = new System.Drawing.Point(901, 124);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(101, 71);
+            this.button7.Size = new System.Drawing.Size(101, 49);
             this.button7.TabIndex = 12;
             this.button7.Text = "Xóa";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button8
             // 
@@ -1064,10 +1048,11 @@
             this.button8.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button8.Location = new System.Drawing.Point(901, 76);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(101, 71);
+            this.button8.Size = new System.Drawing.Size(101, 42);
             this.button8.TabIndex = 11;
             this.button8.Text = "Sửa";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button9
             // 
@@ -1077,10 +1062,11 @@
             this.button9.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button9.Location = new System.Drawing.Point(901, 24);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(101, 71);
+            this.button9.Size = new System.Drawing.Size(101, 46);
             this.button9.TabIndex = 10;
             this.button9.Text = "Thêm";
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // label21
             // 
@@ -1095,35 +1081,35 @@
             this.label21.TabIndex = 9;
             this.label21.Text = "Nơi giao hàng:";
             // 
-            // textBox4
+            // txt_noigiao
             // 
-            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txt_noigiao.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox4.Location = new System.Drawing.Point(615, 125);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(199, 20);
-            this.textBox4.TabIndex = 7;
+            this.txt_noigiao.Location = new System.Drawing.Point(615, 125);
+            this.txt_noigiao.Name = "txt_noigiao";
+            this.txt_noigiao.Size = new System.Drawing.Size(199, 20);
+            this.txt_noigiao.TabIndex = 7;
             // 
-            // textBox6
+            // txt_maKH
             // 
-            this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txt_maKH.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox6.Location = new System.Drawing.Point(147, 83);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(239, 20);
-            this.textBox6.TabIndex = 4;
+            this.txt_maKH.Location = new System.Drawing.Point(147, 83);
+            this.txt_maKH.Name = "txt_maKH";
+            this.txt_maKH.Size = new System.Drawing.Size(239, 20);
+            this.txt_maKH.TabIndex = 4;
             // 
-            // textBox7
+            // txt_soHD_don
             // 
-            this.textBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txt_soHD_don.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox7.Location = new System.Drawing.Point(147, 34);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(239, 20);
-            this.textBox7.TabIndex = 3;
+            this.txt_soHD_don.Location = new System.Drawing.Point(147, 34);
+            this.txt_soHD_don.Name = "txt_soHD_don";
+            this.txt_soHD_don.Size = new System.Drawing.Size(239, 20);
+            this.txt_soHD_don.TabIndex = 3;
             // 
             // label25
             // 
@@ -1164,19 +1150,36 @@
             this.label27.TabIndex = 0;
             this.label27.Text = "Số Hóa Đơn:";
             // 
-            // dateTimePicker1
+            // panel7
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(615, 36);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 16;
+            this.panel7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel7.AutoSize = true;
+            this.panel7.BackgroundImage = global::BanhangForm.Properties.Resources.background_banner_xanh_dam_dep_phu_hop_thiet_ke_web_cong_thuc_toan_hoc;
+            this.panel7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel7.Controls.Add(this.data_DonDatHang);
+            this.panel7.Location = new System.Drawing.Point(3, 6);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(1098, 403);
+            this.panel7.TabIndex = 2;
             // 
-            // dateTimePicker2
+            // data_DonDatHang
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(615, 86);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 17;
+            this.data_DonDatHang.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.data_DonDatHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.data_DonDatHang.BackgroundColor = System.Drawing.Color.White;
+            this.data_DonDatHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.data_DonDatHang.GridColor = System.Drawing.Color.DimGray;
+            this.data_DonDatHang.Location = new System.Drawing.Point(82, 51);
+            this.data_DonDatHang.Name = "data_DonDatHang";
+            this.data_DonDatHang.ReadOnly = true;
+            this.data_DonDatHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.data_DonDatHang.Size = new System.Drawing.Size(919, 291);
+            this.data_DonDatHang.TabIndex = 0;
             // 
             // Form1
             // 
@@ -1209,10 +1212,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataV_chiTietDatHang)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.data_DonDatHang)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1283,23 +1286,23 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.DataGridView dataV_chiTietDatHang;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker date_giaohang;
+        private System.Windows.Forms.DateTimePicker date_DatHang;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txt_MaNV;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txt_noigiao;
+        private System.Windows.Forms.TextBox txt_maKH;
+        private System.Windows.Forms.TextBox txt_soHD_don;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView data_DonDatHang;
     }
 }
 
