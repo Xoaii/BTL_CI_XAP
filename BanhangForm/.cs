@@ -207,5 +207,36 @@ namespace BanhangForm
 
 
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            int sohoadon = Convert.ToInt32(this.txt_soHD.Text);
+            string mahang = this.txt_maHang.Text;
+            SqlMoney giaban = SqlMoney.Parse(this.txt_giaBan.Text);
+            int soluong = Convert.ToInt16(this.txt_soLuong.Text);
+            double mucgiamgia = Convert.ToDouble(this.txt_MucGG.Text);
+            qLchiTietDonHang = new QLchiTietDonHang(sohoadon, mahang, giaban, soluong, mucgiamgia);
+            if (modifyChiTet.Update(qLchiTietDonHang))
+            {
+                dataV_chiTietDatHang.DataSource = modifyChiTet.getAllchiTiet();
+            }
+            else
+            {
+                MessageBox.Show("Lỗi: " + "không sửa được", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            int sohoadon = Convert.ToInt32(dataV_chiTietDatHang.SelectedRows[0].Cells[0].Value.ToString());
+            if (modifyChiTet.Delete(sohoadon))
+            {
+                dataV_chiTietDatHang.DataSource = modifyChiTet.getAllchiTiet();
+            }
+            else
+            {
+                MessageBox.Show("Lỗi: " + "không xóa được", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

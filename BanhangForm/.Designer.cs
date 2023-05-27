@@ -74,9 +74,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.dataV_chiTietDatHang = new System.Windows.Forms.DataGridView();
             this.panel6 = new System.Windows.Forms.Panel();
             this.txt_MucGG = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -91,6 +88,9 @@
             this.txt_soHD = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.dataV_chiTietDatHang = new System.Windows.Forms.DataGridView();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -101,9 +101,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_khachHang)).BeginInit();
             this.panel3.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataV_chiTietDatHang)).BeginInit();
-            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -707,42 +707,6 @@
             this.tabPage3.Text = "Chi Tiết Đặt Hàng";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // tabPage4
-            // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 23);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1107, 596);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "tabPage4";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // panel5
-            // 
-            this.panel5.BackgroundImage = global::BanhangForm.Properties.Resources.pngtree_blue_simple_geometric_art_banner_image_1540196;
-            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel5.Controls.Add(this.dataV_chiTietDatHang);
-            this.panel5.Location = new System.Drawing.Point(3, 6);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1091, 395);
-            this.panel5.TabIndex = 3;
-            // 
-            // dataV_chiTietDatHang
-            // 
-            this.dataV_chiTietDatHang.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataV_chiTietDatHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataV_chiTietDatHang.BackgroundColor = System.Drawing.Color.White;
-            this.dataV_chiTietDatHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataV_chiTietDatHang.GridColor = System.Drawing.Color.DimGray;
-            this.dataV_chiTietDatHang.Location = new System.Drawing.Point(105, 49);
-            this.dataV_chiTietDatHang.Name = "dataV_chiTietDatHang";
-            this.dataV_chiTietDatHang.ReadOnly = true;
-            this.dataV_chiTietDatHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataV_chiTietDatHang.Size = new System.Drawing.Size(880, 297);
-            this.dataV_chiTietDatHang.TabIndex = 1;
-            // 
             // panel6
             // 
             this.panel6.AutoSize = true;
@@ -847,6 +811,7 @@
             this.button4.TabIndex = 12;
             this.button4.Text = "Xóa";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -860,6 +825,7 @@
             this.button5.TabIndex = 11;
             this.button5.Text = "Sửa";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -921,6 +887,42 @@
             this.label23.TabIndex = 0;
             this.label23.Text = "Số Hóa Đơn:";
             // 
+            // panel5
+            // 
+            this.panel5.BackgroundImage = global::BanhangForm.Properties.Resources.pngtree_blue_simple_geometric_art_banner_image_1540196;
+            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel5.Controls.Add(this.dataV_chiTietDatHang);
+            this.panel5.Location = new System.Drawing.Point(3, 6);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1091, 395);
+            this.panel5.TabIndex = 3;
+            // 
+            // dataV_chiTietDatHang
+            // 
+            this.dataV_chiTietDatHang.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataV_chiTietDatHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataV_chiTietDatHang.BackgroundColor = System.Drawing.Color.White;
+            this.dataV_chiTietDatHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataV_chiTietDatHang.GridColor = System.Drawing.Color.DimGray;
+            this.dataV_chiTietDatHang.Location = new System.Drawing.Point(105, 49);
+            this.dataV_chiTietDatHang.Name = "dataV_chiTietDatHang";
+            this.dataV_chiTietDatHang.ReadOnly = true;
+            this.dataV_chiTietDatHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataV_chiTietDatHang.Size = new System.Drawing.Size(880, 297);
+            this.dataV_chiTietDatHang.TabIndex = 1;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Location = new System.Drawing.Point(4, 23);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1107, 596);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "tabPage4";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -946,10 +948,10 @@
             this.panel3.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataV_chiTietDatHang)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataV_chiTietDatHang)).EndInit();
             this.ResumeLayout(false);
 
         }
