@@ -71,6 +71,8 @@ namespace BanhangForm
 
         private void button1_Click(object sender, EventArgs e)
         {
+            // lấy tất cả dữ liệu đã nhập xuống:
+            // Nên check lỗi người dùng nhập! => nếu mà lỗi thì return;
             string mahang = this.textBox_maH.Text;
             string tenhang=this.textBox_tenH.Text;  
             string maCongTy=this.textBox_MaCTY.Text;    
@@ -79,21 +81,57 @@ namespace BanhangForm
             string donViTinh = this.textBox_DVT.Text;
            SqlMoney giaHang =SqlMoney.Parse(this.textBox_gia .Text);
             qLmatHang = new QLmatHang(mahang,tenhang,maCongTy,maLoaiHang,soLuong,donViTinh,giaHang);
+            
+            
 
-            if (modify.insert(qLmatHang))
+            // tao demo thực hiện proceduce - chuỗi k phải sql nữa mà là tên proceduce
+            // chuẩn bị tên proceduce:
+            string query = "sp_mathang_Insert";
+            // new đối tượng thư viên để gọi các hàm trong thư viện:
+            libDB lib = new libDB(chuoiketnoi);
+            SqlCommand cmd = lib.GetCmd(query); // lấy về đối tượng sqlcomman
+
+            // Cần phải truyền dũ liệu cho cmd 
+            truyenParameterMatHang(ref cmd, qLmatHang);
+
+
+            // thực hiện proceduce bằng cách là gọi  thư viên
+            try
             {
-                dataGridView1.DataSource=modify.getAllMatHang();    
+                // đây là câu lệnh thêm nên 
+                int kq = lib.RunSQL(cmd);
+                if (kq > 0)
+                {
+                    MessageBox.Show("thêm thành công!");
+                    Form1_Load(sender, e);
+                    xoaThongTin();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Lỗi: "+ "không thêm được","Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                MessageBox.Show(ex.Message, "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+
             }
 
+        }
+        private void truyenParameterMatHang(ref SqlCommand cmd, QLmatHang qLmatHang)
+        {
 
+            cmd.Parameters.Add("@mahang", SqlDbType.NVarChar).Value = qLmatHang.MaHang;
+            cmd.Parameters.Add("@tenhang", SqlDbType.NVarChar).Value = qLmatHang.TenHang;
+            cmd.Parameters.Add("@macongty", SqlDbType.NVarChar).Value = qLmatHang.Soluong;
+            cmd.Parameters.Add("@maloaihang", SqlDbType.NVarChar).Value = qLmatHang.Maloaihang;
+            cmd.Parameters.Add("@soluong", SqlDbType.Int).Value = qLmatHang.Soluong;
+            cmd.Parameters.Add("@donvitinh", SqlDbType.NVarChar).Value = qLmatHang.DonviTinh;
+            cmd.Parameters.Add("@giahang", SqlDbType.Money).Value = qLmatHang.GiaHang;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            // lấy tất cả dữ liệu đã nhập xuống:
+            // Nên check lỗi người dùng nhập! => nếu mà lỗi thì return;
             string mahang = this.textBox_maH.Text;
             string tenhang = this.textBox_tenH.Text;
             string maCongTy = this.textBox_MaCTY.Text;
@@ -103,27 +141,87 @@ namespace BanhangForm
             SqlMoney giaHang = SqlMoney.Parse(this.textBox_gia.Text);
             qLmatHang = new QLmatHang(mahang, tenhang, maCongTy, maLoaiHang, soLuong, donViTinh, giaHang);
 
-            if (modify.Update(qLmatHang))
-            {
-                dataGridView1.DataSource = modify.getAllMatHang();
-            }
-            else
-            {
-                MessageBox.Show("Lỗi: " + "không sửa được", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
 
+
+            // tao demo thực hiện proceduce - chuỗi k phải sql nữa mà là tên proceduce
+            // chuẩn bị tên proceduce:
+            string query = "sp_mathang_Update";
+            // new đối tượng thư viên để gọi các hàm trong thư viện:
+            libDB lib = new libDB(chuoiketnoi);
+            SqlCommand cmd = lib.GetCmd(query); // lấy về đối tượng sqlcomman
+
+            // Cần phải truyền dũ liệu cho cmd 
+            truyenParameterMatHang(ref cmd, qLmatHang);
+
+
+            // thực hiện proceduce bằng cách là gọi  thư viên
+            try
+            {
+                // đây là câu lệnh thêm nên 
+                int kq = lib.RunSQL(cmd);
+                if (kq > 0)
+                {
+                    MessageBox.Show("sửa thành công!");
+                    Form1_Load(sender, e);
+                    xoaThongTin();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string mahang = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-            if (modify.Delete(mahang))
+            if (dataGridView1.SelectedRows.Count > 0)
             {
-                dataGridView1.DataSource = modify.getAllMatHang();
+                DataGridViewRow row = dataGridView1.SelectedRows[0];
+                // Thay "sohoadon" bằng tên cột chứa số hóa đơn
+                string mahang = row.Cells["mahang"].Value.ToString();
+               /* string tenhang = row.Cells["tenhang"].Value.ToString();
+                string macongty = row.Cells["macongty"].Value.ToString();
+                int maloaihang = Convert.ToInt32(row.Cells["maloaihang"].Value);// Thay "mahang" bằng tên cột chứa mã hàng
+
+                int soluong = Convert.ToInt32(row.Cells["soluong"].Value);
+                string donvitinh = row.Cells["donvitinh"].Value.ToString();
+                double giahang = Convert.ToDouble(row.Cells["giahang"].Value);*/
+
+                // Tạo câu truy vấn SQL hoặc gọi procedure để xóa dữ liệu
+                string query = "sp_mathang_Delete";
+               libDB lib = new libDB(chuoiketnoi);
+                SqlCommand cmd = lib.GetCmd(query);
+
+              /*  // Truyền tham số cho cmd
+                cmd.Parameters.Add("@Tenhang", SqlDbType.NVarChar).Value = tenhang;
+                cmd.Parameters.Add("@Macongty", SqlDbType.NVarChar).Value = macongty;
+                cmd.Parameters.Add("@Maloaihang", SqlDbType.Int).Value = maloaihang;*/
+                cmd.Parameters.Add("@Mahang", SqlDbType.NVarChar, 10).Value = mahang;
+                /*cmd.Parameters.Add("@Soluong", SqlDbType.Int).Value = soluong;
+                cmd.Parameters.Add("@Donvitinh", SqlDbType.NVarChar).Value = donvitinh;
+                cmd.Parameters.Add("@Giahang", SqlDbType.Money).Value = giahang;*/
+
+                try
+                {
+                    int kq = lib.RunSQL(cmd);
+                    if (kq > 0)
+                    {
+                        MessageBox.Show("Xóa thành công!");
+                        Form1_Load(sender, e);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
             }
             else
             {
-                MessageBox.Show("Lỗi: " + "không XÓA được", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Vui lòng chọn một dòng để xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -335,11 +433,7 @@ namespace BanhangForm
 
                 // Cần phải truyền dũ liệu cho cmd 
                 truyenParameter(ref cmd, qLloaiHang );
-                //cmd.Parameters.Add("@Sohoadon", SqlDbType.Int).Value = chitietdonhang.Sohoadon;
-                //cmd.Parameters.Add("@Mahang", SqlDbType.NVarChar, 10).Value = chitietdonhang.Mahang;
-                //cmd.Parameters.Add("@Soluong", SqlDbType.SmallInt).Value = chitietdonhang.Soluong;
-                //cmd.Parameters.Add("@Mucgiamgia", SqlDbType.Real).Value = chitietdonhang.Mucgiamga;
-                //cmd.Parameters.Add("@Giaban", SqlDbType.Money).Value = chitietdonhang.Giaban;
+                
 
                 // thực hiện proceduce bằng cách là gọi  thư viên
                 try
