@@ -251,17 +251,50 @@ namespace BanhangForm
             string fax =this.textBox_Fax.Text;
             string TenKhachhang =this.textBox_tenKH.Text;
             qLkhachHang = new QLkhachHang(makhachhang, Tencongty, tengiaodich, diaChi, email, dienThoai, fax, TenKhachhang);
+            // tao demo thực hiện proceduce - chuỗi k phải sql nữa mà là tên proceduce
+            // chuẩn bị tên proceduce:
+            string query = "sp_khachhang_Insert";
+            // new đối tượng thư viên để gọi các hàm trong thư viện:
+            libDB lib = new libDB(chuoiketnoi);
+            SqlCommand cmd = lib.GetCmd(query); // lấy về đối tượng sqlcomman
 
-            if (modifyKhachHang.insert(qLkhachHang))
+            // Cần phải truyền dũ liệu cho cmd 
+            truyenParameterMatHang(ref cmd, qLmatHang);
+
+
+            // thực hiện proceduce bằng cách là gọi  thư viên
+            try
             {
-                dataGridView_khachHang.DataSource = modifyKhachHang.getAllKhachhang();
+                // đây là câu lệnh thêm nên 
+                int kq = lib.RunSQL(cmd);
+                if (kq > 0)
+                {
+                    MessageBox.Show("sửa thành công!");
+                    Form1_Load(sender, e);
+                    xoaThongTin();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Lỗi: " + "không thêm được", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                MessageBox.Show(ex.Message, "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+
             }
 
 
+        }
+        private void truyenParameterkhachHang(ref SqlCommand cmd, QLkhachHang qLkhachHang)
+        {
+
+            cmd.Parameters.Add("@makhachhang", SqlDbType.NVarChar).Value = qLkhachHang.MaKhachHang;
+            cmd.Parameters.Add("@tencongty", SqlDbType.NVarChar).Value = qLkhachHang.TenCongTy1;
+            cmd.Parameters.Add("@tengiaodich", SqlDbType.NVarChar).Value = qLkhachHang.TenGiaoDich;
+            cmd.Parameters.Add("@diachi", SqlDbType.NVarChar).Value = qLkhachHang.DiaChi;
+            cmd.Parameters.Add("@email", SqlDbType.NVarChar).Value = qLkhachHang.Email;
+            cmd.Parameters.Add("@dienthoai", SqlDbType.NVarChar).Value = qLkhachHang.DienThoai;
+            cmd.Parameters.Add("@fax", SqlDbType.NVarChar).Value = qLkhachHang.Fax;
+            cmd.Parameters.Add("@TenKhachHang", SqlDbType.NVarChar).Value = qLkhachHang.TenKhachHang;
         }
 
         private void button2_Click_1(object sender, EventArgs e)
