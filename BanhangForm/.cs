@@ -1204,6 +1204,11 @@ namespace BanhangForm
              
 
         }
+
+        private void txt_dienthoai_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
     }
 
