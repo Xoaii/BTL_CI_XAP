@@ -482,28 +482,18 @@ namespace BanhangForm
                 // Thay "sohoadon" bằng tên cột chứa số hóa đơn
                int sohoadon = Convert.ToInt32( row.Cells["sohoadon"].Value.ToString());
                 string mahang = row.Cells["mahang"].Value.ToString();
-                /* string tenhang = row.Cells["tenhang"].Value.ToString();
-                 string macongty = row.Cells["macongty"].Value.ToString();
-                 int maloaihang = Convert.ToInt32(row.Cells["maloaihang"].Value);// Thay "mahang" bằng tên cột chứa mã hàng
-
-                 int soluong = Convert.ToInt32(row.Cells["soluong"].Value);
-                 string donvitinh = row.Cells["donvitinh"].Value.ToString();
-                 double giahang = Convert.ToDouble(row.Cells["giahang"].Value);*/
+                
 
                 // Tạo câu truy vấn SQL hoặc gọi procedure để xóa dữ liệu
                 string query = "sp_chitietdathang_Delete";
                 libDB lib = new libDB(chuoiketnoi);
                 SqlCommand cmd = lib.GetCmd(query);
 
-                /*  // Truyền tham số cho cmd
-                  cmd.Parameters.Add("@Tenhang", SqlDbType.NVarChar).Value = tenhang;
-                  cmd.Parameters.Add("@Macongty", SqlDbType.NVarChar).Value = macongty;
-                  cmd.Parameters.Add("@Maloaihang", SqlDbType.Int).Value = maloaihang;*/
+                 // Truyền tham số cho cmd
+                  
                 cmd.Parameters.Add("@sohoadon", SqlDbType.Int).Value = sohoadon;
                 cmd.Parameters.Add("@mahang", SqlDbType.NVarChar,10).Value =mahang;
-                /*cmd.Parameters.Add("@Soluong", SqlDbType.Int).Value = soluong;
-                cmd.Parameters.Add("@Donvitinh", SqlDbType.NVarChar).Value = donvitinh;
-                cmd.Parameters.Add("@Giahang", SqlDbType.Money).Value = giahang;*/
+                
 
                 try
                 {
@@ -545,13 +535,35 @@ namespace BanhangForm
             DateTime ngaygiaohang = this.date_giaohang.Value;
             string noigiao =this.txt_noigiao.Text;
             qldonDatHang = new QLdonDatHang(sohoadon, makhachhang, manhanvien, ngaydathang, ngaygiaohang, noigiao);
-            if (modifyDonDatHang.insert (qldonDatHang))
+            // tao demo thực hiện proceduce - chuỗi k phải sql nữa mà là tên proceduce
+            // chuẩn bị tên proceduce:
+            string query = "sp_dondathang_Insert";
+            // new đối tượng thư viên để gọi các hàm trong thư viện:
+            libDB lib = new libDB(chuoiketnoi);
+            SqlCommand cmd = lib.GetCmd(query); // lấy về đối tượng sqlcomman
+
+            // Cần phải truyền dũ liệu cho cmd 
+            truyenParameterDonDatHang(ref cmd, qldonDatHang);
+
+
+            // thực hiện proceduce bằng cách là gọi  thư viên
+            try
             {
-                data_DonDatHang.DataSource = modifyDonDatHang.getAllDonDatHang();
+                // đây là câu lệnh thêm nên 
+                int kq = lib.RunSQL(cmd);
+                if (kq > 0)
+                {
+                    MessageBox.Show("thêm thành công!");
+                    Form1_Load(sender, e);
+                    xoaThongTin();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Lỗi: " + "không thêm được", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                MessageBox.Show(ex.Message, "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+
             }
         }
 
@@ -564,28 +576,90 @@ namespace BanhangForm
             DateTime ngaygiaohang = this.date_giaohang.Value;
             string noigiao = this.txt_noigiao.Text;
             qldonDatHang = new QLdonDatHang(sohoadon, makhachhang, manhanvien, ngaydathang, ngaygiaohang, noigiao);
-            if (modifyDonDatHang.Update(qldonDatHang))
+            // tao demo thực hiện proceduce - chuỗi k phải sql nữa mà là tên proceduce
+            // chuẩn bị tên proceduce:
+            string query = "sp_dondathang_Update";
+            // new đối tượng thư viên để gọi các hàm trong thư viện:
+            libDB lib = new libDB(chuoiketnoi);
+            SqlCommand cmd = lib.GetCmd(query); // lấy về đối tượng sqlcomman
+
+            // Cần phải truyền dũ liệu cho cmd 
+            truyenParameterDonDatHang(ref cmd, qldonDatHang);
+
+
+            // thực hiện proceduce bằng cách là gọi  thư viên
+            try
             {
-                data_DonDatHang.DataSource = modifyDonDatHang.getAllDonDatHang();
+                // đây là câu lệnh thêm nên 
+                int kq = lib.RunSQL(cmd);
+                if (kq > 0)
+                {
+                    MessageBox.Show("sửa thành công!");
+                    Form1_Load(sender, e);
+                    xoaThongTin();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Lỗi: " + "không sửa được", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                MessageBox.Show(ex.Message, "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+
             }
 
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            int sohoadon = Convert.ToInt32(data_DonDatHang.SelectedRows[0].Cells[0].Value.ToString());
-            if (modifyDonDatHang.Delete(sohoadon))
+            if (data_DonDatHang.SelectedRows.Count > 0)
             {
-               data_DonDatHang.DataSource = modifyDonDatHang.getAllDonDatHang();
+                DataGridViewRow row = data_DonDatHang.SelectedRows[0];
+                // Thay "sohoadon" bằng tên cột chứa số hóa đơn
+                int sohoadon = Convert.ToInt32(row.Cells["sohoadon"].Value.ToString());
+                
+
+
+                // Tạo câu truy vấn SQL hoặc gọi procedure để xóa dữ liệu
+                string query = "sp_dondathang_Delete";
+                libDB lib = new libDB(chuoiketnoi);
+                SqlCommand cmd = lib.GetCmd(query);
+
+                // Truyền tham số cho cmd
+
+                cmd.Parameters.Add("@sohoadon", SqlDbType.Int).Value = sohoadon;
+                
+
+
+                try
+                {
+                    int kq = lib.RunSQL(cmd);
+                    if (kq > 0)
+                    {
+                        MessageBox.Show("Xóa thành công!");
+                        Form1_Load(sender, e);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
             }
             else
             {
-                MessageBox.Show("Lỗi: " + "không xóa được", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Vui lòng chọn một dòng để xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
+        }
+        private void truyenParameterDonDatHang(ref SqlCommand cmd,QLdonDatHang qLdonDatHang)
+        {
+
+            cmd.Parameters.Add("@sohoadon", SqlDbType.Int).Value = qLdonDatHang.Sohoadon;
+            cmd.Parameters.Add("@makhachhang", SqlDbType.NVarChar).Value = qLdonDatHang.Makhachhang;
+            cmd.Parameters.Add("@manhanvien", SqlDbType.NVarChar).Value = qLdonDatHang.Manhanvien;
+            cmd.Parameters.Add("@ngaydathang", SqlDbType.Date).Value = qLdonDatHang.Ngaydathang.ToShortDateString();
+            cmd.Parameters.Add("@ngaygiaohang", SqlDbType.Date).Value = qLdonDatHang.Ngaygiaohang.ToLongDateString();
+            cmd.Parameters.Add("@noigiaohang", SqlDbType.NVarChar).Value = qLdonDatHang.Noigiaohang;
 
         }
 
