@@ -53,22 +53,16 @@
       <DependentUpon>.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="chitietDathang\ModifyChiTet.cs" />
-    <Compile Include="connect.cs" />
-    <Compile Include="DoDatHang\ModifyDonDatHang.cs" />
-    <Compile Include="DoDatHang\QLdonDatHang.cs" />
-    <Compile Include="KhachHang\ModifyKhachHang.cs" />
-    <Compile Include="KhachHang\QLkhachHang.cs" />
+    <Compile Include="QLdonDatHang.cs" />
+    <Compile Include="QLkhachHang.cs" />
     <Compile Include="libDB.cs" />
-    <Compile Include="LoaiHang\ModifyLoaiHang.cs" />
-    <Compile Include="LoaiHang\QLloaiHang.cs" />
-    <Compile Include="MatHang\Modify.cs" />
-    <Compile Include="NCC\connet_NCC.cs" />
-    <Compile Include="NCC\QLNCC.cs" />
+    <Compile Include="QLloaiHang.cs" />
+    <Compile Include="QLNCC.cs" />
+    <Compile Include="nhanVien.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="MatHang\QLmatHang.cs" />
-    <Compile Include="chitietDathang\QLchiTietDonHang.cs" />
+    <Compile Include="QLmatHang.cs" />
+    <Compile Include="QLchiTietDonHang.cs" />
     <EmbeddedResource Include=".resx">
       <DependentUpon>.cs</DependentUpon>
     </EmbeddedResource>

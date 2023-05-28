@@ -1,4 +1,4 @@
-﻿using BanhangForm.chitietDathang;
+﻿
 using BanhangForm.DoDatHang;
 using BanhangForm.KhachHang;
 using BanhangForm.LoaiHang;
@@ -20,23 +20,7 @@ namespace BanhangForm
     public partial class Form1 : Form
     {
         string chuoiketnoi = @"Data Source=MSI\XOAII;Initial Catalog=BANHANG_DT;Integrated Security=True";
-        //Mạt hàng
-        Modify modify;
-        QLmatHang qLmatHang;
-        //Khách hàng
-        ModifyKhachHang modifyKhachHang;
-        QLkhachHang qLkhachHang;
-        //chi tiết đặt hàng
-        ModifyChiTet modifyChiTet;
-        QLchiTietDonHang qLchiTietDonHang;
-        //đơn đặt hàng
-        ModifyDonDatHang modifyDonDatHang;
-        QLdonDatHang qldonDatHang;
-        //loại hàng
-        QLloaiHang qLloaiHang;
-        ModifyLoaiHang modifyLoai;
-        //ncc
-        QLNCC qLNCC;
+        
 
         public Form1()
         {
@@ -51,28 +35,83 @@ namespace BanhangForm
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            modify = new Modify();
-            modifyKhachHang = new ModifyKhachHang();
-            modifyChiTet =new ModifyChiTet();
-            modifyDonDatHang= new ModifyDonDatHang();   
-            modifyLoai =new ModifyLoaiHang();
-            //khai báo kết nối ncc
-            connet_NCC connet_NCC = new connet_NCC();   
-            //đổ dữu liệu
-            try
-            {
-                dataGridView1.DataSource = modify.getAllMatHang();
-                dataGridView_khachHang.DataSource = modifyKhachHang.getAllKhachhang();
-                dataV_chiTietDatHang.DataSource = modifyChiTet.getAllchiTiet();
-                data_DonDatHang.DataSource=modifyDonDatHang.getAllDonDatHang();
-                dataGridView_LoaiHang.DataSource = modifyLoai.getAllLoaiHang();
-                data_NCC.DataSource =connet_NCC.getAllNCC();
-               
-            }
-            catch(Exception ex) 
-            {
-                MessageBox.Show("Lỗi: " + ex.Message,"Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            
+            SqlConnection cn = new SqlConnection(chuoiketnoi);
+            cn.Open();
+            //mathang
+            //step2: thực thi 1 sql: dạng lệnh
+            SqlCommand cm = new SqlCommand("select *from mathang", cn);
+            SqlDataReader dr = cm.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(dr);
+           
+            //step3: dọn dẹp
+            dr.Close();
+            //khachhang
+            //step2: thực thi 1 sql: dạng lệnh
+            SqlCommand cmkhachhang = new SqlCommand("select *from khachhang", cn);
+            SqlDataReader drKhachHang = cmkhachhang.ExecuteReader();
+            DataTable dtkhachhang = new DataTable();
+            dtkhachhang.Load(drKhachHang);
+
+            //step3: dọn dẹp
+            drKhachHang.Close();
+            //chi tiết đặt hàng
+            //step2: thực thi 1 sql: dạng lệnh
+            SqlCommand cmchiTiet = new SqlCommand("select *from chitietdathang", cn);
+            SqlDataReader drchiTiet = cmchiTiet.ExecuteReader();
+            DataTable dtchiTiet = new DataTable();
+            dtchiTiet.Load(drchiTiet);
+
+            //step3: dọn dẹp
+            drchiTiet.Close();
+            //đơn đặt hàng
+            //step2: thực thi 1 sql: dạng lệnh
+            SqlCommand cmDonDat = new SqlCommand("select *from dondathang", cn);
+            SqlDataReader drdonDat = cmDonDat.ExecuteReader();
+            DataTable dtDonDat = new DataTable();
+            dtDonDat.Load(drdonDat);
+            drdonDat.Close();
+            // loại hàng
+            //step2: thực thi 1 sql: dạng lệnh
+            SqlCommand cmLoaiHang = new SqlCommand("select *from loaihang", cn);
+            SqlDataReader drLoaiHang = cmLoaiHang.ExecuteReader();
+            DataTable dtLoaiHang = new DataTable();
+            dtLoaiHang.Load(drLoaiHang);
+           drLoaiHang.Close();
+            // nhà cung cấp
+            //step2: thực thi 1 sql: dạng lệnh
+            SqlCommand cmNCC = new SqlCommand("select *from nhacungcap", cn);
+            SqlDataReader drNCC = cmNCC.ExecuteReader();
+            DataTable dtNCC = new DataTable();
+            dtNCC.Load(drNCC);
+            drNCC.Close();
+
+
+
+            cm.Dispose();
+            cmkhachhang.Dispose();
+            cmchiTiet.Dispose();
+            cmDonDat.Dispose();
+            cmLoaiHang.Dispose();  
+            cmNCC.Dispose();    
+           
+            cn.Close();
+            cn.Dispose();
+
+            //step4: display
+            dataGridView1.DataSource = dt;
+            dataGridView_khachHang.DataSource = dtkhachhang;
+            dataV_chiTietDatHang.DataSource = dtchiTiet;
+            data_DonDatHang.DataSource = dtDonDat;
+            dataGridView_LoaiHang.DataSource = dtLoaiHang;
+            data_NCC.DataSource = dtNCC;
+            dt.Dispose();
+            dtkhachhang.Dispose();
+            dtchiTiet.Dispose();
+            dtDonDat.Dispose();
+            dtLoaiHang.Dispose();
+            dtNCC.Dispose();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -86,7 +125,7 @@ namespace BanhangForm
             int soLuong =Convert.ToInt32(this.textBox_soLuong.Text);
             string donViTinh = this.textBox_DVT.Text;
            SqlMoney giaHang =SqlMoney.Parse(this.textBox_gia .Text);
-            qLmatHang = new QLmatHang(mahang,tenhang,maCongTy,maLoaiHang,soLuong,donViTinh,giaHang);
+           QLmatHang qLmatHang = new QLmatHang(mahang,tenhang,maCongTy,maLoaiHang,soLuong,donViTinh,giaHang);
             
             
 
@@ -145,7 +184,7 @@ namespace BanhangForm
             int soLuong = Convert.ToInt32(this.textBox_soLuong.Text);
             string donViTinh = this.textBox_DVT.Text;
             SqlMoney giaHang = SqlMoney.Parse(this.textBox_gia.Text);
-            qLmatHang = new QLmatHang(mahang, tenhang, maCongTy, maLoaiHang, soLuong, donViTinh, giaHang);
+            QLmatHang qLmatHang = new QLmatHang(mahang, tenhang, maCongTy, maLoaiHang, soLuong, donViTinh, giaHang);
 
 
 
@@ -256,7 +295,7 @@ namespace BanhangForm
             string dienThoai = this.textBox_dienThoai.Text;
             string fax =this.textBox_Fax.Text;
             string TenKhachhang =this.textBox_tenKH.Text;
-            qLkhachHang = new QLkhachHang(makhachhang, Tencongty, tengiaodich, diaChi, email, dienThoai, fax, TenKhachhang);
+            QLkhachHang qLkhachHang = new QLkhachHang(makhachhang, Tencongty, tengiaodich, diaChi, email, dienThoai, fax, TenKhachhang);
             // tao demo thực hiện proceduce - chuỗi k phải sql nữa mà là tên proceduce
             // chuẩn bị tên proceduce:
             string query = "sp_khachhang_Insert";
@@ -302,7 +341,7 @@ namespace BanhangForm
             string dienThoai = this.textBox_dienThoai.Text;
             string fax = this.textBox_Fax.Text;
             string TenKhachhang = this.textBox_tenKH.Text;
-            qLkhachHang = new QLkhachHang(makhachhang, Tencongty, tengiaodich, diaChi, email, dienThoai, fax, TenKhachhang);
+            QLkhachHang qLkhachHang = new QLkhachHang(makhachhang, Tencongty, tengiaodich, diaChi, email, dienThoai, fax, TenKhachhang);
             // tao demo thực hiện proceduce - chuỗi k phải sql nữa mà là tên proceduce
             // chuẩn bị tên proceduce:
             string query = "sp_khachhang_Update";
@@ -406,7 +445,7 @@ namespace BanhangForm
             SqlMoney giaban=SqlMoney.Parse(this.txt_giaBan.Text);
             int soluong = Convert.ToInt16(this.txt_soLuong.Text);
             double mucgiamgia = Convert.ToDouble(this.txt_MucGG.Text);
-            qLchiTietDonHang = new QLchiTietDonHang(sohoadon, mahang, giaban, soluong, mucgiamgia);
+           QLchiTietDonHang qLchiTietDonHang = new QLchiTietDonHang(sohoadon, mahang, giaban, soluong, mucgiamgia);
             // tao demo thực hiện proceduce - chuỗi k phải sql nữa mà là tên proceduce
             // chuẩn bị tên proceduce:
             string query = "sp_chitietdathang_Insert";
@@ -447,7 +486,7 @@ namespace BanhangForm
             SqlMoney giaban = SqlMoney.Parse(this.txt_giaBan.Text);
             int soluong = Convert.ToInt16(this.txt_soLuong.Text);
             double mucgiamgia = Convert.ToDouble(this.txt_MucGG.Text);
-            qLchiTietDonHang = new QLchiTietDonHang(sohoadon, mahang, giaban, soluong, mucgiamgia);
+           QLchiTietDonHang qLchiTietDonHang = new QLchiTietDonHang(sohoadon, mahang, giaban, soluong, mucgiamgia);
             // tao demo thực hiện proceduce - chuỗi k phải sql nữa mà là tên proceduce
             // chuẩn bị tên proceduce:
             string query = "sp_chitietdathang_Update";
@@ -540,7 +579,7 @@ namespace BanhangForm
             DateTime ngaydathang = this.date_DatHang.Value;
             DateTime ngaygiaohang = this.date_giaohang.Value;
             string noigiao =this.txt_noigiao.Text;
-            qldonDatHang = new QLdonDatHang(sohoadon, makhachhang, manhanvien, ngaydathang, ngaygiaohang, noigiao);
+            QLdonDatHang qldonDatHang = new QLdonDatHang(sohoadon, makhachhang, manhanvien, ngaydathang, ngaygiaohang, noigiao);
             // tao demo thực hiện proceduce - chuỗi k phải sql nữa mà là tên proceduce
             // chuẩn bị tên proceduce:
             string query = "sp_dondathang_Insert";
@@ -581,7 +620,7 @@ namespace BanhangForm
             DateTime ngaydathang = this.date_DatHang.Value;
             DateTime ngaygiaohang = this.date_giaohang.Value;
             string noigiao = this.txt_noigiao.Text;
-            qldonDatHang = new QLdonDatHang(sohoadon, makhachhang, manhanvien, ngaydathang, ngaygiaohang, noigiao);
+           QLdonDatHang qldonDatHang = new QLdonDatHang(sohoadon, makhachhang, manhanvien, ngaydathang, ngaygiaohang, noigiao);
             // tao demo thực hiện proceduce - chuỗi k phải sql nữa mà là tên proceduce
             // chuẩn bị tên proceduce:
             string query = "sp_dondathang_Update";
@@ -686,7 +725,7 @@ namespace BanhangForm
                 // Nên check lỗi người dùng nhập! => nếu mà lỗi thì return;
                int maloaihang = Convert.ToInt32( this.txt_maLoaiHang.Text);
             string tenloaihang = this.txt_tenLoaiHang.Text;
-            qLloaiHang = new QLloaiHang(maloaihang, tenloaihang);   
+           QLloaiHang qLloaiHang = new QLloaiHang(maloaihang, tenloaihang);   
 
                 // tao demo thực hiện proceduce - chuỗi k phải sql nữa mà là tên proceduce
                 // chuẩn bị tên proceduce:
@@ -734,7 +773,7 @@ namespace BanhangForm
 
             int maloaihang = Convert.ToInt32(this.txt_maLoaiHang.Text);
             string tenloaihang = this.txt_tenLoaiHang.Text;
-            qLloaiHang = new QLloaiHang(maloaihang, tenloaihang);
+           QLloaiHang qLloaiHang = new QLloaiHang(maloaihang, tenloaihang);
 
             // tao demo thực hiện proceduce - chuỗi k phải sql nữa mà là tên proceduce
             // chuẩn bị tên proceduce:
@@ -827,7 +866,7 @@ namespace BanhangForm
             string dienthoai =this.txt_dienthoai.Text;
             string fax= this.txt_fax.Text;
             string email=this.text_mail.Text;
-            qLNCC = new QLNCC(macongty,tencongty,tengiaodich,diachi,dienthoai,fax,email); 
+           QLNCC qLNCC = new QLNCC(macongty,tencongty,tengiaodich,diachi,dienthoai,fax,email); 
 
 
 
@@ -875,7 +914,7 @@ namespace BanhangForm
             string dienthoai = this.txt_dienthoai.Text;
             string fax = this.txt_fax.Text;
             string email = this.text_mail.Text;
-            qLNCC = new QLNCC(macongty, tencongty, tengiaodich, diachi, dienthoai, fax, email);
+           QLNCC qLNCC = new QLNCC(macongty, tencongty, tengiaodich, diachi, dienthoai, fax, email);
 
 
 
@@ -965,6 +1004,31 @@ namespace BanhangForm
             cmd.Parameters.Add("@dienthoai", SqlDbType.NVarChar, 15).Value = qLNCC.Dienthoai;
             cmd.Parameters.Add("@fax", SqlDbType.NVarChar, 15).Value = qLNCC.Fax;
             cmd.Parameters.Add("@email", SqlDbType.NVarChar, 15).Value = qLNCC.Email;
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label41_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label40_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox5_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label37_Click(object sender, EventArgs e)
+        {
+
         }
     }
     }
