@@ -2,6 +2,7 @@
 using BanhangForm.DoDatHang;
 using BanhangForm.KhachHang;
 using BanhangForm.LoaiHang;
+using BanhangForm.NCC;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +19,7 @@ namespace BanhangForm
 {
     public partial class Form1 : Form
     {
+        string chuoiketnoi = @"Data Source=MSI\XOAII;Initial Catalog=BANHANG_DT;Integrated Security=True";
         //Mạt hàng
         Modify modify;
         QLmatHang qLmatHang;
@@ -30,10 +32,11 @@ namespace BanhangForm
         //đơn đặt hàng
         ModifyDonDatHang modifyDonDatHang;
         QLdonDatHang qldonDatHang;
-        libDB lib;
-        string chuoiketnoi = @"Data Source=MSI\XOAII;Initial Catalog=BANHANG_DT;Integrated Security=True";
+        //loại hàng
         QLloaiHang qLloaiHang;
         ModifyLoaiHang modifyLoai;
+        //ncc
+        QLNCC qLNCC;
 
         public Form1()
         {
@@ -53,6 +56,8 @@ namespace BanhangForm
             modifyChiTet =new ModifyChiTet();
             modifyDonDatHang= new ModifyDonDatHang();   
             modifyLoai =new ModifyLoaiHang();
+            //khai báo kết nối ncc
+            connet_NCC connet_NCC = new connet_NCC();   
             //đổ dữu liệu
             try
             {
@@ -61,6 +66,7 @@ namespace BanhangForm
                 dataV_chiTietDatHang.DataSource = modifyChiTet.getAllchiTiet();
                 data_DonDatHang.DataSource=modifyDonDatHang.getAllDonDatHang();
                 dataGridView_LoaiHang.DataSource = modifyLoai.getAllLoaiHang();
+                data_NCC.DataSource =connet_NCC.getAllNCC();
                
             }
             catch(Exception ex) 
@@ -690,7 +696,7 @@ namespace BanhangForm
                 SqlCommand cmd = lib.GetCmd(query); // lấy về đối tượng sqlcomman
 
                 // Cần phải truyền dũ liệu cho cmd 
-                truyenParameter(ref cmd, qLloaiHang );
+                truyenParameterLoaiHang(ref cmd, qLloaiHang );
                 
 
                 // thực hiện proceduce bằng cách là gọi  thư viên
@@ -721,12 +727,245 @@ namespace BanhangForm
 
             }
 
-            private void truyenParameter(ref SqlCommand cmd, QLloaiHang qLloaiHang)
+           
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+
+            int maloaihang = Convert.ToInt32(this.txt_maLoaiHang.Text);
+            string tenloaihang = this.txt_tenLoaiHang.Text;
+            qLloaiHang = new QLloaiHang(maloaihang, tenloaihang);
+
+            // tao demo thực hiện proceduce - chuỗi k phải sql nữa mà là tên proceduce
+            // chuẩn bị tên proceduce:
+            string query = "sp_loaihang_Update";
+            // new đối tượng thư viên để gọi các hàm trong thư viện:
+            libDB lib = new libDB(chuoiketnoi);
+            SqlCommand cmd = lib.GetCmd(query); // lấy về đối tượng sqlcomman
+
+            // Cần phải truyền dũ liệu cho cmd 
+            truyenParameterLoaiHang(ref cmd, qLloaiHang);
+
+
+            // thực hiện proceduce bằng cách là gọi  thư viên
+            try
+            {
+                // đây là câu lệnh thêm nên 
+                int kq = lib.RunSQL(cmd);
+                if (kq > 0)
+                {
+                    MessageBox.Show("sửa thành công!");
+                    Form1_Load(sender, e);
+                    xoaThongTin();
+                }
+            }
+            catch (Exception ex)
             {
 
-           cmd.Parameters.Add("@maloaihang", SqlDbType.Int).Value = qLloaiHang.Maloaihang;
+                MessageBox.Show(ex.Message, "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+
+            }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            if (dataGridView_LoaiHang.SelectedRows.Count > 0)
+            {
+                DataGridViewRow row = dataGridView_LoaiHang.SelectedRows[0];
+                // Thay "sohoadon" bằng tên cột chứa số hóa đơn
+                string maloaihang = row.Cells["maloaihang"].Value.ToString();
+
+
+
+                // Tạo câu truy vấn SQL hoặc gọi procedure để xóa dữ liệu
+                string query = "sp_dondathang_Delete";
+                libDB lib = new libDB(chuoiketnoi);
+                SqlCommand cmd = lib.GetCmd(query);
+
+                // Truyền tham số cho cmd
+
+                cmd.Parameters.Add("@maloaihang", SqlDbType.NVarChar).Value = maloaihang;
+
+
+
+                try
+                {
+                    int kq = lib.RunSQL(cmd);
+                    if (kq > 0)
+                    {
+                        MessageBox.Show("Xóa thành công!");
+                        Form1_Load(sender, e);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một dòng để xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        private void truyenParameterLoaiHang(ref SqlCommand cmd, QLloaiHang qLloaiHang)
+        {
+
+            cmd.Parameters.Add("@maloaihang", SqlDbType.Int).Value = qLloaiHang.Maloaihang;
             cmd.Parameters.Add("@tenloaihang", SqlDbType.NVarChar, 15).Value = qLloaiHang.Tenloaihang;
         }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            // lấy tất cả dữ liệu đã nhập xuống:
+            // Nên check lỗi người dùng nhập! => nếu mà lỗi thì return;
+            string macongty =this.txt_MaNCC.Text;
+            string tencongty =this.txt_tenCTY.Text;
+            string tengiaodich = this.txt_tenGD.Text;
+            string diachi =this.txt_diaChi.Text;
+            string dienthoai =this.txt_dienthoai.Text;
+            string fax= this.txt_fax.Text;
+            string email=this.text_mail.Text;
+            qLNCC = new QLNCC(macongty,tencongty,tengiaodich,diachi,dienthoai,fax,email); 
+
+
+
+
+            // tao demo thực hiện proceduce - chuỗi k phải sql nữa mà là tên proceduce
+            // chuẩn bị tên proceduce:
+            string query = "sp_nhacungcap_Insert";
+            // new đối tượng thư viên để gọi các hàm trong thư viện:
+            libDB lib = new libDB(chuoiketnoi);
+            SqlCommand cmd = lib.GetCmd(query); // lấy về đối tượng sqlcomman
+
+            // Cần phải truyền dũ liệu cho cmd 
+            truyenParameterNCC(ref cmd, qLNCC);
+
+
+            // thực hiện proceduce bằng cách là gọi  thư viên
+            try
+            {
+                // đây là câu lệnh thêm nên 
+                int kq = lib.RunSQL(cmd);
+                if (kq > 0)
+                {
+                    MessageBox.Show("thêm thành công!");
+                    Form1_Load(sender, e);
+                    xoaThongTin();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+
+            }
         }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            // lấy tất cả dữ liệu đã nhập xuống:
+            // Nên check lỗi người dùng nhập! => nếu mà lỗi thì return;
+            string macongty = this.txt_MaNCC.Text;
+            string tencongty = this.txt_tenCTY.Text;
+            string tengiaodich = this.txt_tenGD.Text;
+            string diachi = this.txt_diaChi.Text;
+            string dienthoai = this.txt_dienthoai.Text;
+            string fax = this.txt_fax.Text;
+            string email = this.text_mail.Text;
+            qLNCC = new QLNCC(macongty, tencongty, tengiaodich, diachi, dienthoai, fax, email);
+
+
+
+
+            // tao demo thực hiện proceduce - chuỗi k phải sql nữa mà là tên proceduce
+            // chuẩn bị tên proceduce:
+            string query = "sp_nhacungcap_Update";
+            // new đối tượng thư viên để gọi các hàm trong thư viện:
+            libDB lib = new libDB(chuoiketnoi);
+            SqlCommand cmd = lib.GetCmd(query); // lấy về đối tượng sqlcomman
+
+            // Cần phải truyền dũ liệu cho cmd 
+            truyenParameterNCC(ref cmd, qLNCC);
+
+
+            // thực hiện proceduce bằng cách là gọi  thư viên
+            try
+            {
+                // đây là câu lệnh thêm nên 
+                int kq = lib.RunSQL(cmd);
+                if (kq > 0)
+                {
+                    MessageBox.Show("sửa thành công!");
+                    Form1_Load(sender, e);
+                    xoaThongTin();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+
+            }
+
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            if (data_NCC.SelectedRows.Count > 0)
+            {
+                DataGridViewRow row = data_NCC.SelectedRows[0];
+                // Thay "sohoadon" bằng tên cột chứa số hóa đơn
+                string macongty = row.Cells["macongty"].Value.ToString();
+
+
+
+                // Tạo câu truy vấn SQL hoặc gọi procedure để xóa dữ liệu
+                string query = "sp_nhacungcap_Delete";
+                libDB lib = new libDB(chuoiketnoi);
+                SqlCommand cmd = lib.GetCmd(query);
+
+                // Truyền tham số cho cmd
+
+                cmd.Parameters.Add("@macongty", SqlDbType.NVarChar).Value = macongty;
+
+
+
+                try
+                {
+                    int kq = lib.RunSQL(cmd);
+                    if (kq > 0)
+                    {
+                        MessageBox.Show("Xóa thành công!");
+                        Form1_Load(sender, e);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một dòng để xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+        }
+        private void truyenParameterNCC(ref SqlCommand cmd, QLNCC qLNCC)
+        {
+
+            cmd.Parameters.Add("@Macongty", SqlDbType.NVarChar).Value = qLNCC.Macongty;
+            cmd.Parameters.Add("@tencongty", SqlDbType.NVarChar, 15).Value =qLNCC.Tencongty;
+            cmd.Parameters.Add("@tengiaodich", SqlDbType.NVarChar, 15).Value = qLNCC.Tengiaodich;
+            cmd.Parameters.Add("@diachi", SqlDbType.NVarChar, 15).Value = qLNCC.Diachi;
+            cmd.Parameters.Add("@dienthoai", SqlDbType.NVarChar, 15).Value = qLNCC.Dienthoai;
+            cmd.Parameters.Add("@fax", SqlDbType.NVarChar, 15).Value = qLNCC.Fax;
+            cmd.Parameters.Add("@email", SqlDbType.NVarChar, 15).Value = qLNCC.Email;
+        }
+    }
     }
 

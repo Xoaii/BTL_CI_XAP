@@ -122,6 +122,26 @@
             this.dataGridView_LoaiHang = new System.Windows.Forms.DataGridView();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.data_NCC = new System.Windows.Forms.DataGridView();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.txt_diaChi = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.txt_tenGD = new System.Windows.Forms.TextBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.button13 = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
+            this.button15 = new System.Windows.Forms.Button();
+            this.txt_tenCTY = new System.Windows.Forms.TextBox();
+            this.txt_MaNCC = new System.Windows.Forms.TextBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.txt_fax = new System.Windows.Forms.TextBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.text_mail = new System.Windows.Forms.TextBox();
+            this.label35 = new System.Windows.Forms.Label();
+            this.txt_dienthoai = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -143,6 +163,10 @@
             this.panel10.SuspendLayout();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_LoaiHang)).BeginInit();
+            this.tabPage6.SuspendLayout();
+            this.panel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.data_NCC)).BeginInit();
+            this.panel12.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -1265,6 +1289,7 @@
             this.button10.TabIndex = 12;
             this.button10.Text = "Xóa";
             this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // button11
             // 
@@ -1278,6 +1303,7 @@
             this.button11.TabIndex = 11;
             this.button11.Text = "Sửa";
             this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // button12
             // 
@@ -1352,6 +1378,8 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.panel12);
+            this.tabPage6.Controls.Add(this.panel11);
             this.tabPage6.Location = new System.Drawing.Point(4, 23);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
@@ -1369,6 +1397,268 @@
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Nhân Viên";
             this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // panel11
+            // 
+            this.panel11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel11.AutoSize = true;
+            this.panel11.BackgroundImage = global::BanhangForm.Properties.Resources.background_banner_xanh_dam_dep_phu_hop_thiet_ke_web_cong_thuc_toan_hoc;
+            this.panel11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel11.Controls.Add(this.data_NCC);
+            this.panel11.Location = new System.Drawing.Point(3, 3);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(1098, 403);
+            this.panel11.TabIndex = 3;
+            // 
+            // data_NCC
+            // 
+            this.data_NCC.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.data_NCC.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.data_NCC.BackgroundColor = System.Drawing.Color.White;
+            this.data_NCC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.data_NCC.GridColor = System.Drawing.Color.DimGray;
+            this.data_NCC.Location = new System.Drawing.Point(82, 51);
+            this.data_NCC.Name = "data_NCC";
+            this.data_NCC.ReadOnly = true;
+            this.data_NCC.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.data_NCC.Size = new System.Drawing.Size(919, 291);
+            this.data_NCC.TabIndex = 0;
+            // 
+            // panel12
+            // 
+            this.panel12.AutoSize = true;
+            this.panel12.BackgroundImage = global::BanhangForm.Properties.Resources._360_F_403029269_KCrGHt5AdtV7GSD2KeP8Wk2PYIbVKlNU;
+            this.panel12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel12.Controls.Add(this.txt_dienthoai);
+            this.panel12.Controls.Add(this.label29);
+            this.panel12.Controls.Add(this.text_mail);
+            this.panel12.Controls.Add(this.label35);
+            this.panel12.Controls.Add(this.txt_fax);
+            this.panel12.Controls.Add(this.label34);
+            this.panel12.Controls.Add(this.txt_diaChi);
+            this.panel12.Controls.Add(this.label28);
+            this.panel12.Controls.Add(this.txt_tenGD);
+            this.panel12.Controls.Add(this.label31);
+            this.panel12.Controls.Add(this.button13);
+            this.panel12.Controls.Add(this.button14);
+            this.panel12.Controls.Add(this.button15);
+            this.panel12.Controls.Add(this.txt_tenCTY);
+            this.panel12.Controls.Add(this.txt_MaNCC);
+            this.panel12.Controls.Add(this.label32);
+            this.panel12.Controls.Add(this.label33);
+            this.panel12.Location = new System.Drawing.Point(6, 409);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(1112, 191);
+            this.panel12.TabIndex = 5;
+            // 
+            // txt_diaChi
+            // 
+            this.txt_diaChi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_diaChi.Location = new System.Drawing.Point(644, 52);
+            this.txt_diaChi.Name = "txt_diaChi";
+            this.txt_diaChi.Size = new System.Drawing.Size(198, 20);
+            this.txt_diaChi.TabIndex = 18;
+            // 
+            // label28
+            // 
+            this.label28.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(523, 48);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(80, 22);
+            this.label28.TabIndex = 17;
+            this.label28.Text = "Địa chỉ:";
+            // 
+            // txt_tenGD
+            // 
+            this.txt_tenGD.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_tenGD.Location = new System.Drawing.Point(197, 140);
+            this.txt_tenGD.Name = "txt_tenGD";
+            this.txt_tenGD.Size = new System.Drawing.Size(239, 20);
+            this.txt_tenGD.TabIndex = 14;
+            // 
+            // label31
+            // 
+            this.label31.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(35, 135);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(119, 23);
+            this.label31.TabIndex = 13;
+            this.label31.Text = "Tên giao dịch:";
+            // 
+            // button13
+            // 
+            this.button13.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button13.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button13.Location = new System.Drawing.Point(901, 124);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(101, 48);
+            this.button13.TabIndex = 12;
+            this.button13.Text = "Xóa";
+            this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
+            // 
+            // button14
+            // 
+            this.button14.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button14.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button14.Location = new System.Drawing.Point(901, 76);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(101, 48);
+            this.button14.TabIndex = 11;
+            this.button14.Text = "Sửa";
+            this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
+            // 
+            // button15
+            // 
+            this.button15.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button15.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button15.Location = new System.Drawing.Point(901, 24);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(101, 48);
+            this.button15.TabIndex = 10;
+            this.button15.Text = "Thêm";
+            this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
+            // 
+            // txt_tenCTY
+            // 
+            this.txt_tenCTY.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_tenCTY.Location = new System.Drawing.Point(197, 99);
+            this.txt_tenCTY.Name = "txt_tenCTY";
+            this.txt_tenCTY.Size = new System.Drawing.Size(239, 20);
+            this.txt_tenCTY.TabIndex = 4;
+            // 
+            // txt_MaNCC
+            // 
+            this.txt_MaNCC.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_MaNCC.Location = new System.Drawing.Point(197, 52);
+            this.txt_MaNCC.Name = "txt_MaNCC";
+            this.txt_MaNCC.Size = new System.Drawing.Size(239, 20);
+            this.txt_MaNCC.TabIndex = 3;
+            // 
+            // label32
+            // 
+            this.label32.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.Location = new System.Drawing.Point(75, 96);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(79, 23);
+            this.label32.TabIndex = 1;
+            this.label32.Text = "Tên CTY:";
+            // 
+            // label33
+            // 
+            this.label33.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.Location = new System.Drawing.Point(75, 52);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(79, 20);
+            this.label33.TabIndex = 0;
+            this.label33.Text = "Mã NCC:";
+            // 
+            // txt_fax
+            // 
+            this.txt_fax.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_fax.Location = new System.Drawing.Point(644, 124);
+            this.txt_fax.Name = "txt_fax";
+            this.txt_fax.Size = new System.Drawing.Size(198, 20);
+            this.txt_fax.TabIndex = 20;
+            // 
+            // label34
+            // 
+            this.label34.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.Location = new System.Drawing.Point(552, 135);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(51, 22);
+            this.label34.TabIndex = 19;
+            this.label34.Text = "Fax:";
+            // 
+            // text_mail
+            // 
+            this.text_mail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.text_mail.Location = new System.Drawing.Point(644, 162);
+            this.text_mail.Name = "text_mail";
+            this.text_mail.Size = new System.Drawing.Size(198, 20);
+            this.text_mail.TabIndex = 22;
+            // 
+            // label35
+            // 
+            this.label35.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.Location = new System.Drawing.Point(535, 160);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(68, 22);
+            this.label35.TabIndex = 21;
+            this.label35.Text = "Email:";
+            // 
+            // txt_dienthoai
+            // 
+            this.txt_dienthoai.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_dienthoai.Location = new System.Drawing.Point(644, 85);
+            this.txt_dienthoai.Name = "txt_dienthoai";
+            this.txt_dienthoai.Size = new System.Drawing.Size(198, 20);
+            this.txt_dienthoai.TabIndex = 24;
+            // 
+            // label29
+            // 
+            this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Location = new System.Drawing.Point(493, 85);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(110, 22);
+            this.label29.TabIndex = 23;
+            this.label29.Text = "Điện thoại:";
             // 
             // Form1
             // 
@@ -1411,6 +1701,12 @@
             this.panel10.PerformLayout();
             this.panel9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_LoaiHang)).EndInit();
+            this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.data_NCC)).EndInit();
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1511,6 +1807,26 @@
         private System.Windows.Forms.DataGridView dataGridView_LoaiHang;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.TextBox txt_diaChi;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.TextBox txt_tenGD;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.TextBox txt_tenCTY;
+        private System.Windows.Forms.TextBox txt_MaNCC;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.DataGridView data_NCC;
+        private System.Windows.Forms.TextBox text_mail;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.TextBox txt_fax;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.TextBox txt_dienthoai;
+        private System.Windows.Forms.Label label29;
     }
 }
 

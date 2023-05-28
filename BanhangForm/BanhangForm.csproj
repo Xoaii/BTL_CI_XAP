@@ -63,6 +63,8 @@
     <Compile Include="LoaiHang\ModifyLoaiHang.cs" />
     <Compile Include="LoaiHang\QLloaiHang.cs" />
     <Compile Include="MatHang\Modify.cs" />
+    <Compile Include="NCC\connet_NCC.cs" />
+    <Compile Include="NCC\QLNCC.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MatHang\QLmatHang.cs" />
