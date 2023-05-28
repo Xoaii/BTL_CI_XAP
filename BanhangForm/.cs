@@ -3,6 +3,7 @@ using BanhangForm.DoDatHang;
 using BanhangForm.KhachHang;
 using BanhangForm.LoaiHang;
 using BanhangForm.NCC;
+using BanhangForm.NhanVien;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -86,6 +87,13 @@ namespace BanhangForm
             DataTable dtNCC = new DataTable();
             dtNCC.Load(drNCC);
             drNCC.Close();
+            // nhân viên
+            //step2: thực thi 1 sql: dạng lệnh
+            SqlCommand cmNhanVien= new SqlCommand("select *from nhanvien", cn);
+            SqlDataReader drNhanVien = cmNhanVien.ExecuteReader();
+            DataTable dtNhanVien = new DataTable();
+            dtNhanVien.Load(drNhanVien);
+            drNhanVien.Close();
 
 
 
@@ -94,7 +102,8 @@ namespace BanhangForm
             cmchiTiet.Dispose();
             cmDonDat.Dispose();
             cmLoaiHang.Dispose();  
-            cmNCC.Dispose();    
+            cmNCC.Dispose(); 
+            cmNhanVien.Dispose();
            
             cn.Close();
             cn.Dispose();
@@ -106,12 +115,14 @@ namespace BanhangForm
             data_DonDatHang.DataSource = dtDonDat;
             dataGridView_LoaiHang.DataSource = dtLoaiHang;
             data_NCC.DataSource = dtNCC;
+            data_nhanvien.DataSource = dtNhanVien;
             dt.Dispose();
             dtkhachhang.Dispose();
             dtchiTiet.Dispose();
             dtDonDat.Dispose();
             dtLoaiHang.Dispose();
             dtNCC.Dispose();
+            dtNhanVien.Dispose();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -703,7 +714,7 @@ namespace BanhangForm
             cmd.Parameters.Add("@makhachhang", SqlDbType.NVarChar).Value = qLdonDatHang.Makhachhang;
             cmd.Parameters.Add("@manhanvien", SqlDbType.NVarChar).Value = qLdonDatHang.Manhanvien;
             cmd.Parameters.Add("@ngaydathang", SqlDbType.Date).Value = qLdonDatHang.Ngaydathang.ToShortDateString();
-            cmd.Parameters.Add("@ngaygiaohang", SqlDbType.Date).Value = qLdonDatHang.Ngaygiaohang.ToLongDateString();
+            cmd.Parameters.Add("@ngaygiaohang", SqlDbType.Date).Value = qLdonDatHang.Ngaygiaohang.ToShortDateString();
             cmd.Parameters.Add("@noigiaohang", SqlDbType.NVarChar).Value = qLdonDatHang.Noigiaohang;
 
         }
@@ -1028,6 +1039,169 @@ namespace BanhangForm
 
         private void label37_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            
+            string manhanvien = this.txt_maNV_bangNV.Text;
+            string ho =this.txt_ho.Text;
+            string ten = this.txt_tenNV.Text;
+            DateTime ngaysinh =this.date_Ngaysinh.Value;
+            DateTime ngaylamviec =this.dateNgayLamViec.Value;
+            string diachi=this.txt_diaChi_NV.Text;
+            string dienthoai=this.txt_dienThoaiNV.Text;
+            SqlMoney luongcoban= SqlMoney.Parse(this.txt_luongCB.Text);
+            SqlMoney phucap = SqlMoney.Parse(this.txt_PhuCap.Text);
+            int tuoi = DateTime.Now.Year - ngaysinh.Year;
+
+
+            nhanVien nhanVien =new nhanVien(manhanvien,ho,ten, ngaysinh,ngaylamviec,diachi,dienthoai,luongcoban,phucap,tuoi);
+            // tao demo thực hiện proceduce - chuỗi k phải sql nữa mà là tên proceduce
+            // chuẩn bị tên proceduce:
+            string query = "sp_nhanvien_Insert";
+            
+          
+            // new đối tượng thư viên để gọi các hàm trong thư viện:
+            libDB lib = new libDB(chuoiketnoi);
+            SqlCommand cmd = lib.GetCmd(query); // lấy về đối tượng sqlcomman
+           
+         
+
+            // Cần phải truyền dũ liệu cho cmd 
+            truyenParameterNhanVien(ref cmd, nhanVien);
+
+
+            // thực hiện proceduce bằng cách là gọi  thư viên
+            try
+            {
+                // đây là câu lệnh thêm nên 
+                int kq = lib.RunSQL(cmd);
+                if (kq > 0)
+                {
+                    MessageBox.Show("thêm thành công!");
+                    Form1_Load(sender, e);
+                    xoaThongTin();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+
+            }
+
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            string manhanvien = this.txt_maNV_bangNV.Text;
+            string ho = this.txt_ho.Text;
+            string ten = this.txt_tenNV.Text;
+            DateTime ngaysinh = this.date_Ngaysinh.Value;
+            DateTime ngaylamviec = this.dateNgayLamViec.Value;
+            string diachi = this.txt_diaChi_NV.Text;
+            string dienthoai = this.txt_dienThoaiNV.Text;
+            SqlMoney luongcoban = SqlMoney.Parse(this.txt_luongCB.Text);
+            SqlMoney phucap = SqlMoney.Parse(this.txt_PhuCap.Text);
+            int tuoi = DateTime.Now.Year - ngaysinh.Year;
+
+
+            nhanVien nhanVien = new nhanVien(manhanvien, ho, ten, ngaysinh, ngaylamviec, diachi, dienthoai, luongcoban, phucap, tuoi);
+            // tao demo thực hiện proceduce - chuỗi k phải sql nữa mà là tên proceduce
+            // chuẩn bị tên proceduce:
+            string query = "sp_nhanvien_Update";
+
+
+            // new đối tượng thư viên để gọi các hàm trong thư viện:
+            libDB lib = new libDB(chuoiketnoi);
+            SqlCommand cmd = lib.GetCmd(query); // lấy về đối tượng sqlcomman
+
+
+
+            // Cần phải truyền dũ liệu cho cmd 
+            truyenParameterNhanVien(ref cmd, nhanVien);
+
+
+            // thực hiện proceduce bằng cách là gọi  thư viên
+            try
+            {
+                // đây là câu lệnh thêm nên 
+                int kq = lib.RunSQL(cmd);
+                if (kq > 0)
+                {
+                    MessageBox.Show("sửa thành công!");
+                    Form1_Load(sender, e);
+                    xoaThongTin();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+
+            }
+
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            if (data_nhanvien.SelectedRows.Count > 0)
+            {
+                DataGridViewRow row = data_nhanvien.SelectedRows[0];
+                // Thay "sohoadon" bằng tên cột chứa số hóa đơn
+                string manhanvien = row.Cells["manhanvien"].Value.ToString();
+
+
+
+                // Tạo câu truy vấn SQL hoặc gọi procedure để xóa dữ liệu
+                string query = "sp_nhanvien_Delete";
+                libDB lib = new libDB(chuoiketnoi);
+                SqlCommand cmd = lib.GetCmd(query);
+
+                // Truyền tham số cho cmd
+
+                cmd.Parameters.Add("@manhanvien", SqlDbType.NVarChar).Value = manhanvien;
+
+
+
+                try
+                {
+                    int kq = lib.RunSQL(cmd);
+                    if (kq > 0)
+                    {
+                        MessageBox.Show("Xóa thành công!");
+                        Form1_Load(sender, e);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một dòng để xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        private void truyenParameterNhanVien(ref SqlCommand cmd, nhanVien nhanVien)
+        {
+
+            cmd.Parameters.Add("@manhanvien", SqlDbType.NVarChar,10).Value = nhanVien.Manhanvien;
+            cmd.Parameters.Add("@ho", SqlDbType.NVarChar, 15).Value = nhanVien.Ho;
+            cmd.Parameters.Add("@ten", SqlDbType.NVarChar, 15).Value = nhanVien.Ten;
+            cmd.Parameters.Add("@ngaysinh", SqlDbType.Date).Value = nhanVien.Ngaysinh.ToShortDateString();
+            cmd.Parameters.Add("@ngaylamviec", SqlDbType.Date).Value = nhanVien.Ngaylamviec.ToShortDateString();
+            cmd.Parameters.Add("@diachi", SqlDbType.NVarChar, 15).Value = nhanVien.Diachi;
+            cmd.Parameters.Add("@dienthoai", SqlDbType.NVarChar, 15).Value = nhanVien.Dienthoai;
+            cmd.Parameters.Add("@luongcoban", SqlDbType.Money, 15).Value = nhanVien.Luongcoban;
+            cmd.Parameters.Add("@phucap", SqlDbType.Money, 15).Value = nhanVien.Phucap;
+            cmd.Parameters.Add("@tuoi", SqlDbType.Money, 15).Value = nhanVien.Tuoi;
+             
 
         }
     }
