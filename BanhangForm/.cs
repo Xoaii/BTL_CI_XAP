@@ -21,22 +21,22 @@ namespace BanhangForm
     public partial class Form1 : Form
     {
         string chuoiketnoi = @"Data Source=MSI\XOAII;Initial Catalog=BANHANG_DT;Integrated Security=True";
-        
+
 
         public Form1()
         {
             InitializeComponent();
         }
-       
+
         private void label5_Click(object sender, EventArgs e)
         {
 
         }
-        
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
             SqlConnection cn = new SqlConnection(chuoiketnoi);
             cn.Open();
             //mathang
@@ -45,7 +45,7 @@ namespace BanhangForm
             SqlDataReader dr = cm.ExecuteReader();
             DataTable dt = new DataTable();
             dt.Load(dr);
-           
+
             //step3: dọn dẹp
             dr.Close();
             //khachhang
@@ -79,7 +79,7 @@ namespace BanhangForm
             SqlDataReader drLoaiHang = cmLoaiHang.ExecuteReader();
             DataTable dtLoaiHang = new DataTable();
             dtLoaiHang.Load(drLoaiHang);
-           drLoaiHang.Close();
+            drLoaiHang.Close();
             // nhà cung cấp
             //step2: thực thi 1 sql: dạng lệnh
             SqlCommand cmNCC = new SqlCommand("select *from nhacungcap", cn);
@@ -89,7 +89,7 @@ namespace BanhangForm
             drNCC.Close();
             // nhân viên
             //step2: thực thi 1 sql: dạng lệnh
-            SqlCommand cmNhanVien= new SqlCommand("select *from nhanvien", cn);
+            SqlCommand cmNhanVien = new SqlCommand("select *from nhanvien", cn);
             SqlDataReader drNhanVien = cmNhanVien.ExecuteReader();
             DataTable dtNhanVien = new DataTable();
             dtNhanVien.Load(drNhanVien);
@@ -101,10 +101,10 @@ namespace BanhangForm
             cmkhachhang.Dispose();
             cmchiTiet.Dispose();
             cmDonDat.Dispose();
-            cmLoaiHang.Dispose();  
-            cmNCC.Dispose(); 
+            cmLoaiHang.Dispose();
+            cmNCC.Dispose();
             cmNhanVien.Dispose();
-           
+
             cn.Close();
             cn.Dispose();
 
@@ -130,15 +130,15 @@ namespace BanhangForm
             // lấy tất cả dữ liệu đã nhập xuống:
             // Nên check lỗi người dùng nhập! => nếu mà lỗi thì return;
             string mahang = this.textBox_maH.Text;
-            string tenhang=this.textBox_tenH.Text;  
-            string maCongTy=this.textBox_MaCTY.Text;    
-            string maLoaiHang =this.textBox_maLH.Text;   
-            int soLuong =Convert.ToInt32(this.textBox_soLuong.Text);
+            string tenhang = this.textBox_tenH.Text;
+            string maCongTy = this.textBox_MaCTY.Text;
+            string maLoaiHang = this.textBox_maLH.Text;
+            int soLuong = Convert.ToInt32(this.textBox_soLuong.Text);
             string donViTinh = this.textBox_DVT.Text;
-           SqlMoney giaHang =SqlMoney.Parse(this.textBox_gia .Text);
-           QLmatHang qLmatHang = new QLmatHang(mahang,tenhang,maCongTy,maLoaiHang,soLuong,donViTinh,giaHang);
-            
-            
+            SqlMoney giaHang = SqlMoney.Parse(this.textBox_gia.Text);
+            QLmatHang qLmatHang = new QLmatHang(mahang, tenhang, maCongTy, maLoaiHang, soLuong, donViTinh, giaHang);
+
+
 
             // tao demo thực hiện proceduce - chuỗi k phải sql nữa mà là tên proceduce
             // chuẩn bị tên proceduce:
@@ -238,23 +238,23 @@ namespace BanhangForm
                 DataGridViewRow row = dataGridView1.SelectedRows[0];
                 // Thay "sohoadon" bằng tên cột chứa số hóa đơn
                 string mahang = row.Cells["mahang"].Value.ToString();
-               /* string tenhang = row.Cells["tenhang"].Value.ToString();
-                string macongty = row.Cells["macongty"].Value.ToString();
-                int maloaihang = Convert.ToInt32(row.Cells["maloaihang"].Value);// Thay "mahang" bằng tên cột chứa mã hàng
+                /* string tenhang = row.Cells["tenhang"].Value.ToString();
+                 string macongty = row.Cells["macongty"].Value.ToString();
+                 int maloaihang = Convert.ToInt32(row.Cells["maloaihang"].Value);// Thay "mahang" bằng tên cột chứa mã hàng
 
-                int soluong = Convert.ToInt32(row.Cells["soluong"].Value);
-                string donvitinh = row.Cells["donvitinh"].Value.ToString();
-                double giahang = Convert.ToDouble(row.Cells["giahang"].Value);*/
+                 int soluong = Convert.ToInt32(row.Cells["soluong"].Value);
+                 string donvitinh = row.Cells["donvitinh"].Value.ToString();
+                 double giahang = Convert.ToDouble(row.Cells["giahang"].Value);*/
 
                 // Tạo câu truy vấn SQL hoặc gọi procedure để xóa dữ liệu
                 string query = "sp_mathang_Delete";
-               libDB lib = new libDB(chuoiketnoi);
+                libDB lib = new libDB(chuoiketnoi);
                 SqlCommand cmd = lib.GetCmd(query);
 
-              /*  // Truyền tham số cho cmd
-                cmd.Parameters.Add("@Tenhang", SqlDbType.NVarChar).Value = tenhang;
-                cmd.Parameters.Add("@Macongty", SqlDbType.NVarChar).Value = macongty;
-                cmd.Parameters.Add("@Maloaihang", SqlDbType.Int).Value = maloaihang;*/
+                /*  // Truyền tham số cho cmd
+                  cmd.Parameters.Add("@Tenhang", SqlDbType.NVarChar).Value = tenhang;
+                  cmd.Parameters.Add("@Macongty", SqlDbType.NVarChar).Value = macongty;
+                  cmd.Parameters.Add("@Maloaihang", SqlDbType.Int).Value = maloaihang;*/
                 cmd.Parameters.Add("@Mahang", SqlDbType.NVarChar, 10).Value = mahang;
                 /*cmd.Parameters.Add("@Soluong", SqlDbType.Int).Value = soluong;
                 cmd.Parameters.Add("@Donvitinh", SqlDbType.NVarChar).Value = donvitinh;
@@ -298,14 +298,14 @@ namespace BanhangForm
 
         private void button3_Click_1(object sender, EventArgs e)
         {
-            string makhachhang =this.textBox_MaKH.Text;
+            string makhachhang = this.textBox_MaKH.Text;
             string Tencongty = this.textBox_TenCTY.Text;
             string tengiaodich = this.textBox_tenGD.Text;
-            string diaChi =this.textBox_diaChi.Text;
+            string diaChi = this.textBox_diaChi.Text;
             string email = this.textBox_email.Text;
             string dienThoai = this.textBox_dienThoai.Text;
-            string fax =this.textBox_Fax.Text;
-            string TenKhachhang =this.textBox_tenKH.Text;
+            string fax = this.textBox_Fax.Text;
+            string TenKhachhang = this.textBox_tenKH.Text;
             QLkhachHang qLkhachHang = new QLkhachHang(makhachhang, Tencongty, tengiaodich, diaChi, email, dienThoai, fax, TenKhachhang);
             // tao demo thực hiện proceduce - chuỗi k phải sql nữa mà là tên proceduce
             // chuẩn bị tên proceduce:
@@ -340,7 +340,7 @@ namespace BanhangForm
 
 
         }
-       
+
 
         private void button2_Click_1(object sender, EventArgs e)
         {
@@ -452,11 +452,11 @@ namespace BanhangForm
         private void button6_Click(object sender, EventArgs e)
         {
             int sohoadon = Convert.ToInt32(this.txt_soHD.Text);
-            string mahang= this.txt_maHang.Text;
-            SqlMoney giaban=SqlMoney.Parse(this.txt_giaBan.Text);
+            string mahang = this.txt_maHang.Text;
+            SqlMoney giaban = SqlMoney.Parse(this.txt_giaBan.Text);
             int soluong = Convert.ToInt16(this.txt_soLuong.Text);
             double mucgiamgia = Convert.ToDouble(this.txt_MucGG.Text);
-           QLchiTietDonHang qLchiTietDonHang = new QLchiTietDonHang(sohoadon, mahang, giaban, soluong, mucgiamgia);
+            QLchiTietDonHang qLchiTietDonHang = new QLchiTietDonHang(sohoadon, mahang, giaban, soluong, mucgiamgia);
             // tao demo thực hiện proceduce - chuỗi k phải sql nữa mà là tên proceduce
             // chuẩn bị tên proceduce:
             string query = "sp_chitietdathang_Insert";
@@ -497,7 +497,7 @@ namespace BanhangForm
             SqlMoney giaban = SqlMoney.Parse(this.txt_giaBan.Text);
             int soluong = Convert.ToInt16(this.txt_soLuong.Text);
             double mucgiamgia = Convert.ToDouble(this.txt_MucGG.Text);
-           QLchiTietDonHang qLchiTietDonHang = new QLchiTietDonHang(sohoadon, mahang, giaban, soluong, mucgiamgia);
+            QLchiTietDonHang qLchiTietDonHang = new QLchiTietDonHang(sohoadon, mahang, giaban, soluong, mucgiamgia);
             // tao demo thực hiện proceduce - chuỗi k phải sql nữa mà là tên proceduce
             // chuẩn bị tên proceduce:
             string query = "sp_chitietdathang_Update";
@@ -536,20 +536,20 @@ namespace BanhangForm
             {
                 DataGridViewRow row = dataV_chiTietDatHang.SelectedRows[0];
                 // Thay "sohoadon" bằng tên cột chứa số hóa đơn
-               int sohoadon = Convert.ToInt32( row.Cells["sohoadon"].Value.ToString());
+                int sohoadon = Convert.ToInt32(row.Cells["sohoadon"].Value.ToString());
                 string mahang = row.Cells["mahang"].Value.ToString();
-                
+
 
                 // Tạo câu truy vấn SQL hoặc gọi procedure để xóa dữ liệu
                 string query = "sp_chitietdathang_Delete";
                 libDB lib = new libDB(chuoiketnoi);
                 SqlCommand cmd = lib.GetCmd(query);
 
-                 // Truyền tham số cho cmd
-                  
+                // Truyền tham số cho cmd
+
                 cmd.Parameters.Add("@sohoadon", SqlDbType.Int).Value = sohoadon;
-                cmd.Parameters.Add("@mahang", SqlDbType.NVarChar,10).Value =mahang;
-                
+                cmd.Parameters.Add("@mahang", SqlDbType.NVarChar, 10).Value = mahang;
+
 
                 try
                 {
@@ -576,7 +576,7 @@ namespace BanhangForm
 
             cmd.Parameters.Add("@sohoadon", SqlDbType.Int).Value = qLchiTietDonHang.SoHoaDon;
             cmd.Parameters.Add("@mahang", SqlDbType.NVarChar).Value = qLchiTietDonHang.Mahang;
-          cmd.Parameters.Add("@giaban", SqlDbType.Money).Value = qLchiTietDonHang.Giaban;
+            cmd.Parameters.Add("@giaban", SqlDbType.Money).Value = qLchiTietDonHang.Giaban;
             cmd.Parameters.Add("@soluong", SqlDbType.SmallInt).Value = qLchiTietDonHang.SoLuong;
             cmd.Parameters.Add("@mucgiamgia", SqlDbType.Real).Value = qLchiTietDonHang.Mucgiamgia;
 
@@ -586,10 +586,10 @@ namespace BanhangForm
         {
             int sohoadon = Convert.ToInt32(this.txt_soHD_don.Text);
             string makhachhang = this.txt_maKH.Text;
-            string manhanvien =this.txt_MaNV.Text;
+            string manhanvien = this.txt_MaNV.Text;
             DateTime ngaydathang = this.date_DatHang.Value;
             DateTime ngaygiaohang = this.date_giaohang.Value;
-            string noigiao =this.txt_noigiao.Text;
+            string noigiao = this.txt_noigiao.Text;
             QLdonDatHang qldonDatHang = new QLdonDatHang(sohoadon, makhachhang, manhanvien, ngaydathang, ngaygiaohang, noigiao);
             // tao demo thực hiện proceduce - chuỗi k phải sql nữa mà là tên proceduce
             // chuẩn bị tên proceduce:
@@ -631,7 +631,7 @@ namespace BanhangForm
             DateTime ngaydathang = this.date_DatHang.Value;
             DateTime ngaygiaohang = this.date_giaohang.Value;
             string noigiao = this.txt_noigiao.Text;
-           QLdonDatHang qldonDatHang = new QLdonDatHang(sohoadon, makhachhang, manhanvien, ngaydathang, ngaygiaohang, noigiao);
+            QLdonDatHang qldonDatHang = new QLdonDatHang(sohoadon, makhachhang, manhanvien, ngaydathang, ngaygiaohang, noigiao);
             // tao demo thực hiện proceduce - chuỗi k phải sql nữa mà là tên proceduce
             // chuẩn bị tên proceduce:
             string query = "sp_dondathang_Update";
@@ -672,7 +672,7 @@ namespace BanhangForm
                 DataGridViewRow row = data_DonDatHang.SelectedRows[0];
                 // Thay "sohoadon" bằng tên cột chứa số hóa đơn
                 int sohoadon = Convert.ToInt32(row.Cells["sohoadon"].Value.ToString());
-                
+
 
 
                 // Tạo câu truy vấn SQL hoặc gọi procedure để xóa dữ liệu
@@ -683,7 +683,7 @@ namespace BanhangForm
                 // Truyền tham số cho cmd
 
                 cmd.Parameters.Add("@sohoadon", SqlDbType.Int).Value = sohoadon;
-                
+
 
 
                 try
@@ -707,7 +707,7 @@ namespace BanhangForm
             }
 
         }
-        private void truyenParameterDonDatHang(ref SqlCommand cmd,QLdonDatHang qLdonDatHang)
+        private void truyenParameterDonDatHang(ref SqlCommand cmd, QLdonDatHang qLdonDatHang)
         {
 
             cmd.Parameters.Add("@sohoadon", SqlDbType.Int).Value = qLdonDatHang.Sohoadon;
@@ -731,60 +731,60 @@ namespace BanhangForm
 
         private void button12_Click(object sender, EventArgs e)
         {
-           
-                // lấy tất cả dữ liệu đã nhập xuống:
-                // Nên check lỗi người dùng nhập! => nếu mà lỗi thì return;
-               int maloaihang = Convert.ToInt32( this.txt_maLoaiHang.Text);
+
+            // lấy tất cả dữ liệu đã nhập xuống:
+            // Nên check lỗi người dùng nhập! => nếu mà lỗi thì return;
+            int maloaihang = Convert.ToInt32(this.txt_maLoaiHang.Text);
             string tenloaihang = this.txt_tenLoaiHang.Text;
-           QLloaiHang qLloaiHang = new QLloaiHang(maloaihang, tenloaihang);   
+            QLloaiHang qLloaiHang = new QLloaiHang(maloaihang, tenloaihang);
 
-                // tao demo thực hiện proceduce - chuỗi k phải sql nữa mà là tên proceduce
-                // chuẩn bị tên proceduce:
-                string query = "sp_loaihang_Insert";
-                // new đối tượng thư viên để gọi các hàm trong thư viện:
-                libDB lib= new libDB(chuoiketnoi);
-                SqlCommand cmd = lib.GetCmd(query); // lấy về đối tượng sqlcomman
+            // tao demo thực hiện proceduce - chuỗi k phải sql nữa mà là tên proceduce
+            // chuẩn bị tên proceduce:
+            string query = "sp_loaihang_Insert";
+            // new đối tượng thư viên để gọi các hàm trong thư viện:
+            libDB lib = new libDB(chuoiketnoi);
+            SqlCommand cmd = lib.GetCmd(query); // lấy về đối tượng sqlcomman
 
-                // Cần phải truyền dũ liệu cho cmd 
-                truyenParameterLoaiHang(ref cmd, qLloaiHang );
-                
+            // Cần phải truyền dũ liệu cho cmd 
+            truyenParameterLoaiHang(ref cmd, qLloaiHang);
 
-                // thực hiện proceduce bằng cách là gọi  thư viên
-                try
+
+            // thực hiện proceduce bằng cách là gọi  thư viên
+            try
+            {
+                // đây là câu lệnh thêm nên 
+                int kq = lib.RunSQL(cmd);
+                if (kq > 0)
                 {
-                    // đây là câu lệnh thêm nên 
-                    int kq = lib.RunSQL(cmd);
-                    if (kq > 0)
-                    {
-                        MessageBox.Show("thêm thành công!");
-                        Form1_Load(sender, e);
-                        xoaThongTin();
-                    }
+                    MessageBox.Show("thêm thành công!");
+                    Form1_Load(sender, e);
+                    xoaThongTin();
                 }
-                catch (Exception ex)
-                {
-                
-                    MessageBox.Show(ex.Message, "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                
-                }
-                
-
             }
-
-            private void xoaThongTin()
+            catch (Exception ex)
             {
 
+                MessageBox.Show(ex.Message, "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+
             }
 
-           
+
+        }
+
+        private void xoaThongTin()
+        {
+
+        }
+
+
 
         private void button11_Click(object sender, EventArgs e)
         {
 
             int maloaihang = Convert.ToInt32(this.txt_maLoaiHang.Text);
             string tenloaihang = this.txt_tenLoaiHang.Text;
-           QLloaiHang qLloaiHang = new QLloaiHang(maloaihang, tenloaihang);
+            QLloaiHang qLloaiHang = new QLloaiHang(maloaihang, tenloaihang);
 
             // tao demo thực hiện proceduce - chuỗi k phải sql nữa mà là tên proceduce
             // chuẩn bị tên proceduce:
@@ -870,14 +870,14 @@ namespace BanhangForm
         {
             // lấy tất cả dữ liệu đã nhập xuống:
             // Nên check lỗi người dùng nhập! => nếu mà lỗi thì return;
-            string macongty =this.txt_MaNCC.Text;
-            string tencongty =this.txt_tenCTY.Text;
+            string macongty = this.txt_MaNCC.Text;
+            string tencongty = this.txt_tenCTY.Text;
             string tengiaodich = this.txt_tenGD.Text;
-            string diachi =this.txt_diaChi.Text;
-            string dienthoai =this.txt_dienthoai.Text;
-            string fax= this.txt_fax.Text;
-            string email=this.text_mail.Text;
-           QLNCC qLNCC = new QLNCC(macongty,tencongty,tengiaodich,diachi,dienthoai,fax,email); 
+            string diachi = this.txt_diaChi.Text;
+            string dienthoai = this.txt_dienthoai.Text;
+            string fax = this.txt_fax.Text;
+            string email = this.text_mail.Text;
+            QLNCC qLNCC = new QLNCC(macongty, tencongty, tengiaodich, diachi, dienthoai, fax, email);
 
 
 
@@ -925,7 +925,7 @@ namespace BanhangForm
             string dienthoai = this.txt_dienthoai.Text;
             string fax = this.txt_fax.Text;
             string email = this.text_mail.Text;
-           QLNCC qLNCC = new QLNCC(macongty, tencongty, tengiaodich, diachi, dienthoai, fax, email);
+            QLNCC qLNCC = new QLNCC(macongty, tencongty, tengiaodich, diachi, dienthoai, fax, email);
 
 
 
@@ -1009,7 +1009,7 @@ namespace BanhangForm
         {
 
             cmd.Parameters.Add("@Macongty", SqlDbType.NVarChar).Value = qLNCC.Macongty;
-            cmd.Parameters.Add("@tencongty", SqlDbType.NVarChar, 15).Value =qLNCC.Tencongty;
+            cmd.Parameters.Add("@tencongty", SqlDbType.NVarChar, 15).Value = qLNCC.Tencongty;
             cmd.Parameters.Add("@tengiaodich", SqlDbType.NVarChar, 15).Value = qLNCC.Tengiaodich;
             cmd.Parameters.Add("@diachi", SqlDbType.NVarChar, 15).Value = qLNCC.Diachi;
             cmd.Parameters.Add("@dienthoai", SqlDbType.NVarChar, 15).Value = qLNCC.Dienthoai;
@@ -1044,30 +1044,30 @@ namespace BanhangForm
 
         private void button18_Click(object sender, EventArgs e)
         {
-            
+
             string manhanvien = this.txt_maNV_bangNV.Text;
-            string ho =this.txt_ho.Text;
+            string ho = this.txt_ho.Text;
             string ten = this.txt_tenNV.Text;
-            DateTime ngaysinh =this.date_Ngaysinh.Value;
-            DateTime ngaylamviec =this.dateNgayLamViec.Value;
-            string diachi=this.txt_diaChi_NV.Text;
-            string dienthoai=this.txt_dienThoaiNV.Text;
-            SqlMoney luongcoban= SqlMoney.Parse(this.txt_luongCB.Text);
+            DateTime ngaysinh = this.date_Ngaysinh.Value;
+            DateTime ngaylamviec = this.dateNgayLamViec.Value;
+            string diachi = this.txt_diaChi_NV.Text;
+            string dienthoai = this.txt_dienThoaiNV.Text;
+            SqlMoney luongcoban = SqlMoney.Parse(this.txt_luongCB.Text);
             SqlMoney phucap = SqlMoney.Parse(this.txt_PhuCap.Text);
             int tuoi = DateTime.Now.Year - ngaysinh.Year;
 
 
-            nhanVien nhanVien =new nhanVien(manhanvien,ho,ten, ngaysinh,ngaylamviec,diachi,dienthoai,luongcoban,phucap,tuoi);
+            nhanVien nhanVien = new nhanVien(manhanvien, ho, ten, ngaysinh, ngaylamviec, diachi, dienthoai, luongcoban, phucap, tuoi);
             // tao demo thực hiện proceduce - chuỗi k phải sql nữa mà là tên proceduce
             // chuẩn bị tên proceduce:
             string query = "sp_nhanvien_Insert";
-            
-          
+
+
             // new đối tượng thư viên để gọi các hàm trong thư viện:
             libDB lib = new libDB(chuoiketnoi);
             SqlCommand cmd = lib.GetCmd(query); // lấy về đối tượng sqlcomman
-           
-         
+
+
 
             // Cần phải truyền dũ liệu cho cmd 
             truyenParameterNhanVien(ref cmd, nhanVien);
@@ -1191,7 +1191,7 @@ namespace BanhangForm
         private void truyenParameterNhanVien(ref SqlCommand cmd, nhanVien nhanVien)
         {
 
-            cmd.Parameters.Add("@manhanvien", SqlDbType.NVarChar,10).Value = nhanVien.Manhanvien;
+            cmd.Parameters.Add("@manhanvien", SqlDbType.NVarChar, 10).Value = nhanVien.Manhanvien;
             cmd.Parameters.Add("@ho", SqlDbType.NVarChar, 15).Value = nhanVien.Ho;
             cmd.Parameters.Add("@ten", SqlDbType.NVarChar, 15).Value = nhanVien.Ten;
             cmd.Parameters.Add("@ngaysinh", SqlDbType.Date).Value = nhanVien.Ngaysinh.ToShortDateString();
@@ -1201,7 +1201,7 @@ namespace BanhangForm
             cmd.Parameters.Add("@luongcoban", SqlDbType.Money, 15).Value = nhanVien.Luongcoban;
             cmd.Parameters.Add("@phucap", SqlDbType.Money, 15).Value = nhanVien.Phucap;
             cmd.Parameters.Add("@tuoi", SqlDbType.Money, 15).Value = nhanVien.Tuoi;
-             
+
 
         }
 
@@ -1216,36 +1216,50 @@ namespace BanhangForm
 
         private void button_Search_Click(object sender, EventArgs e)
         {
-            // lấy tất cả dữ liệu đã nhập xuống:
-            // Nên check lỗi người dùng nhập! => nếu mà lỗi thì return;
             SqlConnection cn = new SqlConnection(chuoiketnoi);
             cn.Open();
-
-            SqlCommand cm = new SqlCommand("select *from mathang", cn);
-
-
-            string query = "sp_nhanvien_search";
-            libDB lib = new libDB(chuoiketnoi);
-            SqlCommand cmd = lib.GetCmd(query);
-            cmd.Parameters.AddWithValue("mahang", txt_Search);
-            cmd.Parameters.Add("tenhang", SqlDbType.NVarChar);
-            cmd.Parameters.Add("macongty", SqlDbType.NVarChar);
-            cmd.Parameters.Add("maloaihang", SqlDbType.NVarChar);
-            cmd.Parameters.Add("soluong", SqlDbType.Int);
-            cmd.Parameters.Add("donvitinh", SqlDbType.NVarChar);
-            cmd.Parameters.Add("giahang", SqlDbType.Money);
-            SqlDataReader dr =cmd.ExecuteReader();
+            //mathang
+            //step2: thực thi 1 sql: dạng lệnh
+            string query = "select*from mathang where mahang =@mahang";
+            
+            SqlCommand cmd = new SqlCommand(query, cn);
+            cmd.Parameters.AddWithValue("mahang", txt_Search.Text);
+            cmd.Parameters.AddWithValue("tenhang", txt_Search.Text);
+            cmd.Parameters.AddWithValue("macongty", txt_Search.Text);
+            cmd.Parameters.AddWithValue("maloaihang", txt_Search.Text);
+            cmd.Parameters.AddWithValue("soluong", txt_Search.Text);
+            cmd.Parameters.AddWithValue("donvitinh", txt_Search.Text);
+            cmd.Parameters.AddWithValue("giahang", txt_Search.Text);
+            cmd.ExecuteNonQuery();
+            SqlDataReader dr = cmd.ExecuteReader();
             DataTable dt = new DataTable();
+            
             dt.Load(dr);
-            dataGridView1.DataSource = dt;  
+
+            //step3: dọn dẹp
+            dataGridView1.DataSource = dt;
+            
+            
+
+            
+            
+            // Cần phải truyền dũ liệu cho cmd 
+
+            
+
+            // thực hiện proceduce bằng cách là gọi  thư viên
+           
+
+            }
 
 
 
-        }
+
 
 
         }
 
     }
+
     
 
