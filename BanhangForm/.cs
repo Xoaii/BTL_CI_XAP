@@ -1209,6 +1209,43 @@ namespace BanhangForm
         {
 
         }
+
+        private void txt_Search_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void button_Search_Click(object sender, EventArgs e)
+        {
+            // lấy tất cả dữ liệu đã nhập xuống:
+            // Nên check lỗi người dùng nhập! => nếu mà lỗi thì return;
+            SqlConnection cn = new SqlConnection(chuoiketnoi);
+            cn.Open();
+
+            SqlCommand cm = new SqlCommand("select *from mathang", cn);
+
+
+            string query = "sp_nhanvien_search";
+            libDB lib = new libDB(chuoiketnoi);
+            SqlCommand cmd = lib.GetCmd(query);
+            cmd.Parameters.AddWithValue("mahang", txt_Search);
+            cmd.Parameters.Add("tenhang", SqlDbType.NVarChar);
+            cmd.Parameters.Add("macongty", SqlDbType.NVarChar);
+            cmd.Parameters.Add("maloaihang", SqlDbType.NVarChar);
+            cmd.Parameters.Add("soluong", SqlDbType.Int);
+            cmd.Parameters.Add("donvitinh", SqlDbType.NVarChar);
+            cmd.Parameters.Add("giahang", SqlDbType.Money);
+            SqlDataReader dr =cmd.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(dr);
+            dataGridView1.DataSource = dt;  
+
+
+
+        }
+
+
+        }
+
     }
-    }
+    
 

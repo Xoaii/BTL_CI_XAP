@@ -28,9 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.button_Search = new System.Windows.Forms.Button();
+            this.txt_Search = new System.Windows.Forms.TextBox();
+            this.label45 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBox_maLH = new System.Windows.Forms.TextBox();
@@ -52,6 +58,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.dataGridView_khachHang = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.textBox_email = new System.Windows.Forms.TextBox();
@@ -89,6 +96,7 @@
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.dataV_chiTietDatHang = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -108,6 +116,7 @@
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.data_DonDatHang = new System.Windows.Forms.DataGridView();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -119,6 +128,7 @@
             this.label30 = new System.Windows.Forms.Label();
             this.txt_tenLoaiHang = new System.Windows.Forms.TextBox();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.dataGridView_LoaiHang = new System.Windows.Forms.DataGridView();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.panel12 = new System.Windows.Forms.Panel();
@@ -140,6 +150,7 @@
             this.label32 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.data_NCC = new System.Windows.Forms.DataGridView();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.panel14 = new System.Windows.Forms.Panel();
@@ -165,40 +176,46 @@
             this.label41 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.data_nhanvien = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label45 = new System.Windows.Forms.Label();
-            this.panel15 = new System.Windows.Forms.Panel();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_khachHang)).BeginInit();
             this.panel3.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataV_chiTietDatHang)).BeginInit();
             this.tabPage4.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.data_DonDatHang)).BeginInit();
             this.tabPage5.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_LoaiHang)).BeginInit();
             this.tabPage6.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.data_NCC)).BeginInit();
             this.tabPage7.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.data_nhanvien)).BeginInit();
-            this.panel15.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -239,19 +256,87 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.AutoSize = true;
-            this.panel2.BackgroundImage = global::BanhangForm.Properties.Resources.background_banner_xanh_dam_dep_phu_hop_thiet_ke_web_cong_thuc_toan_hoc;
+            this.panel2.BackColor = System.Drawing.Color.SkyBlue;
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.panel15);
             this.panel2.Controls.Add(this.dataGridView1);
+            this.panel2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel2.Location = new System.Drawing.Point(6, 6);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1100, 406);
             this.panel2.TabIndex = 1;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::BanhangForm.Properties.Resources.store;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(6, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(79, 89);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
+            // panel15
+            // 
+            this.panel15.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel15.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel15.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel15.Controls.Add(this.button_Search);
+            this.panel15.Controls.Add(this.txt_Search);
+            this.panel15.Controls.Add(this.label45);
+            this.panel15.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.panel15.Location = new System.Drawing.Point(723, 57);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(274, 282);
+            this.panel15.TabIndex = 6;
+            // 
+            // button_Search
+            // 
+            this.button_Search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_Search.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.button_Search.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_Search.Location = new System.Drawing.Point(3, 81);
+            this.button_Search.Name = "button_Search";
+            this.button_Search.Size = new System.Drawing.Size(75, 23);
+            this.button_Search.TabIndex = 6;
+            this.button_Search.Text = "Tìm";
+            this.button_Search.UseVisualStyleBackColor = true;
+            this.button_Search.Click += new System.EventHandler(this.button_Search_Click);
+            // 
+            // txt_Search
+            // 
+            this.txt_Search.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_Search.Location = new System.Drawing.Point(1, 49);
+            this.txt_Search.Name = "txt_Search";
+            this.txt_Search.Size = new System.Drawing.Size(217, 26);
+            this.txt_Search.TabIndex = 5;
+            this.txt_Search.TextChanged += new System.EventHandler(this.txt_Search_TextChanged);
+            // 
+            // label45
+            // 
+            this.label45.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label45.AutoSize = true;
+            this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label45.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label45.Location = new System.Drawing.Point(3, 28);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(86, 20);
+            this.label45.TabIndex = 4;
+            this.label45.Text = "Tìm Kiếm:";
+            // 
             // dataGridView1
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -268,8 +353,9 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackgroundImage = global::BanhangForm.Properties.Resources._360_F_403029269_KCrGHt5AdtV7GSD2KeP8Wk2PYIbVKlNU;
+            this.panel1.BackColor = System.Drawing.Color.LightSkyBlue;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.textBox_maLH);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.textBox_MaCTY);
@@ -295,7 +381,7 @@
             // textBox_maLH
             // 
             this.textBox_maLH.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_maLH.Location = new System.Drawing.Point(526, 36);
+            this.textBox_maLH.Location = new System.Drawing.Point(522, 32);
             this.textBox_maLH.Name = "textBox_maLH";
             this.textBox_maLH.Size = new System.Drawing.Size(198, 26);
             this.textBox_maLH.TabIndex = 16;
@@ -305,7 +391,7 @@
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(392, 32);
+            this.label7.Location = new System.Drawing.Point(388, 28);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(135, 22);
             this.label7.TabIndex = 15;
@@ -314,7 +400,7 @@
             // textBox_MaCTY
             // 
             this.textBox_MaCTY.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox_MaCTY.Location = new System.Drawing.Point(147, 125);
+            this.textBox_MaCTY.Location = new System.Drawing.Point(147, 121);
             this.textBox_MaCTY.Name = "textBox_MaCTY";
             this.textBox_MaCTY.Size = new System.Drawing.Size(239, 26);
             this.textBox_MaCTY.TabIndex = 14;
@@ -325,7 +411,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(46, 120);
+            this.label6.Location = new System.Drawing.Point(46, 116);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(105, 23);
             this.label6.TabIndex = 13;
@@ -335,7 +421,7 @@
             // 
             this.button_xoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button_xoa.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_xoa.Location = new System.Drawing.Point(901, 124);
+            this.button_xoa.Location = new System.Drawing.Point(897, 120);
             this.button_xoa.Name = "button_xoa";
             this.button_xoa.Size = new System.Drawing.Size(101, 48);
             this.button_xoa.TabIndex = 12;
@@ -347,7 +433,7 @@
             // 
             this.button_sua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button_sua.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_sua.Location = new System.Drawing.Point(901, 76);
+            this.button_sua.Location = new System.Drawing.Point(897, 72);
             this.button_sua.Name = "button_sua";
             this.button_sua.Size = new System.Drawing.Size(101, 48);
             this.button_sua.TabIndex = 11;
@@ -359,8 +445,9 @@
             // 
             this.button_them.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button_them.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_them.Location = new System.Drawing.Point(901, 24);
+            this.button_them.Location = new System.Drawing.Point(897, 20);
             this.button_them.Name = "button_them";
+            this.button_them.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.button_them.Size = new System.Drawing.Size(101, 48);
             this.button_them.TabIndex = 10;
             this.button_them.Text = "Thêm";
@@ -372,7 +459,7 @@
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(401, 124);
+            this.label5.Location = new System.Drawing.Point(397, 120);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(118, 22);
             this.label5.TabIndex = 9;
@@ -382,7 +469,7 @@
             // textBox_soLuong
             // 
             this.textBox_soLuong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_soLuong.Location = new System.Drawing.Point(526, 87);
+            this.textBox_soLuong.Location = new System.Drawing.Point(522, 83);
             this.textBox_soLuong.Name = "textBox_soLuong";
             this.textBox_soLuong.Size = new System.Drawing.Size(198, 26);
             this.textBox_soLuong.TabIndex = 8;
@@ -390,7 +477,7 @@
             // textBox_DVT
             // 
             this.textBox_DVT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_DVT.Location = new System.Drawing.Point(526, 126);
+            this.textBox_DVT.Location = new System.Drawing.Point(522, 122);
             this.textBox_DVT.Name = "textBox_DVT";
             this.textBox_DVT.Size = new System.Drawing.Size(199, 26);
             this.textBox_DVT.TabIndex = 7;
@@ -400,7 +487,7 @@
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(724, 42);
+            this.label4.Location = new System.Drawing.Point(720, 38);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 23);
             this.label4.TabIndex = 6;
@@ -410,7 +497,7 @@
             // 
             this.textBox_gia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_gia.BackColor = System.Drawing.Color.White;
-            this.textBox_gia.Location = new System.Drawing.Point(770, 42);
+            this.textBox_gia.Location = new System.Drawing.Point(766, 38);
             this.textBox_gia.Name = "textBox_gia";
             this.textBox_gia.Size = new System.Drawing.Size(109, 26);
             this.textBox_gia.TabIndex = 5;
@@ -418,7 +505,7 @@
             // textBox_tenH
             // 
             this.textBox_tenH.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox_tenH.Location = new System.Drawing.Point(147, 83);
+            this.textBox_tenH.Location = new System.Drawing.Point(147, 79);
             this.textBox_tenH.Name = "textBox_tenH";
             this.textBox_tenH.Size = new System.Drawing.Size(239, 26);
             this.textBox_tenH.TabIndex = 4;
@@ -426,7 +513,7 @@
             // textBox_maH
             // 
             this.textBox_maH.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox_maH.Location = new System.Drawing.Point(147, 34);
+            this.textBox_maH.Location = new System.Drawing.Point(147, 30);
             this.textBox_maH.Name = "textBox_maH";
             this.textBox_maH.Size = new System.Drawing.Size(239, 26);
             this.textBox_maH.TabIndex = 3;
@@ -436,7 +523,7 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(416, 83);
+            this.label3.Location = new System.Drawing.Point(412, 79);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(104, 22);
             this.label3.TabIndex = 2;
@@ -448,7 +535,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(46, 80);
+            this.label2.Location = new System.Drawing.Point(46, 76);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(87, 23);
             this.label2.TabIndex = 1;
@@ -460,7 +547,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(50, 34);
+            this.label1.Location = new System.Drawing.Point(50, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 20);
             this.label1.TabIndex = 0;
@@ -484,14 +571,27 @@
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel4.BackgroundImage = global::BanhangForm.Properties.Resources.pngtree_blue_simple_geometric_art_banner_image_1540196;
+            this.panel4.BackColor = System.Drawing.Color.SkyBlue;
             this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel4.Controls.Add(this.pictureBox2);
             this.panel4.Controls.Add(this.dataGridView_khachHang);
             this.panel4.Location = new System.Drawing.Point(6, 6);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1091, 395);
             this.panel4.TabIndex = 2;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.BackgroundImage = global::BanhangForm.Properties.Resources.client;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(20, 19);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(79, 89);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox2.TabIndex = 8;
+            this.pictureBox2.TabStop = false;
             // 
             // dataGridView_khachHang
             // 
@@ -502,11 +602,11 @@
             this.dataGridView_khachHang.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView_khachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_khachHang.GridColor = System.Drawing.Color.DimGray;
-            this.dataGridView_khachHang.Location = new System.Drawing.Point(105, 49);
+            this.dataGridView_khachHang.Location = new System.Drawing.Point(118, 49);
             this.dataGridView_khachHang.Name = "dataGridView_khachHang";
             this.dataGridView_khachHang.ReadOnly = true;
             this.dataGridView_khachHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_khachHang.Size = new System.Drawing.Size(880, 297);
+            this.dataGridView_khachHang.Size = new System.Drawing.Size(867, 297);
             this.dataGridView_khachHang.TabIndex = 1;
             // 
             // panel3
@@ -514,7 +614,7 @@
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.AutoSize = true;
-            this.panel3.BackgroundImage = global::BanhangForm.Properties.Resources._360_F_403029269_KCrGHt5AdtV7GSD2KeP8Wk2PYIbVKlNU;
+            this.panel3.BackColor = System.Drawing.Color.LightSkyBlue;
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel3.Controls.Add(this.textBox_email);
@@ -753,7 +853,7 @@
             this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel6.AutoSize = true;
-            this.panel6.BackgroundImage = global::BanhangForm.Properties.Resources._360_F_403029269_KCrGHt5AdtV7GSD2KeP8Wk2PYIbVKlNU;
+            this.panel6.BackColor = System.Drawing.Color.LightSkyBlue;
             this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel6.Controls.Add(this.txt_MucGG);
@@ -913,13 +1013,26 @@
             this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel5.BackgroundImage = global::BanhangForm.Properties.Resources.pngtree_blue_simple_geometric_art_banner_image_1540196;
+            this.panel5.BackColor = System.Drawing.Color.SkyBlue;
             this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel5.Controls.Add(this.pictureBox3);
             this.panel5.Controls.Add(this.dataV_chiTietDatHang);
             this.panel5.Location = new System.Drawing.Point(3, 6);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1091, 395);
             this.panel5.TabIndex = 3;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox3.BackgroundImage = global::BanhangForm.Properties.Resources.store;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox3.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(79, 89);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox3.TabIndex = 8;
+            this.pictureBox3.TabStop = false;
             // 
             // dataV_chiTietDatHang
             // 
@@ -954,7 +1067,7 @@
             this.panel8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel8.AutoSize = true;
-            this.panel8.BackgroundImage = global::BanhangForm.Properties.Resources._360_F_403029269_KCrGHt5AdtV7GSD2KeP8Wk2PYIbVKlNU;
+            this.panel8.BackColor = System.Drawing.Color.LightSkyBlue;
             this.panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel8.Controls.Add(this.date_giaohang);
@@ -1136,14 +1249,27 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel7.AutoSize = true;
-            this.panel7.BackgroundImage = global::BanhangForm.Properties.Resources.background_banner_xanh_dam_dep_phu_hop_thiet_ke_web_cong_thuc_toan_hoc;
+            this.panel7.BackColor = System.Drawing.Color.SkyBlue;
             this.panel7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel7.Controls.Add(this.pictureBox4);
             this.panel7.Controls.Add(this.data_DonDatHang);
             this.panel7.Location = new System.Drawing.Point(3, 6);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(1099, 403);
             this.panel7.TabIndex = 2;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox4.BackgroundImage = global::BanhangForm.Properties.Resources.Shopping_Cart;
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox4.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(79, 74);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox4.TabIndex = 8;
+            this.pictureBox4.TabStop = false;
             // 
             // data_DonDatHang
             // 
@@ -1178,7 +1304,7 @@
             this.panel10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel10.AutoSize = true;
-            this.panel10.BackgroundImage = global::BanhangForm.Properties.Resources._360_F_403029269_KCrGHt5AdtV7GSD2KeP8Wk2PYIbVKlNU;
+            this.panel10.BackColor = System.Drawing.Color.LightSkyBlue;
             this.panel10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel10.Controls.Add(this.txt_maLoaiHang);
             this.panel10.Controls.Add(this.label24);
@@ -1276,14 +1402,27 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel9.AutoSize = true;
-            this.panel9.BackgroundImage = global::BanhangForm.Properties.Resources.background_banner_xanh_dam_dep_phu_hop_thiet_ke_web_cong_thuc_toan_hoc;
+            this.panel9.BackColor = System.Drawing.Color.SkyBlue;
             this.panel9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel9.Controls.Add(this.pictureBox5);
             this.panel9.Controls.Add(this.dataGridView_LoaiHang);
             this.panel9.Location = new System.Drawing.Point(3, 6);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(1098, 403);
             this.panel9.TabIndex = 2;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox5.BackgroundImage = global::BanhangForm.Properties.Resources.store;
+            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox5.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(79, 89);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox5.TabIndex = 8;
+            this.pictureBox5.TabStop = false;
             // 
             // dataGridView_LoaiHang
             // 
@@ -1318,7 +1457,7 @@
             this.panel12.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel12.AutoSize = true;
-            this.panel12.BackgroundImage = global::BanhangForm.Properties.Resources._360_F_403029269_KCrGHt5AdtV7GSD2KeP8Wk2PYIbVKlNU;
+            this.panel12.BackColor = System.Drawing.Color.LightSkyBlue;
             this.panel12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel12.Controls.Add(this.txt_dienthoai);
@@ -1519,14 +1658,27 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel11.AutoSize = true;
-            this.panel11.BackgroundImage = global::BanhangForm.Properties.Resources.background_banner_xanh_dam_dep_phu_hop_thiet_ke_web_cong_thuc_toan_hoc;
+            this.panel11.BackColor = System.Drawing.Color.SkyBlue;
             this.panel11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel11.Controls.Add(this.pictureBox6);
             this.panel11.Controls.Add(this.data_NCC);
             this.panel11.Location = new System.Drawing.Point(3, 3);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(1098, 403);
             this.panel11.TabIndex = 3;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox6.BackgroundImage = global::BanhangForm.Properties.Resources.supplier;
+            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox6.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(79, 89);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox6.TabIndex = 8;
+            this.pictureBox6.TabStop = false;
             // 
             // data_NCC
             // 
@@ -1561,7 +1713,7 @@
             this.panel14.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel14.AutoSize = true;
-            this.panel14.BackgroundImage = global::BanhangForm.Properties.Resources._360_F_403029269_KCrGHt5AdtV7GSD2KeP8Wk2PYIbVKlNU;
+            this.panel14.BackColor = System.Drawing.Color.LightSkyBlue;
             this.panel14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panel14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel14.Controls.Add(this.dateNgayLamViec);
@@ -1812,14 +1964,27 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel13.AutoSize = true;
-            this.panel13.BackgroundImage = global::BanhangForm.Properties.Resources.background_banner_xanh_dam_dep_phu_hop_thiet_ke_web_cong_thuc_toan_hoc;
+            this.panel13.BackColor = System.Drawing.Color.SkyBlue;
             this.panel13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel13.Controls.Add(this.pictureBox7);
             this.panel13.Controls.Add(this.data_nhanvien);
             this.panel13.Location = new System.Drawing.Point(3, 6);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(1098, 403);
             this.panel13.TabIndex = 4;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox7.BackgroundImage = global::BanhangForm.Properties.Resources.employee;
+            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox7.Location = new System.Drawing.Point(11, 19);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(79, 74);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox7.TabIndex = 8;
+            this.pictureBox7.TabStop = false;
             // 
             // data_nhanvien
             // 
@@ -1830,45 +1995,18 @@
             this.data_nhanvien.BackgroundColor = System.Drawing.Color.White;
             this.data_nhanvien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.data_nhanvien.GridColor = System.Drawing.Color.DimGray;
-            this.data_nhanvien.Location = new System.Drawing.Point(82, 51);
+            this.data_nhanvien.Location = new System.Drawing.Point(96, 51);
             this.data_nhanvien.Name = "data_nhanvien";
             this.data_nhanvien.ReadOnly = true;
             this.data_nhanvien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.data_nhanvien.Size = new System.Drawing.Size(919, 291);
+            this.data_nhanvien.Size = new System.Drawing.Size(905, 291);
             this.data_nhanvien.TabIndex = 0;
             // 
-            // textBox1
+            // imageList1
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox1.Location = new System.Drawing.Point(3, 51);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(217, 26);
-            this.textBox1.TabIndex = 5;
-            // 
-            // label45
-            // 
-            this.label45.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label45.AutoSize = true;
-            this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label45.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label45.Location = new System.Drawing.Point(3, 28);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(214, 20);
-            this.label45.TabIndex = 4;
-            this.label45.Text = "Tìm Kiếm(Nhập Mã hàng):";
-            // 
-            // panel15
-            // 
-            this.panel15.BackColor = System.Drawing.Color.SteelBlue;
-            this.panel15.Controls.Add(this.textBox1);
-            this.panel15.Controls.Add(this.label45);
-            this.panel15.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.panel15.Location = new System.Drawing.Point(723, 57);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(274, 282);
-            this.panel15.TabIndex = 6;
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // Form1
             // 
@@ -1887,12 +2025,16 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel15.ResumeLayout(false);
+            this.panel15.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_khachHang)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -1901,33 +2043,36 @@
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataV_chiTietDatHang)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.panel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.data_DonDatHang)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             this.panel9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_LoaiHang)).EndInit();
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             this.panel11.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.data_NCC)).EndInit();
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
             this.panel13.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.data_nhanvien)).EndInit();
-            this.panel15.ResumeLayout(false);
-            this.panel15.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1953,8 +2098,6 @@
         private System.Windows.Forms.Button button_xoa;
         private System.Windows.Forms.Button button_sua;
         private System.Windows.Forms.Button button_them;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox textBox_maLH;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox_MaCTY;
@@ -2072,9 +2215,20 @@
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.DateTimePicker date_Ngaysinh;
         private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel15;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_Search;
         private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button_Search;
+        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox pictureBox7;
     }
 }
 
