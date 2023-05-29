@@ -31,6 +31,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label46 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel15 = new System.Windows.Forms.Panel();
             this.button_Search = new System.Windows.Forms.Button();
@@ -57,6 +58,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label47 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.dataGridView_khachHang = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -95,6 +97,7 @@
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.label48 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.dataV_chiTietDatHang = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -115,6 +118,7 @@
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.label49 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.data_DonDatHang = new System.Windows.Forms.DataGridView();
             this.tabPage5 = new System.Windows.Forms.TabPage();
@@ -127,6 +131,7 @@
             this.label30 = new System.Windows.Forms.Label();
             this.txt_tenLoaiHang = new System.Windows.Forms.TextBox();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.label50 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.dataGridView_LoaiHang = new System.Windows.Forms.DataGridView();
             this.tabPage6 = new System.Windows.Forms.TabPage();
@@ -149,6 +154,7 @@
             this.label32 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.label51 = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.data_NCC = new System.Windows.Forms.DataGridView();
             this.tabPage7 = new System.Windows.Forms.TabPage();
@@ -175,18 +181,12 @@
             this.label41 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.txt_EXCEL = new System.Windows.Forms.Button();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.data_nhanvien = new System.Windows.Forms.DataGridView();
-            this.label46 = new System.Windows.Forms.Label();
-            this.label47 = new System.Windows.Forms.Label();
-            this.label48 = new System.Windows.Forms.Label();
-            this.label49 = new System.Windows.Forms.Label();
-            this.label50 = new System.Windows.Forms.Label();
-            this.label51 = new System.Windows.Forms.Label();
-            this.label52 = new System.Windows.Forms.Label();
-            this.label53 = new System.Windows.Forms.Label();
-            this.label54 = new System.Windows.Forms.Label();
-            this.txt_EXCEL = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -276,6 +276,18 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1100, 406);
             this.panel2.TabIndex = 1;
+            // 
+            // label46
+            // 
+            this.label46.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label46.AutoSize = true;
+            this.label46.Font = new System.Drawing.Font("American Captain", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label46.Location = new System.Drawing.Point(1, 95);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(114, 30);
+            this.label46.TabIndex = 10;
+            this.label46.Text = "XOAII STORE";
             // 
             // pictureBox1
             // 
@@ -590,6 +602,18 @@
             this.panel4.Size = new System.Drawing.Size(1091, 395);
             this.panel4.TabIndex = 2;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
+            // 
+            // label47
+            // 
+            this.label47.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label47.AutoSize = true;
+            this.label47.Font = new System.Drawing.Font("American Captain", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label47.Location = new System.Drawing.Point(3, 111);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(114, 30);
+            this.label47.TabIndex = 11;
+            this.label47.Text = "XOAII STORE";
             // 
             // pictureBox2
             // 
@@ -1033,6 +1057,18 @@
             this.panel5.Size = new System.Drawing.Size(1091, 395);
             this.panel5.TabIndex = 3;
             // 
+            // label48
+            // 
+            this.label48.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label48.AutoSize = true;
+            this.label48.Font = new System.Drawing.Font("American Captain", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label48.Location = new System.Drawing.Point(3, 95);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(114, 30);
+            this.label48.TabIndex = 11;
+            this.label48.Text = "XOAII STORE";
+            // 
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
@@ -1271,6 +1307,18 @@
             this.panel7.Size = new System.Drawing.Size(1099, 403);
             this.panel7.TabIndex = 2;
             // 
+            // label49
+            // 
+            this.label49.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label49.AutoSize = true;
+            this.label49.Font = new System.Drawing.Font("American Captain", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label49.Location = new System.Drawing.Point(3, 97);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(114, 30);
+            this.label49.TabIndex = 11;
+            this.label49.Text = "XOAII STORE";
+            // 
             // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
@@ -1298,6 +1346,8 @@
             this.data_DonDatHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.data_DonDatHang.Size = new System.Drawing.Size(879, 291);
             this.data_DonDatHang.TabIndex = 0;
+            this.data_DonDatHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.data_DonDatHang_CellClick);
+            this.data_DonDatHang.SelectionChanged += new System.EventHandler(this.data_DonDatHang_SelectionChanged);
             // 
             // tabPage5
             // 
@@ -1424,6 +1474,18 @@
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(1098, 403);
             this.panel9.TabIndex = 2;
+            // 
+            // label50
+            // 
+            this.label50.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label50.AutoSize = true;
+            this.label50.Font = new System.Drawing.Font("American Captain", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label50.Location = new System.Drawing.Point(3, 116);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(114, 30);
+            this.label50.TabIndex = 11;
+            this.label50.Text = "XOAII STORE";
             // 
             // pictureBox5
             // 
@@ -1681,6 +1743,18 @@
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(1098, 403);
             this.panel11.TabIndex = 3;
+            // 
+            // label51
+            // 
+            this.label51.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label51.AutoSize = true;
+            this.label51.Font = new System.Drawing.Font("American Captain", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label51.Location = new System.Drawing.Point(1, 114);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(114, 30);
+            this.label51.TabIndex = 11;
+            this.label51.Text = "XOAII STORE";
             // 
             // pictureBox6
             // 
@@ -1992,6 +2066,49 @@
             this.panel13.Size = new System.Drawing.Size(1098, 408);
             this.panel13.TabIndex = 4;
             // 
+            // txt_EXCEL
+            // 
+            this.txt_EXCEL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_EXCEL.Location = new System.Drawing.Point(884, 353);
+            this.txt_EXCEL.Name = "txt_EXCEL";
+            this.txt_EXCEL.Size = new System.Drawing.Size(121, 36);
+            this.txt_EXCEL.TabIndex = 13;
+            this.txt_EXCEL.Text = "Xuất EXCEL";
+            this.txt_EXCEL.UseVisualStyleBackColor = true;
+            this.txt_EXCEL.Click += new System.EventHandler(this.txt_EXCEL_Click);
+            // 
+            // label54
+            // 
+            this.label54.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label54.AutoSize = true;
+            this.label54.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label54.Location = new System.Drawing.Point(728, 14);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(350, 34);
+            this.label54.TabIndex = 0;
+            this.label54.Text = "DANH SÁCH NHÂN VIÊN";
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(349, 21);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(0, 19);
+            this.label53.TabIndex = 12;
+            // 
+            // label52
+            // 
+            this.label52.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label52.AutoSize = true;
+            this.label52.Font = new System.Drawing.Font("American Captain", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label52.Location = new System.Drawing.Point(1, 100);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(114, 30);
+            this.label52.TabIndex = 11;
+            this.label52.Text = "XOAII STORE";
+            // 
             // pictureBox7
             // 
             this.pictureBox7.BackColor = System.Drawing.Color.Transparent;
@@ -2019,121 +2136,6 @@
             this.data_nhanvien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.data_nhanvien.Size = new System.Drawing.Size(883, 296);
             this.data_nhanvien.TabIndex = 0;
-            // 
-            // label46
-            // 
-            this.label46.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label46.AutoSize = true;
-            this.label46.Font = new System.Drawing.Font("American Captain", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label46.Location = new System.Drawing.Point(1, 95);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(114, 30);
-            this.label46.TabIndex = 10;
-            this.label46.Text = "XOAII STORE";
-            // 
-            // label47
-            // 
-            this.label47.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label47.AutoSize = true;
-            this.label47.Font = new System.Drawing.Font("American Captain", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label47.Location = new System.Drawing.Point(3, 111);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(114, 30);
-            this.label47.TabIndex = 11;
-            this.label47.Text = "XOAII STORE";
-            // 
-            // label48
-            // 
-            this.label48.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label48.AutoSize = true;
-            this.label48.Font = new System.Drawing.Font("American Captain", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label48.Location = new System.Drawing.Point(3, 95);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(114, 30);
-            this.label48.TabIndex = 11;
-            this.label48.Text = "XOAII STORE";
-            // 
-            // label49
-            // 
-            this.label49.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label49.AutoSize = true;
-            this.label49.Font = new System.Drawing.Font("American Captain", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label49.Location = new System.Drawing.Point(3, 97);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(114, 30);
-            this.label49.TabIndex = 11;
-            this.label49.Text = "XOAII STORE";
-            // 
-            // label50
-            // 
-            this.label50.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label50.AutoSize = true;
-            this.label50.Font = new System.Drawing.Font("American Captain", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label50.Location = new System.Drawing.Point(3, 116);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(114, 30);
-            this.label50.TabIndex = 11;
-            this.label50.Text = "XOAII STORE";
-            // 
-            // label51
-            // 
-            this.label51.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label51.AutoSize = true;
-            this.label51.Font = new System.Drawing.Font("American Captain", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label51.Location = new System.Drawing.Point(1, 114);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(114, 30);
-            this.label51.TabIndex = 11;
-            this.label51.Text = "XOAII STORE";
-            // 
-            // label52
-            // 
-            this.label52.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label52.AutoSize = true;
-            this.label52.Font = new System.Drawing.Font("American Captain", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label52.Location = new System.Drawing.Point(1, 100);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(114, 30);
-            this.label52.TabIndex = 11;
-            this.label52.Text = "XOAII STORE";
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(349, 21);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(0, 19);
-            this.label53.TabIndex = 12;
-            // 
-            // label54
-            // 
-            this.label54.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label54.AutoSize = true;
-            this.label54.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label54.Location = new System.Drawing.Point(728, 14);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(350, 34);
-            this.label54.TabIndex = 0;
-            this.label54.Text = "DANH SÁCH NHÂN VIÊN";
-            // 
-            // txt_EXCEL
-            // 
-            this.txt_EXCEL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_EXCEL.Location = new System.Drawing.Point(884, 353);
-            this.txt_EXCEL.Name = "txt_EXCEL";
-            this.txt_EXCEL.Size = new System.Drawing.Size(121, 36);
-            this.txt_EXCEL.TabIndex = 13;
-            this.txt_EXCEL.Text = "Xuất EXCEL";
-            this.txt_EXCEL.UseVisualStyleBackColor = true;
-            this.txt_EXCEL.Click += new System.EventHandler(this.txt_EXCEL_Click);
             // 
             // Form1
             // 

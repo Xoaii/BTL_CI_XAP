@@ -1248,12 +1248,6 @@ namespace BanhangForm
                 //step3: dọn dẹp
                 dataGridView1.DataSource = dt;
 
-
-
-
-
-
-            
             }
 
         private void label46_Click(object sender, EventArgs e)
@@ -1297,9 +1291,67 @@ namespace BanhangForm
                 }
             }    
         }
+        private DataTable GetInvoiceItems(int sohoadon)
+        {
+            string connectionString = @"Data Source=MSI\XOAII;Initial Catalog=BANHANG_DT;Integrated Security=True"; ;
+
+            string query = @"select c.mahang,c.soluong,c.giaban,m.tenhang from 
+    chitietdathang c inner join dondathang d on c.sohoadon =d.Sohoadon 
+          inner join mathang m on c.mahang = m.mahang
+            where c.sohoadon=@sohoadon";
+
+            DataTable dataTable = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@sohoadon", sohoadon);
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        adapter.Fill(dataTable);
+                    }
+                }
+            }
+
+            return dataTable;
+        }
+
+        
+        
+
+        private void data_DonDatHang_SelectionChanged(object sender, EventArgs e)
+        {
+           /* if (data_DonDatHang.SelectedRows.Count > 0)
+            {
+                int selectedInvoiceNumber = (int)data_DonDatHang.SelectedRows[0].Cells["SoHoaDon"].Value;
+
+                DataTable invoiceItemsTable = GetInvoiceItems(selectedInvoiceNumber);
+
+                dataV_chiTietDatHang.DataSource = invoiceItemsTable;
+            }*/
+        }
+
+        private void data_DonDatHang_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                int selectedInvoiceNumber = (int)data_DonDatHang.Rows[e.RowIndex].Cells["SoHoaDon"].Value;
+
+                DataTable invoiceItemsTable = GetInvoiceItems(selectedInvoiceNumber);
+
+                // Tạo một instance mới của InvoiceItemsForm và truyền invoiceItemsTable vào constructor
+                ChiTietDonHang ct = new ChiTietDonHang(invoiceItemsTable);
+                ct.Show();
+            }
+        }
+    }
     }
 
-    }
+    
 
     
 
