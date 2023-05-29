@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -178,7 +177,16 @@
             this.panel13 = new System.Windows.Forms.Panel();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.data_nhanvien = new System.Windows.Forms.DataGridView();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.label46 = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
+            this.label49 = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.txt_EXCEL = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -259,6 +267,7 @@
             this.panel2.BackColor = System.Drawing.Color.SkyBlue;
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.label46);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.panel15);
             this.panel2.Controls.Add(this.dataGridView1);
@@ -273,7 +282,7 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = global::BanhangForm.Properties.Resources.store;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(6, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(17, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(79, 89);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -290,9 +299,9 @@
             this.panel15.Controls.Add(this.txt_Search);
             this.panel15.Controls.Add(this.label45);
             this.panel15.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.panel15.Location = new System.Drawing.Point(723, 57);
+            this.panel15.Location = new System.Drawing.Point(723, 87);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(274, 282);
+            this.panel15.Size = new System.Drawing.Size(274, 252);
             this.panel15.TabIndex = 6;
             // 
             // button_Search
@@ -341,11 +350,11 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.GridColor = System.Drawing.Color.DimGray;
-            this.dataGridView1.Location = new System.Drawing.Point(91, 57);
+            this.dataGridView1.Location = new System.Drawing.Point(121, 87);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(628, 282);
+            this.dataGridView1.Size = new System.Drawing.Size(598, 252);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -573,6 +582,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BackColor = System.Drawing.Color.SkyBlue;
             this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel4.Controls.Add(this.label47);
             this.panel4.Controls.Add(this.pictureBox2);
             this.panel4.Controls.Add(this.dataGridView_khachHang);
             this.panel4.Location = new System.Drawing.Point(6, 6);
@@ -1015,6 +1025,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel5.BackColor = System.Drawing.Color.SkyBlue;
             this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel5.Controls.Add(this.label48);
             this.panel5.Controls.Add(this.pictureBox3);
             this.panel5.Controls.Add(this.dataV_chiTietDatHang);
             this.panel5.Location = new System.Drawing.Point(3, 6);
@@ -1027,7 +1038,7 @@
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.BackgroundImage = global::BanhangForm.Properties.Resources.store;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox3.Location = new System.Drawing.Point(19, 12);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(79, 89);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -1043,11 +1054,11 @@
             this.dataV_chiTietDatHang.BackgroundColor = System.Drawing.Color.White;
             this.dataV_chiTietDatHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataV_chiTietDatHang.GridColor = System.Drawing.Color.DimGray;
-            this.dataV_chiTietDatHang.Location = new System.Drawing.Point(105, 49);
+            this.dataV_chiTietDatHang.Location = new System.Drawing.Point(131, 49);
             this.dataV_chiTietDatHang.Name = "dataV_chiTietDatHang";
             this.dataV_chiTietDatHang.ReadOnly = true;
             this.dataV_chiTietDatHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataV_chiTietDatHang.Size = new System.Drawing.Size(880, 297);
+            this.dataV_chiTietDatHang.Size = new System.Drawing.Size(854, 297);
             this.dataV_chiTietDatHang.TabIndex = 1;
             // 
             // tabPage4
@@ -1252,6 +1263,7 @@
             this.panel7.BackColor = System.Drawing.Color.SkyBlue;
             this.panel7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel7.Controls.Add(this.label49);
             this.panel7.Controls.Add(this.pictureBox4);
             this.panel7.Controls.Add(this.data_DonDatHang);
             this.panel7.Location = new System.Drawing.Point(3, 6);
@@ -1264,7 +1276,7 @@
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox4.BackgroundImage = global::BanhangForm.Properties.Resources.Shopping_Cart;
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox4.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox4.Location = new System.Drawing.Point(16, 20);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(79, 74);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -1280,11 +1292,11 @@
             this.data_DonDatHang.BackgroundColor = System.Drawing.Color.White;
             this.data_DonDatHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.data_DonDatHang.GridColor = System.Drawing.Color.DimGray;
-            this.data_DonDatHang.Location = new System.Drawing.Point(82, 51);
+            this.data_DonDatHang.Location = new System.Drawing.Point(123, 51);
             this.data_DonDatHang.Name = "data_DonDatHang";
             this.data_DonDatHang.ReadOnly = true;
             this.data_DonDatHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.data_DonDatHang.Size = new System.Drawing.Size(920, 291);
+            this.data_DonDatHang.Size = new System.Drawing.Size(879, 291);
             this.data_DonDatHang.TabIndex = 0;
             // 
             // tabPage5
@@ -1405,6 +1417,7 @@
             this.panel9.BackColor = System.Drawing.Color.SkyBlue;
             this.panel9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel9.Controls.Add(this.label50);
             this.panel9.Controls.Add(this.pictureBox5);
             this.panel9.Controls.Add(this.dataGridView_LoaiHang);
             this.panel9.Location = new System.Drawing.Point(3, 6);
@@ -1417,7 +1430,7 @@
             this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox5.BackgroundImage = global::BanhangForm.Properties.Resources.store;
             this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox5.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox5.Location = new System.Drawing.Point(21, 24);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(79, 89);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -1433,11 +1446,11 @@
             this.dataGridView_LoaiHang.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView_LoaiHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_LoaiHang.GridColor = System.Drawing.Color.DimGray;
-            this.dataGridView_LoaiHang.Location = new System.Drawing.Point(82, 51);
+            this.dataGridView_LoaiHang.Location = new System.Drawing.Point(123, 51);
             this.dataGridView_LoaiHang.Name = "dataGridView_LoaiHang";
             this.dataGridView_LoaiHang.ReadOnly = true;
             this.dataGridView_LoaiHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_LoaiHang.Size = new System.Drawing.Size(919, 291);
+            this.dataGridView_LoaiHang.Size = new System.Drawing.Size(878, 291);
             this.dataGridView_LoaiHang.TabIndex = 0;
             // 
             // tabPage6
@@ -1661,6 +1674,7 @@
             this.panel11.BackColor = System.Drawing.Color.SkyBlue;
             this.panel11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel11.Controls.Add(this.label51);
             this.panel11.Controls.Add(this.pictureBox6);
             this.panel11.Controls.Add(this.data_NCC);
             this.panel11.Location = new System.Drawing.Point(3, 3);
@@ -1673,7 +1687,7 @@
             this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox6.BackgroundImage = global::BanhangForm.Properties.Resources.supplier;
             this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox6.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox6.Location = new System.Drawing.Point(19, 22);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(79, 89);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -1689,11 +1703,11 @@
             this.data_NCC.BackgroundColor = System.Drawing.Color.White;
             this.data_NCC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.data_NCC.GridColor = System.Drawing.Color.DimGray;
-            this.data_NCC.Location = new System.Drawing.Point(82, 51);
+            this.data_NCC.Location = new System.Drawing.Point(121, 51);
             this.data_NCC.Name = "data_NCC";
             this.data_NCC.ReadOnly = true;
             this.data_NCC.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.data_NCC.Size = new System.Drawing.Size(919, 291);
+            this.data_NCC.Size = new System.Drawing.Size(880, 291);
             this.data_NCC.TabIndex = 0;
             // 
             // tabPage7
@@ -1967,11 +1981,15 @@
             this.panel13.BackColor = System.Drawing.Color.SkyBlue;
             this.panel13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel13.Controls.Add(this.txt_EXCEL);
+            this.panel13.Controls.Add(this.label54);
+            this.panel13.Controls.Add(this.label53);
+            this.panel13.Controls.Add(this.label52);
             this.panel13.Controls.Add(this.pictureBox7);
             this.panel13.Controls.Add(this.data_nhanvien);
             this.panel13.Location = new System.Drawing.Point(3, 6);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(1098, 403);
+            this.panel13.Size = new System.Drawing.Size(1098, 408);
             this.panel13.TabIndex = 4;
             // 
             // pictureBox7
@@ -1979,7 +1997,7 @@
             this.pictureBox7.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox7.BackgroundImage = global::BanhangForm.Properties.Resources.employee;
             this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox7.Location = new System.Drawing.Point(11, 19);
+            this.pictureBox7.Location = new System.Drawing.Point(20, 23);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(79, 74);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -1995,18 +2013,127 @@
             this.data_nhanvien.BackgroundColor = System.Drawing.Color.White;
             this.data_nhanvien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.data_nhanvien.GridColor = System.Drawing.Color.DimGray;
-            this.data_nhanvien.Location = new System.Drawing.Point(96, 51);
+            this.data_nhanvien.Location = new System.Drawing.Point(118, 51);
             this.data_nhanvien.Name = "data_nhanvien";
             this.data_nhanvien.ReadOnly = true;
             this.data_nhanvien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.data_nhanvien.Size = new System.Drawing.Size(905, 291);
+            this.data_nhanvien.Size = new System.Drawing.Size(883, 296);
             this.data_nhanvien.TabIndex = 0;
             // 
-            // imageList1
+            // label46
             // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.label46.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label46.AutoSize = true;
+            this.label46.Font = new System.Drawing.Font("American Captain", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label46.Location = new System.Drawing.Point(1, 95);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(114, 30);
+            this.label46.TabIndex = 10;
+            this.label46.Text = "XOAII STORE";
+            // 
+            // label47
+            // 
+            this.label47.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label47.AutoSize = true;
+            this.label47.Font = new System.Drawing.Font("American Captain", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label47.Location = new System.Drawing.Point(3, 111);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(114, 30);
+            this.label47.TabIndex = 11;
+            this.label47.Text = "XOAII STORE";
+            // 
+            // label48
+            // 
+            this.label48.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label48.AutoSize = true;
+            this.label48.Font = new System.Drawing.Font("American Captain", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label48.Location = new System.Drawing.Point(3, 95);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(114, 30);
+            this.label48.TabIndex = 11;
+            this.label48.Text = "XOAII STORE";
+            // 
+            // label49
+            // 
+            this.label49.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label49.AutoSize = true;
+            this.label49.Font = new System.Drawing.Font("American Captain", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label49.Location = new System.Drawing.Point(3, 97);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(114, 30);
+            this.label49.TabIndex = 11;
+            this.label49.Text = "XOAII STORE";
+            // 
+            // label50
+            // 
+            this.label50.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label50.AutoSize = true;
+            this.label50.Font = new System.Drawing.Font("American Captain", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label50.Location = new System.Drawing.Point(3, 116);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(114, 30);
+            this.label50.TabIndex = 11;
+            this.label50.Text = "XOAII STORE";
+            // 
+            // label51
+            // 
+            this.label51.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label51.AutoSize = true;
+            this.label51.Font = new System.Drawing.Font("American Captain", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label51.Location = new System.Drawing.Point(1, 114);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(114, 30);
+            this.label51.TabIndex = 11;
+            this.label51.Text = "XOAII STORE";
+            // 
+            // label52
+            // 
+            this.label52.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label52.AutoSize = true;
+            this.label52.Font = new System.Drawing.Font("American Captain", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label52.Location = new System.Drawing.Point(1, 100);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(114, 30);
+            this.label52.TabIndex = 11;
+            this.label52.Text = "XOAII STORE";
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(349, 21);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(0, 19);
+            this.label53.TabIndex = 12;
+            // 
+            // label54
+            // 
+            this.label54.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label54.AutoSize = true;
+            this.label54.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label54.Location = new System.Drawing.Point(728, 14);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(350, 34);
+            this.label54.TabIndex = 0;
+            this.label54.Text = "DANH SÁCH NHÂN VIÊN";
+            // 
+            // txt_EXCEL
+            // 
+            this.txt_EXCEL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_EXCEL.Location = new System.Drawing.Point(884, 353);
+            this.txt_EXCEL.Name = "txt_EXCEL";
+            this.txt_EXCEL.Size = new System.Drawing.Size(121, 36);
+            this.txt_EXCEL.TabIndex = 13;
+            this.txt_EXCEL.Text = "Xuất EXCEL";
+            this.txt_EXCEL.UseVisualStyleBackColor = true;
+            this.txt_EXCEL.Click += new System.EventHandler(this.txt_EXCEL_Click);
             // 
             // Form1
             // 
@@ -2020,11 +2147,13 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý bán hàng";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
@@ -2034,6 +2163,7 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_khachHang)).EndInit();
             this.panel3.ResumeLayout(false);
@@ -2043,6 +2173,7 @@
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataV_chiTietDatHang)).EndInit();
             this.tabPage4.ResumeLayout(false);
@@ -2050,6 +2181,7 @@
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.data_DonDatHang)).EndInit();
             this.tabPage5.ResumeLayout(false);
@@ -2057,6 +2189,7 @@
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_LoaiHang)).EndInit();
             this.tabPage6.ResumeLayout(false);
@@ -2064,6 +2197,7 @@
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.data_NCC)).EndInit();
             this.tabPage7.ResumeLayout(false);
@@ -2071,6 +2205,7 @@
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
             this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.data_nhanvien)).EndInit();
             this.ResumeLayout(false);
@@ -2222,13 +2357,22 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button_Search;
-        private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.Button txt_EXCEL;
     }
 }
 

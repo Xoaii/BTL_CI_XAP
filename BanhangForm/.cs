@@ -15,6 +15,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using OfficeOpenXml;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace BanhangForm
 {
@@ -1212,6 +1215,10 @@ namespace BanhangForm
 
         private void txt_Search_TextChanged(object sender, EventArgs e)
         {
+            if (txt_Search.Text == "")
+            
+                Form1_Load(sender, e);
+            
         }
 
         private void button_Search_Click(object sender, EventArgs e)
@@ -1220,44 +1227,77 @@ namespace BanhangForm
             cn.Open();
             //mathang
             //step2: thực thi 1 sql: dạng lệnh
-            string query = "select*from mathang where mahang =@mahang";
             
-            SqlCommand cmd = new SqlCommand(query, cn);
-            cmd.Parameters.AddWithValue("mahang", txt_Search.Text);
-            cmd.Parameters.AddWithValue("tenhang", txt_Search.Text);
-            cmd.Parameters.AddWithValue("macongty", txt_Search.Text);
-            cmd.Parameters.AddWithValue("maloaihang", txt_Search.Text);
-            cmd.Parameters.AddWithValue("soluong", txt_Search.Text);
-            cmd.Parameters.AddWithValue("donvitinh", txt_Search.Text);
-            cmd.Parameters.AddWithValue("giahang", txt_Search.Text);
-            cmd.ExecuteNonQuery();
-            SqlDataReader dr = cmd.ExecuteReader();
-            DataTable dt = new DataTable();
-            
-            dt.Load(dr);
-
-            //step3: dọn dẹp
-            dataGridView1.DataSource = dt;
-            
-            
-
-            
-            
-            // Cần phải truyền dũ liệu cho cmd 
-
-            
-
-            // thực hiện proceduce bằng cách là gọi  thư viên
            
+                string query = "select*from mathang where mahang =@mahang";
 
+                SqlCommand cmd = new SqlCommand(query, cn);
+                cmd.Parameters.AddWithValue("mahang", txt_Search.Text);
+                cmd.Parameters.AddWithValue("tenhang", txt_Search.Text);
+                cmd.Parameters.AddWithValue("macongty", txt_Search.Text);
+                cmd.Parameters.AddWithValue("maloaihang", txt_Search.Text);
+                cmd.Parameters.AddWithValue("soluong", txt_Search.Text);
+                cmd.Parameters.AddWithValue("donvitinh", txt_Search.Text);
+                cmd.Parameters.AddWithValue("giahang", txt_Search.Text);
+                cmd.ExecuteNonQuery();
+                SqlDataReader dr = cmd.ExecuteReader();
+                DataTable dt = new DataTable();
+
+                dt.Load(dr);
+
+                //step3: dọn dẹp
+                dataGridView1.DataSource = dt;
+
+
+
+
+
+
+            
             }
 
-
-
-
-
+        private void label46_Click(object sender, EventArgs e)
+        {
 
         }
+        public void ExportFile(string part)
+        {
+            Excel.Application application = new Excel.Application();
+            application.Application.Workbooks.Add(Type.Missing);
+            for(int i=0;i<dataGridView1.Columns.Count;i++)
+            {
+                application.Cells[1, i + 1] = dataGridView1.Columns[i].HeaderText;
+            }
+            for(int i=0;i<dataGridView1.Rows.Count;i++)
+            {
+                for(int j=0;j < dataGridView1.Columns.Count; j++)
+                {
+                    application.Cells[i + 2, j + 1] = dataGridView1.Rows[i].Cells[j].Value;
+                }
+            }
+            application.Columns.AutoFit();
+            application.ActiveWorkbook.SaveCopyAs(part);
+            application.ActiveWorkbook.Saved = true;
+                
+        }
+
+        private void txt_EXCEL_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Title = "Export Excel";
+            saveFileDialog.Filter = "Excel (*.xlsx)|*.xlsx"; 
+            if(saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try {
+                   ExportFile(saveFileDialog.FileName);
+                    MessageBox.Show("xuất file thành công");
+                }
+                catch(Exception ex) { 
+                    MessageBox.Show("xuất file không thành công\n"+ex.Message);
+                }
+            }    
+        }
+    }
 
     }
 

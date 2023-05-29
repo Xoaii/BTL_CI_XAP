@@ -73,6 +73,16 @@ namespace BanhangForm.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap avt {
+            get {
+                object obj = ResourceManager.GetObject("avt", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap background_banner_xanh_dam_dep_phu_hop_thiet_ke_web_cong_thuc_toan_hoc {
             get {
                 object obj = ResourceManager.GetObject("background-banner-xanh-dam-dep-phu-hop-thiet-ke-web-cong-thuc-toan-hoc", resourceCulture);
