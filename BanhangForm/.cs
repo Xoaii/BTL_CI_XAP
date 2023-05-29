@@ -1264,15 +1264,15 @@ namespace BanhangForm
         {
             Excel.Application application = new Excel.Application();
             application.Application.Workbooks.Add(Type.Missing);
-            for(int i=0;i<dataGridView1.Columns.Count;i++)
+            for(int i=0;i<data_nhanvien.Columns.Count;i++)
             {
-                application.Cells[1, i + 1] = dataGridView1.Columns[i].HeaderText;
+                application.Cells[1, i + 1] = data_nhanvien.Columns[i].HeaderText;
             }
-            for(int i=0;i<dataGridView1.Rows.Count;i++)
+            for(int i=0;i<data_nhanvien.Rows.Count;i++)
             {
-                for(int j=0;j < dataGridView1.Columns.Count; j++)
+                for(int j=0;j < data_nhanvien.Columns.Count; j++)
                 {
-                    application.Cells[i + 2, j + 1] = dataGridView1.Rows[i].Cells[j].Value;
+                    application.Cells[i + 2, j + 1] = data_nhanvien.Rows[i].Cells[j].Value;
                 }
             }
             application.Columns.AutoFit();
