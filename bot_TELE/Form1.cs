@@ -151,14 +151,14 @@ namespace bot_TELE
                 {
                     string tenKH = messageText.Substring(6);
                     Tim tim = new Tim();
-                    reply = tim.TimKH("" + tenKH.Replace(' ', '%') + "%");
+                    reply = tim.TimKH("%" + tenKH.Replace(' ', '%') + "%");
 
                 }
 
 
                 else // N?u k ph?i là th?ng nào ??c bi?t thì => hát cho P?n nghe
                 {
-                    reply = "??Tôi nói p?n nghe: " + messageText;
+                    reply = "a zong ha xê ô : " + messageText;
                 }
 
 
