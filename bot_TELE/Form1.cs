@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,7 +15,7 @@ namespace bot_TELE
     {
         public TelegramBotClient botClient;
         //6052997336
-        public long chatId = 6052997336; // Mk fix tr??c 1 cái chat id là tài khu?n c?a mk! -> cái này liên quan ??n vi?c nhúng ? bên app
+        public long chatId = 6052997336; // Mk fix tr??c 1 cÃ¡i chat id lÃ  tÃ i khu?n c?a mk! -> cÃ¡i nÃ y liÃªn quan ??n vi?c nhÃºng ? bÃªn app
 
         int logCounter = 0;
 
@@ -42,7 +42,7 @@ namespace bot_TELE
         }
 
         /// <summary>
-        /// hàm t?o: ko ki?u, trùng tên v?i class
+        /// hÃ m t?o: ko ki?u, trÃ¹ng tÃªn v?i class
         /// </summary>
         public Form1()
         {
@@ -59,8 +59,8 @@ namespace bot_TELE
 
             botClient = new TelegramBotClient(token);  // T?o 1 th?ng bot 
 
-            CancellationTokenSource cts = new CancellationTokenSource();  // Th?ng này ?? h?y j ?ó ki?m soát ch??ng trình
-                                                                          // CancellationTokenSource cts = new CancellationTokenSource(); LÀm nh? này c?ng ?c nè??
+            CancellationTokenSource cts = new CancellationTokenSource();  // Th?ng nÃ y ?? h?y j ?Ã³ ki?m soÃ¡t ch??ng trÃ¬nh
+                                                                          // CancellationTokenSource cts = new CancellationTokenSource(); LÃ€m nh? nÃ y c?ng ?c nÃ¨??
 
             // StartReceiving does not block the caller thread. Receiving is done on the ThreadPool.
             ReceiverOptions receiverOptions = new ReceiverOptions()
@@ -69,78 +69,78 @@ namespace bot_TELE
             };
 
             botClient.StartReceiving(
-                updateHandler: HandleUpdateAsync,  //hàm x? lı khi có ng??i chát ??n ???c g?i m?i khi có c?p nh?t m?i t? telegram API -> nó x? lı và tr? v? kq  
-                pollingErrorHandler: HandlePollingErrorAsync,   // Hàm này s? lı l?i -> có l?i là g?i th?ng này
-                receiverOptions: receiverOptions,  // Th?ng này ?c new ? trên kìa tham s? cài ??t v? vi?c c?p nh?t m?i
-                cancellationToken: cts.Token    // Th?ng này là h?y cts.Token  -> h?y nó làm j ?
-                                                // Túm l?i: b?t ??u quá trình nh?n c?p nh?t t? Telegram API b?ng cách kích ho?t botClient
-                                                // các c?p nh?t s? ???c x? lı b?i hàm HandleUpdateAsync.
-                                                // N?u x?y ra l?i trong quá trình nh?n c?p nh?t, hàm HandlePollingErrorAsync s? ???c g?i ?? x? lı l?i. 
-                                                // 2 th?ng sau là tùy ch?n c?p nh?t.
+                updateHandler: HandleUpdateAsync,  //hÃ m x? lÃ½ khi cÃ³ ng??i chÃ¡t ??n ???c g?i m?i khi cÃ³ c?p nh?t m?i t? telegram API -> nÃ³ x? lÃ½ vÃ  tr? v? kq  
+                pollingErrorHandler: HandlePollingErrorAsync,   // HÃ m nÃ y s? lÃ½ l?i -> cÃ³ l?i lÃ  g?i th?ng nÃ y
+                receiverOptions: receiverOptions,  // Th?ng nÃ y ?c new ? trÃªn kÃ¬a tham s? cÃ i ??t v? vi?c c?p nh?t m?i
+                cancellationToken: cts.Token    // Th?ng nÃ y lÃ  h?y cts.Token  -> h?y nÃ³ lÃ m j ?
+                                                // TÃºm l?i: b?t ??u quÃ¡ trÃ¬nh nh?n c?p nh?t t? Telegram API b?ng cÃ¡ch kÃ­ch ho?t botClient
+                                                // cÃ¡c c?p nh?t s? ???c x? lÃ½ b?i hÃ m HandleUpdateAsync.
+                                                // N?u x?y ra l?i trong quÃ¡ trÃ¬nh nh?n c?p nh?t, hÃ m HandlePollingErrorAsync s? ???c g?i ?? x? lÃ½ l?i. 
+                                                // 2 th?ng sau lÃ  tÃ¹y ch?n c?p nh?t.
             );
 
-            Task<User> me = botClient.GetMeAsync(); // ???c s? d?ng ?? g?i m?t yêu c?u ??n Telegram API ?? l?y thông tin v? bot hi?n t?i.
+            Task<User> me = botClient.GetMeAsync(); // ???c s? d?ng ?? g?i m?t yÃªu c?u ??n Telegram API ?? l?y thÃ´ng tin v? bot hi?n t?i.
                                                     // => N?m ??u th?ng bot r?i.
-            AddLog($"Th?ng bot: @{me.Result.Username}");
+            AddLog($"Chiáº¿c BOT : @{me.Result.Username}");
 
-            //async l?p trình b?t ??ng b?
+            //async l?p trÃ¬nh b?t ??ng b?
             // Tr? v? ??i t??ng Task ?? 
-            // V?y là form 
+            // V?y lÃ  form 
             async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
             {
-                // botClient: Th?ng này mk t?o ? trên r?i: ???c s? d?ng ?? g?i các yêu c?u t?i Telegram API
-                // update: ch?a thông tin v? c?p nh?t m?i nh?n ???c t? Telegram API. Update ch?a các thông tin nh? tin nh?n, s? ki?n nhóm, thay ??i tr?ng thái, v.v.
-                //          V?y là th?ng botClient yêu c?u -> tr? k?t qu? v? th?ng Update!
-                // cancellationToken: Th?ng này nó s? lı khi có l?i -> Nó k th?y ?c g?i nh?ng k có nó là l?i ?<>??? nani
+                // botClient: Th?ng nÃ y mk t?o ? trÃªn r?i: ???c s? d?ng ?? g?i cÃ¡c yÃªu c?u t?i Telegram API
+                // update: ch?a thÃ´ng tin v? c?p nh?t m?i nh?n ???c t? Telegram API. Update ch?a cÃ¡c thÃ´ng tin nh? tin nh?n, s? ki?n nhÃ³m, thay ??i tr?ng thÃ¡i, v.v.
+                //          V?y lÃ  th?ng botClient yÃªu c?u -> tr? k?t qu? v? th?ng Update!
+                // cancellationToken: Th?ng nÃ y nÃ³ s? lÃ½ khi cÃ³ l?i -> NÃ³ k th?y ?c g?i nh?ng k cÃ³ nÃ³ lÃ  l?i ?<>??? nani
                 // Only process Message updates: https://core.telegram.org/bots/api#message
                 bool ok = false;
 
-                //kdl? bi?n <=> bi?n ?ó có th? nh?n NULL
+                //kdl? bi?n <=> bi?n ?Ã³ cÃ³ th? nh?n NULL
 
-                // Telegram.Bot.Types.Message là m?t l?p ??i di?n cho m?t tin nh?n trong Telegram.
-                // L?p này ch?a các thông tin v? tin nh?n, bao g?m n?i dung, ng??i g?i, ng??i nh?n, th?i gian g?i, v? trí, hình ?nh, v.v.
-                Telegram.Bot.Types.Message message = null; // d?u ? ?? có th? gán null 
+                // Telegram.Bot.Types.Message lÃ  m?t l?p ??i di?n cho m?t tin nh?n trong Telegram.
+                // L?p nÃ y ch?a cÃ¡c thÃ´ng tin v? tin nh?n, bao g?m n?i dung, ng??i g?i, ng??i nh?n, th?i gian g?i, v? trÃ­, hÃ¬nh ?nh, v.v.
+                Telegram.Bot.Types.Message message = null; // d?u ? ?? cÃ³ th? gÃ¡n null 
 
-                // update.Message là ng??i dùng nh?n 1 tin nh?n m?i t?i bot
-                if (update.Message != null)  // N?u tin n?u th?ng update không ph?i là null => có c?p nh?t m?i:
+                // update.Message lÃ  ng??i dÃ¹ng nh?n 1 tin nh?n m?i t?i bot
+                if (update.Message != null)  // N?u tin n?u th?ng update khÃ´ng ph?i lÃ  null => cÃ³ c?p nh?t m?i:
                 {
-                    // message không ph?i là string -> nó là ??i t??ng ??i di?n cho 1 tin nh?n
-                    message = update.Message;   // Và tao gán thông tin update vào th?ng ??i di?n cho tin nh?n này
+                    // message khÃ´ng ph?i lÃ  string -> nÃ³ lÃ  ??i t??ng ??i di?n cho 1 tin nh?n
+                    message = update.Message;   // VÃ  tao gÃ¡n thÃ´ng tin update vÃ o th?ng ??i di?n cho tin nh?n nÃ y
                     ok = true;
                 }
-                // update.EditedMessage là có 1 tin nh?n ?ã g?i t? tr??c r?i => song gi? nó click ph?i chu?t s?a tin nh?n -> tao c?ng n?m ??u ra x? lı
+                // update.EditedMessage lÃ  cÃ³ 1 tin nh?n ?Ã£ g?i t? tr??c r?i => song gi? nÃ³ click ph?i chu?t s?a tin nh?n -> tao c?ng n?m ??u ra x? lÃ½
                 if (update.EditedMessage != null)
                 {
                     message = update.EditedMessage;
                     ok = true;
                 }
 
-                // Nó k chui vào 2 if ? trên <=> !false ho?c message == null => return; -> th?y ki?m tra k? quá c?!
-                if (!ok || message == null) return; //thoát ngay
+                // NÃ³ k chui vÃ o 2 if ? trÃªn <=> !false ho?c message == null => return; -> th?y ki?m tra k? quÃ¡ c?!
+                if (!ok || message == null) return; //thoÃ¡t ngay
 
                 string messageText = message.Text;
                 if (messageText == null) return;  //ko ch?i v?i null
 
-                chatId = message.Chat.Id;  //id c?a ng??i chát v?i bot
+                chatId = message.Chat.Id;  //id c?a ng??i chÃ¡t v?i bot
 
-                AddLog($"{chatId}: {messageText}");  //show lên ?? xem -> ch? k ph?i g?i v? telegram
+                AddLog($"{chatId}: {messageText}");  //show lÃªn ?? xem -> ch? k ph?i g?i v? telegram
 
-                string reply = "";  //?ây là text tr? l?i
+                string reply = "";  //?Ã¢y lÃ  text tr? l?i
 
-                string messLow = messageText.ToLower(); // Có l? k c?n thi?t!
-
-
+                string messLow = messageText.ToLower(); // CÃ³ l? k c?n thi?t!
 
 
-                // ----------- B?T ??U X? Lİ -----------------------------------------------------------------------------
-                // -> bot này là x? lı ch? ??ng khi ng??i chat ??n ? ?ây!
-                // Còn x? lı mà t? ??ng BÁO CÁO 1 cái j ?ó khi Database thay ??i thì g?i con bot ? ch? thay ??i ?ó!
-                // -> Bây gi? ch? c?n X? lı d? li?u ?? t?o ra th?ng reply
+
+
+                // ----------- B?T ??U X? LÃ -----------------------------------------------------------------------------
+                // -> bot nÃ y lÃ  x? lÃ½ ch? ??ng khi ng??i chat ??n ? ?Ã¢y!
+                // CÃ²n x? lÃ½ mÃ  t? ??ng BÃO CÃO 1 cÃ¡i j ?Ã³ khi Database thay ??i thÃ¬ g?i con bot ? ch? thay ??i ?Ã³!
+                // -> BÃ¢y gi? ch? c?n X? lÃ½ d? li?u ?? t?o ra th?ng reply
 
                 // 1. khi h?i v? an C?p:
                 if (messLow.StartsWith("gv"))
                 {
-                    reply = "FeedBack Giáo viên:?? Môn h?c l?p trình Windows th?y ?? Duy C?p. Gi?ng quá xá là HAY!????";
+                    reply = "A ZONG HA XÃŠ Ã”";
                 }
                 else if (messLow.StartsWith("dh "))
                 {
@@ -156,35 +156,35 @@ namespace bot_TELE
                 }
 
 
-                else // N?u k ph?i là th?ng nào ??c bi?t thì => hát cho P?n nghe
+                else // N?u k ph?i lÃ  th?ng nÃ o ??c bi?t thÃ¬ => hÃ¡t cho P?n nghe
                 {
-                    reply = "a zong ha xê ô : " + messageText;
+                    reply = "Tráº£ lá»i: " + messageText;
                 }
 
 
-                // ----------- K?T THÚC X? Lİ -----------------------------------------------------------------------
+                // ----------- K?T THÃšC X? LÃ -----------------------------------------------------------------------
                 AddLog(reply); //show log to see
 
 
 
 
                 // Echo received message text
-                // => botClient.SendTextMessageAsync: => cái hàm này là hàm g?i tin nh?n v? telegram
-                // Nó ?c g?i vào ?o?n cu?i c?a hàm HandleUpdateAsync mà hàm HandleUpdateAsync ???c kh?i t?o khi form_Load r?i.
-                // M?i khi có tin nh?n ??n hàm HandleUpdateAsync -> s? ?c g?i
-                // N?u -> ngon thì nó ch?y ??n ?ây và rep l?i bên telegram còn n?u k ?n thì nó ch?y v? hàm l?i HandlePollingErrorAsync
+                // => botClient.SendTextMessageAsync: => cÃ¡i hÃ m nÃ y lÃ  hÃ m g?i tin nh?n v? telegram
+                // NÃ³ ?c g?i vÃ o ?o?n cu?i c?a hÃ m HandleUpdateAsync mÃ  hÃ m HandleUpdateAsync ???c kh?i t?o khi form_Load r?i.
+                // M?i khi cÃ³ tin nh?n ??n hÃ m HandleUpdateAsync -> s? ?c g?i
+                // N?u -> ngon thÃ¬ nÃ³ ch?y ??n ?Ã¢y vÃ  rep l?i bÃªn telegram cÃ²n n?u k ?n thÃ¬ nÃ³ ch?y v? hÃ m l?i HandlePollingErrorAsync
                 Telegram.Bot.Types.Message sentMessage = await botClient.SendTextMessageAsync(
-                           // Hàm g?i tin nh?n ?i này c?n setting nh? sau:
-                           chatId: chatId, // chatId bi?n này l?y ? trên kia r?i -> l?u id th?ng chat v?i mk ?? bây gi? tr? l?i l?i nó ch?! chu?n ch?a
-                           text: reply,    // rep l?i bên telegram thì gán vào thu?c tính text => ? ?ây là bi?n reply mk ?ã x? lı d? li?u ? trên r?i <>
-                           parseMode: ParseMode.Html  // =>  Bro dùng cách ?ánh d?u v?n b?n HTML ?? th? hi?n text.
-                                                      //parseMode: ParseMode.Markdown => thì nó c?ng là 1 cách ?ánh d?u v?n b?n nh?ng nó k phong phú nh? html
+                           // HÃ m g?i tin nh?n ?i nÃ y c?n setting nh? sau:
+                           chatId: chatId, // chatId bi?n nÃ y l?y ? trÃªn kia r?i -> l?u id th?ng chat v?i mk ?? bÃ¢y gi? tr? l?i l?i nÃ³ ch?! chu?n ch?a
+                           text: reply,    // rep l?i bÃªn telegram thÃ¬ gÃ¡n vÃ o thu?c tÃ­nh text => ? ?Ã¢y lÃ  bi?n reply mk ?Ã£ x? lÃ½ d? li?u ? trÃªn r?i <>
+                           parseMode: ParseMode.Html  // =>  Bro dÃ¹ng cÃ¡ch ?Ã¡nh d?u v?n b?n HTML ?? th? hi?n text.
+                                                      //parseMode: ParseMode.Markdown => thÃ¬ nÃ³ c?ng lÃ  1 cÃ¡ch ?Ã¡nh d?u v?n b?n nh?ng nÃ³ k phong phÃº nh? html
                       );
 
-                //??c thêm v? ParseMode.Html t?i: https://core.telegram.org/bots/api#html-style
+                //??c thÃªm v? ParseMode.Html t?i: https://core.telegram.org/bots/api#html-style
             }
 
-            // ?ây là hàm s? lı l?i -> có l?i nó chui vào hàm này
+            // ?Ã¢y lÃ  hÃ m s? lÃ½ l?i -> cÃ³ l?i nÃ³ chui vÃ o hÃ m nÃ y
             Task HandlePollingErrorAsync(ITelegramBotClient botClient, Exception exception, CancellationToken cancellationToken)
             {
                 //var ErrorMessage = exception switch
@@ -196,7 +196,7 @@ namespace bot_TELE
 
                 //AddLog(ErrorMessage);
                 Console.WriteLine("Looi roi anh ouwi");
-                AddLog("----       L?i r?i -> K rõ l?i j  -----------");
+                AddLog("---------  Lá»—i rá»“i Ã‰C Páº¶C Páº¶C  -----------");
                 return Task.CompletedTask;
             }
         }
