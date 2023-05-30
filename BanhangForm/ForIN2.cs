@@ -31,7 +31,7 @@ namespace BanhangForm
 
         private void button6_Click(object sender, EventArgs e)
         {
-            PdfDocument document = new PdfDocument();
+            /*PdfDocument document = new PdfDocument();
             PdfPage page = document.AddPage();
             XGraphics gfx = XGraphics.FromPdfPage(page);
 
@@ -84,7 +84,10 @@ namespace BanhangForm
 
                 document.Save(filePath);
                 MessageBox.Show("Xuất Hóa Đơn Thành Công!");
-            }
+
+            }*/
+            mayin mayin = new mayin();
+            mayin.ShowDialog();
         }
     }
 }
