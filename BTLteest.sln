@@ -5,6 +5,8 @@ VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BanhangForm", "BanhangForm\BanhangForm.csproj", "{C014C5FF-9870-4BD3-9ACB-9288891BA9BB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bot_TELE", "bot_TELE\bot_TELE.csproj", "{47A3F83B-CE29-4A4D-9DF8-199E702BB55D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{C014C5FF-9870-4BD3-9ACB-9288891BA9BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C014C5FF-9870-4BD3-9ACB-9288891BA9BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C014C5FF-9870-4BD3-9ACB-9288891BA9BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47A3F83B-CE29-4A4D-9DF8-199E702BB55D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47A3F83B-CE29-4A4D-9DF8-199E702BB55D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47A3F83B-CE29-4A4D-9DF8-199E702BB55D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47A3F83B-CE29-4A4D-9DF8-199E702BB55D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

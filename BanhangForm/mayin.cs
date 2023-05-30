@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using Microsoft.Reporting.WinForms;
-using System;
-using System.Drawing;
+
 using System.Drawing.Printing;
 
 namespace BanhangForm
 {
     public partial class mayin : Form
     {
+
         string chuoiketnoi = @"Data Source=MSI\XOAII;Initial Catalog=BANHANG_DT;Integrated Security=True";
         SqlConnection SqlConnection = null;
         public mayin()
