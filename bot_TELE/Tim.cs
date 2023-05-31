@@ -38,11 +38,32 @@ namespace bot_TELE
                 }
                 return kq;
             }
+        }
+        public string TimHD(string t)
+        {
+            string query = "[sp_dondathang_Search]";
+            string kq = "";
+            using (SqlConnection con = new SqlConnection(chuoiketnoi))
+            {
 
+                con.Open();
+                try
+                {
+                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    {
+                        cmd.Parameters.Add("@makhachhang ", System.Data.SqlDbType.NVarChar, 50).Value = t;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        object kqTrave = cmd.ExecuteScalar();
 
-
-
-
+                        kq = (string)kqTrave;
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("lỗi tìm kiếm" + e.Message);
+                }
+                return kq;
+            }
         }
     }
 }

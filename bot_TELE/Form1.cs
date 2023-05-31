@@ -8,6 +8,7 @@ using Telegram.Bot.Types.Enums;
 using Telegram.Bot.Types;
 using Telegram.Bot;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
+using System.Runtime.Intrinsics.X86;
 
 namespace bot_TELE
 {
@@ -138,7 +139,7 @@ namespace bot_TELE
                 // -> Bây gi? ch? c?n X? lý d? li?u ?? t?o ra th?ng reply
 
                 // 1. khi h?i v? an C?p:
-                if (messLow.StartsWith("hello"))
+                if (messLow.StartsWith("/hello"))
                 {
                     reply = "A ZONG HA XÊ Ô";
                 }
@@ -147,7 +148,7 @@ namespace bot_TELE
                     string soHD = messageText.Substring(3);
 
                 }
-                else if (messLow.StartsWith("timkh "))
+                else if (messLow.StartsWith("/timkh "))
                 {
                     string tenKH = messageText.Substring(6);
                     Tim tim = new Tim();
@@ -155,32 +156,40 @@ namespace bot_TELE
                     //reply = reply.Replace("\n", Environment.NewLine);
 
                 }
-               /* else if (messageText.StartsWith("gptb2:"))
+                else if (messLow.StartsWith("/timhd "))
                 {
-                    string[] sep = { "gptb2:", "x^2", "x*x", "x", "=0", "= 0" };
-                    string msg = messageText.ToLower();
+                    string maKH = messageText.Substring(6);
+                    Tim tim = new Tim();
+                    reply = tim.TimHD("%" + maKH.Replace(' ', '%') + "%");
+                    //reply = reply.Replace("\n", Environment.NewLine);
 
-                    string[] items = msg.Split(sep, StringSplitOptions.TrimEntries);
-                    if (items.Length == 5)
-                    {
-                        try
-                        {
-                            items[1] = clsGPTB2.fix(items[1]);
-                            items[2] = clsGPTB2.fix(items[2]);
-                            items[3] = clsGPTB2.fixc(items[3]);
+                }
+                /* else if (messageText.StartsWith("gptb2:"))
+                 {
+                     string[] sep = { "gptb2:", "x^2", "x*x", "x", "=0", "= 0" };
+                     string msg = messageText.ToLower();
 
-                            double a = double.Parse(items[1]);
-                            double b = double.Parse(items[2]);
-                            double c = double.Parse(items[3]);
-                            reply = clsGPTB2.Giai(a, b, c);
-                        }
-                        catch (Exception ex)
-                        {
-                            reply = ex.Message;
-                        }
+                     string[] items = msg.Split(sep, StringSplitOptions.TrimEntries);
+                     if (items.Length == 5)
+                     {
+                         try
+                         {
+                             items[1] = clsGPTB2.fix(items[1]);
+                             items[2] = clsGPTB2.fix(items[2]);
+                             items[3] = clsGPTB2.fixc(items[3]);
 
-                    }
-                }*/
+                             double a = double.Parse(items[1]);
+                             double b = double.Parse(items[2]);
+                             double c = double.Parse(items[3]);
+                             reply = clsGPTB2.Giai(a, b, c);
+                         }
+                         catch (Exception ex)
+                         {
+                             reply = ex.Message;
+                         }
+
+                     }
+                 }*/
 
 
                 else // N?u k ph?i là th?ng nào ??c bi?t thì => hát cho P?n nghe
