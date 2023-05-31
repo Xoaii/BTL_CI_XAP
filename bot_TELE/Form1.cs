@@ -138,7 +138,7 @@ namespace bot_TELE
                 // -> Bây gi? ch? c?n X? lý d? li?u ?? t?o ra th?ng reply
 
                 // 1. khi h?i v? an C?p:
-                if (messLow.StartsWith("gv"))
+                if (messLow.StartsWith("hello"))
                 {
                     reply = "A ZONG HA XÊ Ô";
                 }
@@ -152,8 +152,35 @@ namespace bot_TELE
                     string tenKH = messageText.Substring(6);
                     Tim tim = new Tim();
                     reply = tim.TimKH("%" + tenKH.Replace(' ', '%') + "%");
+                    //reply = reply.Replace("\n", Environment.NewLine);
 
                 }
+               /* else if (messageText.StartsWith("gptb2:"))
+                {
+                    string[] sep = { "gptb2:", "x^2", "x*x", "x", "=0", "= 0" };
+                    string msg = messageText.ToLower();
+
+                    string[] items = msg.Split(sep, StringSplitOptions.TrimEntries);
+                    if (items.Length == 5)
+                    {
+                        try
+                        {
+                            items[1] = clsGPTB2.fix(items[1]);
+                            items[2] = clsGPTB2.fix(items[2]);
+                            items[3] = clsGPTB2.fixc(items[3]);
+
+                            double a = double.Parse(items[1]);
+                            double b = double.Parse(items[2]);
+                            double c = double.Parse(items[3]);
+                            reply = clsGPTB2.Giai(a, b, c);
+                        }
+                        catch (Exception ex)
+                        {
+                            reply = ex.Message;
+                        }
+
+                    }
+                }*/
 
 
                 else // N?u k ph?i là th?ng nào ??c bi?t thì => hát cho P?n nghe
@@ -212,5 +239,6 @@ namespace bot_TELE
 
         }
     }
-}
+    }
+
 

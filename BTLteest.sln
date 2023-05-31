@@ -5,7 +5,9 @@ VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BanhangForm", "BanhangForm\BanhangForm.csproj", "{C014C5FF-9870-4BD3-9ACB-9288891BA9BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bot_TELE", "bot_TELE\bot_TELE.csproj", "{47A3F83B-CE29-4A4D-9DF8-199E702BB55D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bot_TELE", "bot_TELE\bot_TELE.csproj", "{47A3F83B-CE29-4A4D-9DF8-199E702BB55D}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{F3511011-EC11-4DF6-9524-F5766AD5564A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,11 +23,17 @@ Global
 		{47A3F83B-CE29-4A4D-9DF8-199E702BB55D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47A3F83B-CE29-4A4D-9DF8-199E702BB55D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47A3F83B-CE29-4A4D-9DF8-199E702BB55D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3511011-EC11-4DF6-9524-F5766AD5564A}.Debug|Any CPU.ActiveCfg = Debug
+		{F3511011-EC11-4DF6-9524-F5766AD5564A}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9E3CE8F8-4BF5-4DA1-9589-8DF6C60FF198}
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -180,7 +180,7 @@ namespace BanhangForm
 
             cmd.Parameters.Add("@mahang", SqlDbType.NVarChar).Value = qLmatHang.MaHang;
             cmd.Parameters.Add("@tenhang", SqlDbType.NVarChar).Value = qLmatHang.TenHang;
-            cmd.Parameters.Add("@macongty", SqlDbType.NVarChar).Value = qLmatHang.Soluong;
+            cmd.Parameters.Add("@macongty", SqlDbType.NVarChar).Value = qLmatHang.MaCongTy;
             cmd.Parameters.Add("@maloaihang", SqlDbType.NVarChar).Value = qLmatHang.Maloaihang;
             cmd.Parameters.Add("@soluong", SqlDbType.Int).Value = qLmatHang.Soluong;
             cmd.Parameters.Add("@donvitinh", SqlDbType.NVarChar).Value = qLmatHang.DonviTinh;
@@ -873,7 +873,7 @@ namespace BanhangForm
         {
             // lấy tất cả dữ liệu đã nhập xuống:
             // Nên check lỗi người dùng nhập! => nếu mà lỗi thì return;
-            string macongty = this.txt_MaNCC.Text;
+            string macongty = this.textBox_MaCTY.Text;
             string tencongty = this.txt_tenCTY.Text;
             string tengiaodich = this.txt_tenGD.Text;
             string diachi = this.txt_diaChi.Text;
@@ -1347,6 +1347,11 @@ namespace BanhangForm
                 ChiTietDonHang ct = new ChiTietDonHang(invoiceItemsTable);
                 ct.Show();
             }
+        }
+
+        private void textBox_MaCTY_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
     }

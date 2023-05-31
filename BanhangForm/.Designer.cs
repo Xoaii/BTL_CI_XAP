@@ -425,6 +425,7 @@
             this.textBox_MaCTY.Name = "textBox_MaCTY";
             this.textBox_MaCTY.Size = new System.Drawing.Size(239, 26);
             this.textBox_MaCTY.TabIndex = 14;
+            this.textBox_MaCTY.TextChanged += new System.EventHandler(this.textBox_MaCTY_TextChanged);
             // 
             // label6
             // 
